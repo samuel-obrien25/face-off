@@ -10,7 +10,6 @@ class Header extends React.Component{
         return (
         <header className="App-header">
             <h1 className="App-title">Faceoff</h1>
-            <Menu />
             <Logo />
         </header>
         );

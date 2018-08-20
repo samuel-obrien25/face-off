@@ -13,14 +13,25 @@ class Card extends React.Component{
                   return (
                       <button className="card teamCard"
                               onClick={this.props.onClick}
-                              value={this.props.value}
+                              type={this.props.value}
                               >
                           <h2>{this.props.cityName}</h2>
                           <h3>{this.props.teamName}</h3>
                       </button>
                   )
               }
-        
+                //Menu Cards
+                if(this.props.cardType === "menuCard") {
+                    return (
+                        <button className="card menuCard"
+                                onClick={this.props.onClick}
+                                type={this.props.type}
+                                >
+                            <h2>{this.props.type}</h2>
+                        </button>
+                    )
+                }
+
         //Schedule Cards
 
               if(this.props.cardType === "scheduleCard") {
@@ -90,7 +101,7 @@ class Card extends React.Component{
     
         return (
             <div className="card">
-
+                {this.props.cardText}
             </div>
         );
     }
