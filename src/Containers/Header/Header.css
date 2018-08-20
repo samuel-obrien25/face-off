@@ -1,0 +1,18 @@
+.App-header{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #222;
+    width: auto;
+    height: 150px;
+    margin-bottom: 150px;
+    padding: 20px;
+    color: white;
+    position: relative;
+    z-index: 9000;
+}
+
+.App-title{
+    width: 100%;
+    position: absolute;
+}
