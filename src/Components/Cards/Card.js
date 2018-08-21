@@ -10,18 +10,40 @@ class Card extends React.Component{
 
         //Team Cards
               if(this.props.cardType === "teamCard") {
+<<<<<<< HEAD
                   let combinedTeamName = this.props.value 
                   return (
                       <button className={`card teamCard ${this.props.value}`}
                               onClick={this.props.onClick}
                               value={this.props.value}
+=======
+                  return (
+                      <button className="card teamCard"
+                              onClick={this.props.onClick}
+                              type={this.props.value}
+>>>>>>> 01dce747b2cfd2fae35ad5a24098c8dce6e6d439
                               >
                           <h2>{this.props.cityName}</h2>
                           <h3>{this.props.teamName}</h3>
                       </button>
                   )
               }
+<<<<<<< HEAD
         
+=======
+                //Menu Cards
+                if(this.props.cardType === "menuCard") {
+                    return (
+                        <button className="card menuCard"
+                                onClick={this.props.onClick}
+                                type={this.props.type}
+                                >
+                            <h2>{this.props.type}</h2>
+                        </button>
+                    )
+                }
+
+>>>>>>> 01dce747b2cfd2fae35ad5a24098c8dce6e6d439
         //Schedule Cards
 
               if(this.props.cardType === "scheduleCard") {
@@ -91,7 +113,11 @@ class Card extends React.Component{
     
         return (
             <div className="card">
+<<<<<<< HEAD
 
+=======
+                {this.props.cardText}
+>>>>>>> 01dce747b2cfd2fae35ad5a24098c8dce6e6d439
             </div>
         );
     }
