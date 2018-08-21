@@ -1,0 +1,101 @@
+.card_container{
+    position: absolute;
+    top:50px;
+    left: 5%;
+    width: 90%;
+    margin: auto;
+    height: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    justify-content: start;
+}
+
+.card{
+    margin: 25px auto;
+    padding: 50px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    display: block;
+    width: 22%;
+    max-width: 250px;
+    height: 300px;
+    transition: .25s ease-in-out;
+    background: #fff;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    cursor: pointer;
+
+}
+
+button{
+    border: none;
+}
+
+/*=====================================
+------------TEAM STYLES---------------
+=====================================*/
+
+/* note: I chose ID instead of team name because of team names with spaces. I figured that was the safest/most predictable choice. */
+
+/* Buffalo Sabres */
+
+/* Calgary Flames */
+
+/* Carolina Hurricanes */
+
+/* Chicago Blackhawks */
+
+/* Colorado Avalanche */
+
+.22{
+    background-color: blue;
+}
+
+/* Columbus Blue Jackets */
+
+/* Dallas Stars */
+
+/* Detroit Red Wings */
+
+/* Edmonton Oilers */
+
+/* Florida Panthers */
+
+/* Los Angeles Kings */
+
+/* Minnesota Wild */
+
+/* Montreal Canadiens */
+
+/* Nashville Predators */
+
+/* New Jersey Devils */
+
+/* New York Islanders */
+
+/* New York Rangers */
+
+/* Ottawa Senators */
+
+/* Philadelphia Flyers */
+
+/* Pittsburgh Penguins */
+
+/* St. Louis Blues */
+
+/* San Jose Sharks */
+
+/* Tampa Bay Lightning */
+
+/* Toronto Maple Leafs */
+
+/* Vancouver Canucks */
+
+/* Vegas Golden Knights */
+
+/* Washington Capitals */
+
+/* Winnipeg Jets */

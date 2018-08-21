@@ -1,0 +1,18 @@
+.fab{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    background-color: lightgreen;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.4);
+    transition: .25s ease-in-out;
+    border: none;
+}
+
+.fab:hover{
+    cursor:pointer;
+    transform: scale(1.25);
+    box-shadow: 2px 2px 9px rgba(0,0,0,.65);
+}
