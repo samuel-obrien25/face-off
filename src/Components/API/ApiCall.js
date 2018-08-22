@@ -12,11 +12,7 @@ export default class ApiCall extends React.Component{
 
     getApiData(){
     const   username = 'sobrien',
-<<<<<<< HEAD
             password = 'sobrienpassword',
-=======
-            password = process.env.REACT_APP_SPORTS_API_KEY,
->>>>>>> 01dce747b2cfd2fae35ad5a24098c8dce6e6d439
             init = {
                 type: "GET",
                 url: this.props.url,
