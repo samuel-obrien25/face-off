@@ -1,6 +1,9 @@
 import React from 'react';
 import Card from '../Cards/Card';
 
+import Logo from '../../Containers/Header/Logo/Logo';
+import ScheduleCard from '../Cards/ScheduleCard';
+
 export default class ApiCall extends React.Component{
     constructor (props){
         super(props);
@@ -53,8 +56,7 @@ componentDidUpdate(prevProps) {
                 const games = this.state.results.fullgameschedule.gameentry,
                       gameCard = games.map((game) =>
 
-                <Card key={game.id}
-                    cardType="scheduleCard"
+                <ScheduleCard key={game.id}
                     awayTeamCity={game.awayTeam.City}
                     awayTeamName={game.awayTeam.Name}
                     homeTeamCity={game.homeTeam.City}

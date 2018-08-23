@@ -1,16 +1,23 @@
 import React from 'react';
 import '../Logo/Logo.css';
 
-class Logo extends React.Component{
+export default class Logo extends React.Component{
+    constructor (props){
+        super(props);
     
-    render() {
-        return (
-            <div className="logo-container">
-                <div className="logo"></div>
-            </div>
-        );
+        this.state = {
+            results: ''
+        };
     }
-    }
-    
-    export default Logo;
-    
+
+
+render(){
+
+    return(
+        <div className="svg-container">
+            {this.props.SVG}
+        </div>
+    )}
+
+}
+

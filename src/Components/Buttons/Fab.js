@@ -5,20 +5,22 @@ class Fab extends React.Component{
 
     render() {
 
-        if(this.props.visible === false){ return (
-            <button className="fab hidden"
-                    onClick={this.props.onClick}
-                    visibile={this.props.isActive}
-                    >
-                BACK
-            </button>
-        )} else {  return (
-
+        if(this.props.visible === false){
+             return (
+                <button className="fab hidden"
+                        onClick={this.props.onClick}
+                        visibile={this.props.isActive}
+                        >
+                    BACK
+                </button>
+            )
+        } else {
+              return (
             <button className="fab fade-in"
                     onClick={this.props.onClick}
                     visibile={this.props.isActive}
                     >
-                BACK
+                <h3>{this.props.fabText}</h3>
             </button>
         )
     }

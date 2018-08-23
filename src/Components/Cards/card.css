@@ -13,7 +13,6 @@
 
 .card{
     margin: 25px auto;
-    padding: 50px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     display: block;
     width: 22%;
@@ -38,26 +37,55 @@ button{
 ------------TEAM STYLES---------------
 ====================================*/
 
-/* note: I chose ID instead of team name because of team names with spaces. I figured that was the safest/most predictable choice. */
+/* Anaheim Ducks */
+.anaheim{
+  /* background: linear-gradient(#fc4c02, #85714d); */
+}
 
+/* Arizona Coyotes */
+.arizona{
+    /* background: linear-gradient(#862633, #ddcba4); */
+}
+
+/* Boston Bruins */
+
+.boston{
+    /* background: linear-gradient(#010101, #FFB81C);
+    color: #FFF; */
+}
 /* Buffalo Sabres */
 
+.buffalo{
+    /* background: linear-gradient(#041e42, #ffb81c);
+    color: #fff;
+ */
+}
 /* Calgary Flames */
-
+.calgary{
+    
+}
 /* Carolina Hurricanes */
+.carolina{
 
+}
 /* Chicago Blackhawks */
+.chicago{
 
+}
 /* Colorado Avalanche */
-
-.22{
-    background-color: blue;
+.colorado{
+    /* background-color: blue; */
 }
 
 /* Columbus Blue Jackets */
+.columbus{
+
+}
 
 /* Dallas Stars */
+.dallas{
 
+}
 /* Detroit Red Wings */
 
 /* Edmonton Oilers */

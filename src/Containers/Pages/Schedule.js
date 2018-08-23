@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import ApiCall from '../../Components/API/ApiCall';
 import TeamList from '../../Components/Cards/TeamList/TeamList';
+import TeamCard from '../../Components/Cards/TeamCard'
 import Fab from '../../Components/Buttons/Fab';
 
 class Schedule extends React.Component{
@@ -70,7 +71,6 @@ class Schedule extends React.Component{
             <div className="wrapper wrapper__home">
                 <h2 className="page__title page__title_schedule">Choose Team</h2>
             <br/>
-
             <TeamList 
              handleClick = {this.handleClick}
             />
@@ -79,9 +79,14 @@ class Schedule extends React.Component{
             url={this.state.queryRecipe}
             ApiLink="gameScheduleQuery"
         />
-
+        <Fab visible= {true}
+             onClick={this.handleClick}
+             fabText="View all games"
+             value=""
+        />
         <Fab visible={this.state.isFabActive}
              onClick={this.resetAPICall}
+             fabText="Back"
         />
 
         </div>
