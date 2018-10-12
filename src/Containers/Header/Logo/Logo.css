@@ -1,18 +1,16 @@
 .logo-container{
-    background: #f2f2f2;
     border-radius: 50%;
-    width: 175px;
-    height: 175px;
+    width: 125px;
+    height: 125px;
     position: relative;
     margin:auto;
+    margin-top: 50px;
     display: flex;
-    margin-bottom: -115px;
 }
 
-.logo{
+.logo-container img{
     margin: auto;
-    width: 150px;
-    height: 150px;
-    background: #fff;
-    border-radius: 50%;
+    width: 75%;
+    height: auto;
+    position: relative;
 }

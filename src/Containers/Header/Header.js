@@ -11,8 +11,13 @@ class Header extends React.Component{
         return (
         <header className="App-header">
             <h1 className="App-title">Faceoff</h1>
-            <Menu />
-            <Logo />
+            <Menu 
+                onClick={this.props.onClick}
+                activeLink={this.props.activeLink}
+            />
+            <Logo 
+                value={this.props.value}
+            />
         </header>
         );
     }

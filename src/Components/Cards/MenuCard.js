@@ -2,9 +2,6 @@ import React from 'react';
 import '../Cards/card.css';
 
 class MenuCard extends React.Component{
-    constructor(props){
-        super(props);
-    }
 
     render() { 
            return (

@@ -1,10 +1,12 @@
 import React from 'react';
 import '../Cards/card.css';
 
+import AwayTeam from './AwayTeam';
+import HomeTeam from './HomeTeam';
+
+import Logo from '../../Containers/Header/Logo/Logo';
+
 class ScheduleCard extends React.Component{
-    constructor(props){
-        super(props);
-    }
 
     render() {
 
@@ -14,12 +16,10 @@ class ScheduleCard extends React.Component{
         dayString = splitDate[2],
         monthString;
 
-        console.log(splitDate[1]);
-
-
         switch (month) {
             default:
                 monthString = "test";
+                break;
             case '01':
                 monthString = "January";
                 break;
@@ -61,13 +61,21 @@ class ScheduleCard extends React.Component{
 
   return (
       <div className="card schedule_card">
-        <h2>{this.props.awayTeamCity}</h2>
-        <h3>{this.props.awayTeamName}</h3>
+        <div className="date-time"><p><span className="game-date">{monthString} {dayString}</span> at <span className="game-time">{this.props.gameTime}</span></p></div>
+        
+        <AwayTeam 
+            awayTeamCity={this.props.awayTeamCity}
+            awayTeamName={this.props.awayTeamName}
+            awayTeamValue={this.props.awayTeamValue}
+        /> 
+
             <p>At</p>
-        <h2>{this.props.homeTeamCity}</h2>
-        <h3>{this.props.homeTeamName}</h3>
-        <p>{monthString} {dayString} at {this.props.gameTime}</p>
-      </div>
+        <HomeTeam
+            homeTeamCity={this.props.homeTeamCity}
+            homeTeamName={this.props.homeTeamName}
+            homeTeamValue={this.props.homeTeamValue}
+        />
+        </div>
   )
 }
 }

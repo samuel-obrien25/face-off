@@ -30,6 +30,7 @@
 .primary-menu ul li a, .primary-menu ul li a:active, .primary-menu ul li a:visited, .secondary-menu ul li a, .secondary-menu ul li a:active, .secondary-menu ul li a:visited{
     color: #FFF;
     text-decoration: none;
+    position: relative;
 }
 }
 
@@ -84,7 +85,7 @@
         cursor: pointer;
     }
 
-    nav ul li::after{
+    nav ul li a::after, .active_menu::after{
         content: '';
         position: absolute;
         bottom:-5px;
@@ -97,9 +98,8 @@
         transition: .3s ease-in-out;
     }
 
-    .menu-item_active, nav ul li:hover::after{
+    .menu-item_active, nav ul li a:hover::after, .active_menu::after{
         opacity: 1;
         transform: translateX(0px);
     }
-
 }

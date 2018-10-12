@@ -5,10 +5,20 @@ import MenuCard from './MenuCard';
 import ScheduleCard from './ScheduleCard';
 
 class Card extends React.Component{
-    constructor(props){
-        super(props);
-    }
 
+    componentDidMount() {
+        //Cycles through each card on mount and adds animation delay.
+       let cardsList = document.getElementsByClassName("card"),
+            i = 0;
+
+       for(i; i < cardsList.length; i++) {
+        let j = (i / 12),
+            k = j.toString(),
+            l = k + 's';
+
+           cardsList[i].style.animationDelay = l;
+       }
+    }
     render() {
 
         //Team Cards
@@ -39,5 +49,4 @@ class Card extends React.Component{
     }
     }
     
-    export default Card;
-    
+export default Card;

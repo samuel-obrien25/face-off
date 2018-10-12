@@ -1,8 +1,6 @@
 import React from 'react';
-import Card from '../Cards/Card';
-
-import Logo from '../../Containers/Header/Logo/Logo';
 import ScheduleCard from '../Cards/ScheduleCard';
+import '../../App.css';
 
 export default class ApiCall extends React.Component{
     constructor (props){
@@ -55,21 +53,23 @@ componentDidUpdate(prevProps) {
 
                 const games = this.state.results.fullgameschedule.gameentry,
                       gameCard = games.map((game) =>
+                            <ScheduleCard key={game.id}
+                                awayTeamCity={game.awayTeam.City}
+                                awayTeamName={game.awayTeam.Name}
+                                awayTeamValue={game.awayTeam.ID}
+                                homeTeamCity={game.homeTeam.City}
+                                homeTeamName={game.homeTeam.Name}
+                                homeTeamValue={game.homeTeam.ID}
+                                gameDate={game.date}
+                                gameTime={game.time}
+                            />
 
-                <ScheduleCard key={game.id}
-                    awayTeamCity={game.awayTeam.City}
-                    awayTeamName={game.awayTeam.Name}
-                    homeTeamCity={game.homeTeam.City}
-                    homeTeamName={game.homeTeam.Name}
-                    gameDate={game.date}
-                    gameTime={game.time}
-                    />
-
+                    //Nest <AwayTeam />, <HomeTeam />, and <Logo /> here??
         );
 
     return (
 
-        <div id="card_container_schedule_list" className="card_container fade-in">
+        <div id="card_container_schedule_list" className="card_container card-container-schedule fade-in">
             {gameCard}
         </div>
     )

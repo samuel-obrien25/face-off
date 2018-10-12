@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../Header/Header';
 import ApiCall from '../../Components/API/ApiCall';
 import TeamList from '../../Components/Cards/TeamList/TeamList';
-import TeamCard from '../../Components/Cards/TeamCard'
 import Fab from '../../Components/Buttons/Fab';
+import '../../App.css'
 
 class Schedule extends React.Component{
     
@@ -20,16 +20,10 @@ class Schedule extends React.Component{
     handleClick(e) {
         let currentTeam = e.target.tagName === "BUTTON" ? e.target.value : e.target.parentElement.value, //Handles clicks to H2/H3's.
             baseURL = 'https://api.mysportsfeeds.com/v1.2/pull/nhl/2018-2019-regular/full_game_schedule.json?team=',
-            cardContainerTeamList = document.getElementById("card_container_team_list"),
-            cardContainerScheduleList = document.getElementById("card_container_schedule_list");
-
+            cardContainerTeamList = document.getElementById("card_container_team_list");
+            //Transitions TeamCards Out
             cardContainerTeamList.classList.remove("fade-in");
             cardContainerTeamList.classList.add("fade-out");
-
-            if(cardContainerScheduleList){
-            cardContainerScheduleList.classList.remove("fade-out");
-            cardContainerScheduleList.classList.add("fade-in");
-            }
 
 
         this.setState(() => {
@@ -37,8 +31,6 @@ class Schedule extends React.Component{
                 queryRecipe: baseURL + currentTeam,
                 isFabActive: true
            };
-
-
         }, () => {
             console.log(this.state.queryRecipe);
         });
@@ -57,6 +49,7 @@ class Schedule extends React.Component{
             };
         }, () => {
             console.log(this.state.queryRecipe);
+            //Transitions from Schedule cards to Team cards
             scheduleCards.classList.remove("fade-in");
             scheduleCards.classList.add("fade-out");
             cardContainerTeamList.classList.remove("fade-out");
@@ -64,10 +57,16 @@ class Schedule extends React.Component{
         });
     };
 
+    componentDidUpdate() {
+        
+    }
+
     render(){
         return (
             <div>
-            <Header />
+            <Header 
+                onClick={this.handleClick}
+            />
             <div className="wrapper wrapper__home">
                 <h2 className="page__title page__title_schedule">Choose Team</h2>
             <br/>

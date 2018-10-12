@@ -11,120 +11,65 @@
     justify-content: start;
 }
 
+
 .card{
     margin: 25px auto;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     display: block;
     width: 22%;
-    max-width: 250px;
+    max-width: 200px;
     height: 300px;
     transition: .25s ease-in-out;
     background: #fff;
+    position: relative;
+    border-radius: 5px;
+    animation: .3s ease-in-out fadeIn forwards;
+    opacity: 0;
+    transform:translateY(50px);
 }
 
 .card:hover{
     transform: translateY(-10px);
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     cursor: pointer;
-
 }
 
 button{
     border: none;
 }
 
-/*=====================================
-------------TEAM STYLES---------------
-====================================*/
+/*======================================
+------------SCHEDULE CARDS--------------
+=======================================*/
 
-/* Anaheim Ducks */
-.anaheim{
-  /* background: linear-gradient(#fc4c02, #85714d); */
+
+/*======================================
+--------Animations and Transitions------
+======================================*/
+
+/*Overrides .fade-in @ app.css MUST FIX!*/
+.fade-in{
+    animation: .3s fadeIn forwards;
 }
 
-/* Arizona Coyotes */
-.arizona{
-    /* background: linear-gradient(#862633, #ddcba4); */
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform:translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Boston Bruins */
-
-.boston{
-    /* background: linear-gradient(#010101, #FFB81C);
-    color: #FFF; */
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(-50px);
 }
-/* Buffalo Sabres */
-
-.buffalo{
-    /* background: linear-gradient(#041e42, #ffb81c);
-    color: #fff;
- */
 }
-/* Calgary Flames */
-.calgary{
-    
-}
-/* Carolina Hurricanes */
-.carolina{
-
-}
-/* Chicago Blackhawks */
-.chicago{
-
-}
-/* Colorado Avalanche */
-.colorado{
-    /* background-color: blue; */
-}
-
-/* Columbus Blue Jackets */
-.columbus{
-
-}
-
-/* Dallas Stars */
-.dallas{
-
-}
-/* Detroit Red Wings */
-
-/* Edmonton Oilers */
-
-/* Florida Panthers */
-
-/* Los Angeles Kings */
-
-/* Minnesota Wild */
-
-/* Montreal Canadiens */
-
-/* Nashville Predators */
-
-/* New Jersey Devils */
-
-/* New York Islanders */
-
-/* New York Rangers */
-
-/* Ottawa Senators */
-
-/* Philadelphia Flyers */
-
-/* Pittsburgh Penguins */
-
-/* St. Louis Blues */
-
-/* San Jose Sharks */
-
-/* Tampa Bay Lightning */
-
-/* Toronto Maple Leafs */
-
-/* Vancouver Canucks */
-
-/* Vegas Golden Knights */
-
-/* Washington Capitals */
-
-/* Winnipeg Jets 
-} */

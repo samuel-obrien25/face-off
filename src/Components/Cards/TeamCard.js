@@ -1,17 +1,14 @@
 import React from 'react';
+import Logo from '../../Containers/Header/Logo/Logo'
 import '../Cards/card.css';
 
 export default class TeamCard extends React.Component{
-    constructor(props){
-        super(props);
-    }
 
     render() {
 
         //Team Cards
                   let rawTeamName = this.props.cityName,
                       combinedTeamName = rawTeamName.replace(' ', '-').replace('.', '').toLowerCase();
-                      console.log(combinedTeamName);
                   return (
                       <button className={`card teamCard ${combinedTeamName}`}
                               onClick={this.props.onClick}
@@ -19,7 +16,8 @@ export default class TeamCard extends React.Component{
                               >
                           <h2>{this.props.cityName}</h2>
                           <h3>{this.props.teamName}</h3>
+                          <Logo value={this.props.value} />
                       </button>
                   )
                 } 
-        }
+}
