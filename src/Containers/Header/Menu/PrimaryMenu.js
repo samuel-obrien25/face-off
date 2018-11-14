@@ -17,14 +17,14 @@ class PrimaryMenu extends React.Component{
                     <li>
                         <NavLink to="/schedule" activeClassName="active_menu">Schedule</NavLink>
                     </li>
-
-                    <li>
+                
+                {/*  <li>
                         <NavLink to="/teams" activeClassName="active_menu">Teams</NavLink>
                     </li>
                     
                     <li>
                         <NavLink to="/players" activeClassName="active_menu">Players</NavLink>
-                    </li>
+                </li> */}
                 </ul>
             </nav>
               );

@@ -4,8 +4,6 @@ import '../Cards/card.css';
 import AwayTeam from './AwayTeam';
 import HomeTeam from './HomeTeam';
 
-import Logo from '../../Containers/Header/Logo/Logo';
-
 class ScheduleCard extends React.Component{
 
     render() {

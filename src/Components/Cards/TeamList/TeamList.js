@@ -8,26 +8,26 @@ class TeamList extends React.Component{
         return(
 
             <div className="card_container card-container-teams" id="card_container_team_list">
-
+                <h2>Atlantic</h2>
                 <Card 
                     cardType="teamCard"
-                    cityName="Tampa Bay"
-                    teamName="Lightning"
-                    value="1"
+                    cityName="Boston"
+                    teamName="Bruins"
+                    value="11"
                     onClick={this.props.handleClick}
                 />
                 <Card 
                     cardType="teamCard"
-                    cityName="Winnipeg"
-                    teamName="Jets"
-                    value="2"
+                    cityName="Buffalo"
+                    teamName="Sabres"
+                    value="15"
                     onClick={this.props.handleClick}
                 />
                 <Card 
                     cardType="teamCard"
-                    cityName="Carolina"
-                    teamName="Hurricanes"
-                    value="3"
+                    cityName="Detroit"
+                    teamName="Red Wings"
+                    value="16"
                     onClick={this.props.handleClick}
                 />
                 <Card 
@@ -39,17 +39,46 @@ class TeamList extends React.Component{
                 />
                 <Card 
                     cardType="teamCard"
-                    cityName="Washington"
-                    teamName="Capitals"
-                    value="5"
+                    cityName="Montreal"
+                    teamName="Canadians"
+                    value="14"
                     onClick={this.props.handleClick}
                 />
                 <Card 
                     cardType="teamCard"
-                    cityName="Philadelphia"
-                    teamName="Flyers"
-                    value="6"
+                    cityName="Ottawa"
+                    teamName="Senators"
+                    value="13"
                     onClick={this.props.handleClick}
+                />
+                <Card 
+                    cardType="teamCard"
+                    cityName="Tampa Bay"
+                    teamName="Lightning"
+                    value="1"
+                    onClick={this.props.handleClick}
+                />
+                <Card 
+                    cardType="teamCard"
+                    cityName="Toronto"
+                    teamName="Maple Leafs"
+                    value="12"
+                    onClick={this.props.handleClick}
+                />
+                <h2>Metropolitan</h2>
+                <Card 
+                    cardType="teamCard"
+                    cityName="Carolina"
+                    teamName="Hurricanes"
+                    value="3"
+                    onClick={this.props.handleClick}
+                />
+                <Card 
+                    cardType="teamCard"
+                    cityName="Columbus"
+                    teamName="Blue Jackets"
+                    value="19"
+                    onClick={this.props.handleClick} 
                 />
                 <Card 
                     cardType="teamCard"
@@ -72,6 +101,15 @@ class TeamList extends React.Component{
                     value="9"
                     onClick={this.props.handleClick}
                 />
+
+                <Card 
+                    cardType="teamCard"
+                    cityName="Philadelphia"
+                    teamName="Flyers"
+                    value="6"
+                    onClick={this.props.handleClick}
+                />
+
                 <Card 
                     cardType="teamCard"
                     cityName="Pittsburgh"
@@ -81,67 +119,12 @@ class TeamList extends React.Component{
                 />
                 <Card 
                     cardType="teamCard"
-                    cityName="Boston"
-                    teamName="Bruins"
-                    value="11"
+                    cityName="Washington"
+                    teamName="Capitals"
+                    value="5"
                     onClick={this.props.handleClick}
                 />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Toronto"
-                    teamName="Maple Leafs"
-                    value="12"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Ottawa"
-                    teamName="Senators"
-                    value="13"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Montreal"
-                    teamName="Canadians"
-                    value="14"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Buffalo"
-                    teamName="Sabres"
-                    value="15"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Detroit"
-                    teamName="Red Wings"
-                    value="16"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="St. Louis"
-                    teamName="Blues"
-                    value="17"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Nashville"
-                    teamName="Predators"
-                    value="18"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Columbus"
-                    teamName="Blue Jackets"
-                    value="19"
-                    onClick={this.props.handleClick} 
-                />
+                <h2>Central</h2>
                 <Card 
                     cardType="teamCard"
                     cityName="Chicago"
@@ -151,16 +134,59 @@ class TeamList extends React.Component{
                 />
                 <Card 
                     cardType="teamCard"
-                    cityName="Vancouver"
-                    teamName="Canucks"
-                    value="21"
+                    cityName="Colorado"
+                    teamName="Avalanche"
+                    value="22"
+                    onClick={this.props.handleClick}
+                />
+               <Card 
+                    cardType="teamCard"
+                    cityName="Dallas"
+                    teamName="Stars"
+                    value="27"
                     onClick={this.props.handleClick}
                 />
                 <Card 
                     cardType="teamCard"
-                    cityName="Colorado"
-                    teamName="Avalanche"
-                    value="22"
+                    cityName="Minnesota"
+                    teamName="Wild"
+                    value="25"
+                    onClick={this.props.handleClick}
+                />
+                <Card 
+                    cardType="teamCard"
+                    cityName="Nashville"
+                    teamName="Predators"
+                    value="18"
+                    onClick={this.props.handleClick}
+                />
+               <Card 
+                    cardType="teamCard"
+                    cityName="St. Louis"
+                    teamName="Blues"
+                    value="17"
+                    onClick={this.props.handleClick}
+                />
+                <Card 
+                    cardType="teamCard"
+                    cityName="Winnipeg"
+                    teamName="Jets"
+                    value="2"
+                    onClick={this.props.handleClick}
+                />
+ <h2>Pacific</h2>
+                <Card 
+                    cardType="teamCard"
+                    cityName="Anaheim"
+                    teamName="Ducks"
+                    value="29"
+                    onClick={this.props.handleClick}
+                />
+                <Card 
+                    cardType="teamCard"
+                    cityName="Arizona"
+                    teamName="Coyotes"
+                    value="30"
                     onClick={this.props.handleClick}
                 />
                 <Card 
@@ -179,9 +205,9 @@ class TeamList extends React.Component{
                 />
                 <Card 
                     cardType="teamCard"
-                    cityName="Minnesota"
-                    teamName="Wild"
-                    value="25"
+                    cityName="Los Angeles"
+                    teamName="Kings"
+                    value="28"
                     onClick={this.props.handleClick}
                 />
                 <Card 
@@ -191,33 +217,11 @@ class TeamList extends React.Component{
                     value="26"
                     onClick={this.props.handleClick}
                 />
-
                 <Card 
                     cardType="teamCard"
-                    cityName="Dallas"
-                    teamName="Stars"
-                    value="27"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Los Angeles"
-                    teamName="Kings"
-                    value="28"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Anaheim"
-                    teamName="Ducks"
-                    value="29"
-                    onClick={this.props.handleClick}
-                />
-                <Card 
-                    cardType="teamCard"
-                    cityName="Arizona"
-                    teamName="Coyotes"
-                    value="30"
+                    cityName="Vancouver"
+                    teamName="Canucks"
+                    value="21"
                     onClick={this.props.handleClick}
                 />
                 <Card 

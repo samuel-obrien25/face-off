@@ -1,16 +1,51 @@
-.logo-container{
-    border-radius: 50%;
-    width: 125px;
-    height: 125px;
-    position: relative;
-    margin:auto;
-    margin-top: 50px;
-    display: flex;
+@media only screen and (min-width: 1px) {
+
+    .logo-container {
+        border-radius: 50%;
+        width: 75px;
+        height: 100%;
+        position: absolute;
+        margin: auto;
+        display: -ms-flexbox;
+        display: flex;
+        top: 0;
+        left: 5%;
+    }
+
+    .logo-container img {
+        margin: auto;
+        width: 100%;
+        position: relative;
+        height: auto; 
+    }
+
+/*======================
+-----Team Card Logo----
+=======================*/
+
+.teamCard .logo-container{
+    float: left;
+    z-index: 900;
 }
 
-.logo-container img{
-    margin: auto;
-    width: 75%;
-    height: auto;
-    position: relative;
+
+
+/*=========================
+-------Schedule Card Logos--
+==================================*/
+
+.away-team .logo-container {
+    height: 100px;
+    left: 10px;
+    top: 12%;
+}
+
+.home-team .logo-container{
+    height: 100px;
+    right: 5%;
+    bottom: 12%;
+    top: auto;
+    left: auto;
+}
+
 }

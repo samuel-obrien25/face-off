@@ -1,15 +1,23 @@
 import React from 'react';
 import Header from '../Header/Header';
+import Menu from '../Header/Menu/Menu';
 
-const Home = () => {
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render(){
     return(
         <div>
         <Header />
         <div className="wrapper wrapper__home">
-            <h2 className="page__title page__title_home">Pick a team</h2>
-        </div>
+        <Menu 
+                onClick={this.props.onClick}
+                activeLink={this.props.activeLink}
+            />        </div>
         </div>
     )
+}
 }
 
 export default Home;

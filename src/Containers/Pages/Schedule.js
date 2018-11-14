@@ -14,6 +14,8 @@ class Schedule extends React.Component{
         this.state = {
             queryRecipe: '',
             isFabActive: false,
+            isTeamListActive: true,
+            isScheduleListActive: false,
         };
     }
 
@@ -29,7 +31,9 @@ class Schedule extends React.Component{
         this.setState(() => {
            return {
                 queryRecipe: baseURL + currentTeam,
-                isFabActive: true
+                isFabActive: true,
+                isTeamListActive: false,
+                isScheduleListActive:true,
            };
         }, () => {
             console.log(this.state.queryRecipe);
@@ -37,32 +41,57 @@ class Schedule extends React.Component{
 };
 
     resetAPICall() {
-        let baseURL = 'https://api.mysportsfeeds.com/v1.2/pull/nhl/2018-2019-regular/full_game_schedule.json?team=',
-            cardContainerTeamList = document.getElementById("card_container_team_list"),
-            scheduleCards = document.getElementById("card_container_schedule_list");
+        let baseURL = 'https://api.mysportsfeeds.com/v1.2/pull/nhl/2018-2019-regular/full_game_schedule.json?team=';
 
 
         this.setState(()=>{
             return{
                 queryRecipe: baseURL,
-                isFabActive: false
+                isFabActive: false,
+                isScheduleListActive: false,
+                isTeamListActive: true
             };
         }, () => {
             console.log(this.state.queryRecipe);
-            //Transitions from Schedule cards to Team cards
-            scheduleCards.classList.remove("fade-in");
-            scheduleCards.classList.add("fade-out");
-            cardContainerTeamList.classList.remove("fade-out");
-            cardContainerTeamList.classList.add("fade-in");
         });
     };
 
-    componentDidUpdate() {
-        
+    componentDidUpdate(){
     }
 
     render(){
+        if(this.state.isScheduleListActive){
+
+            console.log(this.state.queryRecipe);
+                return (
+                    <div>
+                        <Header 
+                           onClick={this.handleClick}
+                            />
+                        <div className="wrapper wrapper__home">
+                            <h2 className="page__title page__title_schedule">Choose a Game</h2>
+                            <br/>   
+
+                            <ApiCall
+                                url={this.state.queryRecipe}
+                                ApiLink="gameScheduleQuery"
+                            />
+
+                <Fab visible={this.state.isFabActive}
+                     onClick={this.resetAPICall}
+                     fabText="Back"
+                />
+        
+                </div>
+                </div>
+        
+                )
+        }
+
+        if(this.state.isTeamListActive){
+
         return (
+        
             <div>
             <Header 
                 onClick={this.handleClick}
@@ -74,10 +103,7 @@ class Schedule extends React.Component{
              handleClick = {this.handleClick}
             />
 
-        <ApiCall 
-            url={this.state.queryRecipe}
-            ApiLink="gameScheduleQuery"
-        />
+
         <Fab visible= {true}
              onClick={this.handleClick}
              fabText="View all games"
@@ -92,6 +118,7 @@ class Schedule extends React.Component{
         </div>
     )
 }
+    }
 }
 
 export default Schedule;

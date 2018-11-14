@@ -30,27 +30,25 @@ export default class ApiCall extends React.Component{
                         results: data
                     });
                     })
+                    console.log('api called');
                     return;
                 }
 
-componentDidUpdate(prevProps) {
-
-    //Checks if props.url equals previous props.url. If not, getAPIData();
-
-    if(prevProps.url !== this.props.url){
-        this.getApiData();
+    componentDidUpdate(prevProps, prevState){
+        if(this.props.url !== prevProps.url){
+            this.getApiData();
+        }
     }
-
-}
- 
 
   render(){
 
+    
         if(this.props.ApiLink === "gameScheduleQuery") {
-                if (!this.state.results){ return null }
+
+                if (!this.state.results){ return null; }
                 
                 else{
-
+                     //   console.log(this.state.results);
                 const games = this.state.results.fullgameschedule.gameentry,
                       gameCard = games.map((game) =>
                             <ScheduleCard key={game.id}
@@ -63,8 +61,6 @@ componentDidUpdate(prevProps) {
                                 gameDate={game.date}
                                 gameTime={game.time}
                             />
-
-                    //Nest <AwayTeam />, <HomeTeam />, and <Logo /> here??
         );
 
     return (
