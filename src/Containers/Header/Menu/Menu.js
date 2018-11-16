@@ -7,7 +7,7 @@ class Menu extends React.Component{
     
     render() {
         return (
-            <div className="menu-wrapper {this.props.activeClass}">
+            <div className={`menu-wrapper ${ this.props.activeClass }`}>
             <PrimaryMenu />
             </div>
         );

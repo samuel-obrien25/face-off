@@ -12,6 +12,11 @@
     justify-content: start;
 }
 
+.division-name{
+    width: 100%;
+    text-align: left;
+    padding-left: 50px;
+}
 
 .card{
     margin: 10px auto;
@@ -28,9 +33,6 @@
     transform:translateY(50px);
 }
 
-.schedule_card{
-    height: 300px;
-}
 
 button{
     border: none;
@@ -39,8 +41,31 @@ button{
 /*======================================
 ------------SCHEDULE CARDS--------------
 =======================================*/
+.schedule-card{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
 
+.schedule-card p, .schedule-card .team{
+    margin:auto;
+}
 
+.schedule-card .away-team{
+    margin-top: 20px;
+}
+
+.date-time{
+    position: absolute;
+    top:0;
+    width: 60%;
+    left:0;
+    right:0;
+    margin:auto;
+    background-color: #222;
+    color: #fff;
+    height: 1.2em;
+}
 /*======================================
 --------Animations and Transitions------
 ======================================*/

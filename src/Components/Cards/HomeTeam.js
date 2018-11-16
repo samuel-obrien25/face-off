@@ -11,6 +11,7 @@ class HomeTeam extends React.Component{
             <Logo
                 value={this.props.homeTeamValue}
                 />
+            <h2>{this.props.homeTeamScore}</h2>
         </div>
     )}
 }

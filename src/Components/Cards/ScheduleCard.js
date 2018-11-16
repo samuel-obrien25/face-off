@@ -58,13 +58,14 @@ class ScheduleCard extends React.Component{
 
 
   return (
-      <div className="card schedule_card">
-        <div className="date-time"><p><span className="game-date">{monthString} {dayString}</span> at <span className="game-time">{this.props.gameTime}</span></p></div>
+      <div className="schedule-card card">
+        <div className="date-time"><p><span className="game-date">{monthString} {dayString}</span> at <span className="game-time">{this.props.gameTime} EST</span></p></div>
         
         <AwayTeam 
             awayTeamCity={this.props.awayTeamCity}
             awayTeamName={this.props.awayTeamName}
             awayTeamValue={this.props.awayTeamValue}
+            awayTeamScore={this.props.awayTeamScore}
         /> 
 
             <p>At</p>
@@ -72,6 +73,7 @@ class ScheduleCard extends React.Component{
             homeTeamCity={this.props.homeTeamCity}
             homeTeamName={this.props.homeTeamName}
             homeTeamValue={this.props.homeTeamValue}
+            homeTeamScore={this.props.homeTeamScore}
         />
         </div>
   )

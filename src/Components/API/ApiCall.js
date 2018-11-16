@@ -1,5 +1,5 @@
 import React from 'react';
-import ScheduleCard from '../Cards/ScheduleCard';
+import Card from '../Cards/Card';
 import '../../App.css';
 
 export default class ApiCall extends React.Component{
@@ -7,11 +7,12 @@ export default class ApiCall extends React.Component{
         super(props);
 
         this.state = {
-            results: ''
+            schedule: '',
+            apiFormula: 'forSchedule'
         };
     }
 
-    getApiData(){
+    fetchSchedule(){
     const   username = 'sobrien',
             password = 'sobrienpassword',
             init = {
@@ -27,17 +28,25 @@ export default class ApiCall extends React.Component{
                 .then(data => data.json())
                 .then(data => {
                     this.setState({
-                        results: data
+                        schedule: data
                     });
                     })
                     console.log('api called');
                     return;
                 }
+    
 
     componentDidUpdate(prevProps, prevState){
         if(this.props.url !== prevProps.url){
-            this.getApiData();
+            this.fetchSchedule();
         }
+    }
+
+    componentDidMount(){
+        //For future reference: Since the ApiCall component is now MOUNTING on TeamCard click instead of UPDATING, getAPIData() gets called in componentDidMount INSTEAD of ONLY checking if prevProps !== current props in componentDidUpdate.
+        //Otherwise, ONLY making that check in componentDidUpdate just won't call the API, because spoiler alert, the component didn't update.
+        //Calling the API in the render method and checking if prevProps !== current props will result in many hundreds of calls to the API. MySportsFeeds: If you ever read this, my bad...
+        this.fetchSchedule();
     }
 
   render(){
@@ -45,13 +54,14 @@ export default class ApiCall extends React.Component{
     
         if(this.props.ApiLink === "gameScheduleQuery") {
 
-                if (!this.state.results){ return null; }
+                if (!this.state.schedule){ return null; }
                 
                 else{
                      //   console.log(this.state.results);
-                const games = this.state.results.fullgameschedule.gameentry,
+                const games = this.state.schedule.fullgameschedule.gameentry,
                       gameCard = games.map((game) =>
-                            <ScheduleCard key={game.id}
+                            <Card key={game.id}
+                                cardType="scheduleCard"
                                 awayTeamCity={game.awayTeam.City}
                                 awayTeamName={game.awayTeam.Name}
                                 awayTeamValue={game.awayTeam.ID}
@@ -60,6 +70,7 @@ export default class ApiCall extends React.Component{
                                 homeTeamValue={game.homeTeam.ID}
                                 gameDate={game.date}
                                 gameTime={game.time}
+                                gameID={game.id}
                             />
         );
 

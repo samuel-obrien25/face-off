@@ -11,6 +11,7 @@ class AwayTeam extends React.Component{
             <Logo 
                 value={this.props.awayTeamValue}
             />
+            <h2>{this.props.awayTeamScore}</h2>
         </div>
     )}
 }

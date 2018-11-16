@@ -16,16 +16,11 @@
   font-size: large;
 }
 
-.page_container{
-  position: absolute;
-  width: 100%;
-  height: calc(100% - 150px);
-}
-
 /*----What's the difference?? ----*/
 
 .wrapper {
   position: relative;
+  min-height: 101vh; /*Keeps the scroll bar always present. Prevents jumping*/
 }
 
 /*=============================================

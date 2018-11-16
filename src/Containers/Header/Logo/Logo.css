@@ -37,13 +37,13 @@
 .away-team .logo-container {
     height: 100px;
     left: 10px;
-    top: 12%;
+    top: 10%;
 }
 
 .home-team .logo-container{
     height: 100px;
     right: 5%;
-    bottom: 12%;
+    bottom: calc(10% - 20px); /*Compensate for the marginbottom on date*/
     top: auto;
     left: auto;
 }

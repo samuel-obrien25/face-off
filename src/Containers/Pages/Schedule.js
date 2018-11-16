@@ -12,16 +12,19 @@ class Schedule extends React.Component{
         this.handleClick = this.handleClick.bind(this);
         this.resetAPICall = this.resetAPICall.bind(this);
         this.state = {
-            queryRecipe: '',
+            scheduleQueryRecipe: '',
+            gameDetailsRecipe: '',
             isFabActive: false,
             isTeamListActive: true,
             isScheduleListActive: false,
         };
     }
 
+    
     handleClick(e) {
         let currentTeam = e.target.tagName === "BUTTON" ? e.target.value : e.target.parentElement.value, //Handles clicks to H2/H3's.
-            baseURL = 'https://api.mysportsfeeds.com/v1.2/pull/nhl/2018-2019-regular/full_game_schedule.json?team=',
+            scheduleBaseURL = 'https://api.mysportsfeeds.com/v1.2/pull/nhl/2018-2019-regular/full_game_schedule.json?team=',
+            gameDetailsBaseURL = ''
             cardContainerTeamList = document.getElementById("card_container_team_list");
             //Transitions TeamCards Out
             cardContainerTeamList.classList.remove("fade-in");
@@ -30,7 +33,7 @@ class Schedule extends React.Component{
 
         this.setState(() => {
            return {
-                queryRecipe: baseURL + currentTeam,
+                scheduleQueryRecipe: scheduleBaseURL + currentTeam,
                 isFabActive: true,
                 isTeamListActive: false,
                 isScheduleListActive:true,
@@ -55,10 +58,6 @@ class Schedule extends React.Component{
             console.log(this.state.queryRecipe);
         });
     };
-
-    componentDidUpdate(){
-    }
-
     render(){
         if(this.state.isScheduleListActive){
 
@@ -75,6 +74,7 @@ class Schedule extends React.Component{
                             <ApiCall
                                 url={this.state.queryRecipe}
                                 ApiLink="gameScheduleQuery"
+                                onClick={this.getGameDetails}
                             />
 
                 <Fab visible={this.state.isFabActive}

@@ -3,9 +3,6 @@ import Header from '../Header/Header';
 import Menu from '../Header/Menu/Menu';
 
 class Home extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render(){
     return(
         <div>
