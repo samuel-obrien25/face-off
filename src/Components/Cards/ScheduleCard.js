@@ -5,10 +5,25 @@ import AwayTeam from './AwayTeam';
 import HomeTeam from './HomeTeam';
 
 class ScheduleCard extends React.Component{
+    //TO DO
+      //Convert Date/Time string to a legible date and time
 
     render() {
+        let jsonDate = new Date(this.props.gameDateTime),
+            currentDate = new Date(),
+            formattedGameDate = jsonDate.toLocaleDateString() + ' at ' + jsonDate.toLocaleTimeString();
 
-        let date = this.props.gameDate,
+            if (jsonDate < currentDate) {
+                console.log("prev");
+                //Works!
+            }
+
+            console.log(formattedGameDate);
+
+
+
+/*
+        let date = this.props.gameDateTime,
         splitDate = date.split('-'),
         month = splitDate[1],
         dayString = splitDate[2],
@@ -55,25 +70,24 @@ class ScheduleCard extends React.Component{
                 monthString = "December";
                 break;
         }
-
+*/
 
   return (
       <div className="schedule-card card">
-        <div className="date-time"><p><span className="game-date">{monthString} {dayString}</span> at <span className="game-time">{this.props.gameTime} EST</span></p></div>
+        <div className="date-time"><p><span className="game-date">{formattedGameDate}</span></p></div>
         
-        <AwayTeam 
-            awayTeamCity={this.props.awayTeamCity}
-            awayTeamName={this.props.awayTeamName}
-            awayTeamValue={this.props.awayTeamValue}
+        <AwayTeam
+            awayTeamID={this.props.awayTeamID}
             awayTeamScore={this.props.awayTeamScore}
-        /> 
-
+            awayTeamName={this.props.awayTeamName}
+            awayTeamCity={this.props.awayTeamCity}
+        />
             <p>At</p>
         <HomeTeam
-            homeTeamCity={this.props.homeTeamCity}
-            homeTeamName={this.props.homeTeamName}
-            homeTeamValue={this.props.homeTeamValue}
+            homeTeamID={this.props.homeTeamID}
             homeTeamScore={this.props.homeTeamScore}
+            homeTeamName={this.props.homeTeamName}
+            homeTeamCity={this.props.homeTeamCity}
         />
         </div>
   )

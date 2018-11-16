@@ -42,7 +42,7 @@ class Card extends React.Component{
                 //Menu Cards
             if(this.props.cardType === "menuCard") {
                 this.addCardDelay();
-                <MenuCard />
+                <MenuCard />;
                 }
 
         //Schedule Cards
@@ -52,17 +52,15 @@ class Card extends React.Component{
 
             return(
                 <ScheduleCard
-                    gameDate={this.props.gameDate}
-                    gameTime={this.props.gameTime}
-                    awayTeamCity={this.props.awayTeamCity}
+                    gameDateTime={this.props.gameDateTime}
+                    awayTeamID={this.props.awayTeamID}
                     awayTeamName={this.props.awayTeamName}
-                    awayTeamValue={this.props.awayTeamValue}
+                    awayTeamCity={this.props.awayTeamCity}
                     awayTeamScore={this.props.awayTeamScore}
-                    homeTeamCity={this.props.homeTeamCity}
+                    homeTeamID={this.props.homeTeamID}
                     homeTeamName={this.props.homeTeamName}
-                    homeTeamValue={this.props.homeTeamValue}
+                    homeTeamCity={this.props.homeTeamCity}
                     homeTeamScore={this.props.homeTeamScore}
-                    gameID={this.props.gameID}
                     onClick={this.props.handleClick}
                 />
             )

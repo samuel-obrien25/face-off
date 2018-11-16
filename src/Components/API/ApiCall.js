@@ -8,13 +8,12 @@ export default class ApiCall extends React.Component{
 
         this.state = {
             schedule: '',
-            apiFormula: 'forSchedule'
         };
     }
 
     fetchSchedule(){
     const   username = 'sobrien',
-            password = 'sobrienpassword',
+            password = 'MYSPORTSFEEDS',
             init = {
                 type: "GET",
                 url: this.props.url,
@@ -31,7 +30,6 @@ export default class ApiCall extends React.Component{
                         schedule: data
                     });
                     })
-                    console.log('api called');
                     return;
                 }
     
@@ -50,27 +48,26 @@ export default class ApiCall extends React.Component{
     }
 
   render(){
-
     
         if(this.props.ApiLink === "gameScheduleQuery") {
 
                 if (!this.state.schedule){ return null; }
                 
                 else{
-                     //   console.log(this.state.results);
-                const games = this.state.schedule.fullgameschedule.gameentry,
+                const games = this.state.schedule.games,
                       gameCard = games.map((game) =>
-                            <Card key={game.id}
+                            <Card key={game.schedule.id}
                                 cardType="scheduleCard"
-                                awayTeamCity={game.awayTeam.City}
-                                awayTeamName={game.awayTeam.Name}
-                                awayTeamValue={game.awayTeam.ID}
-                                homeTeamCity={game.homeTeam.City}
-                                homeTeamName={game.homeTeam.Name}
-                                homeTeamValue={game.homeTeam.ID}
-                                gameDate={game.date}
-                                gameTime={game.time}
-                                gameID={game.id}
+                                awayTeamName={this.props.awayTeamName}
+                                awayTeamCity={this.props.awayTeamCity}
+                                awayTeamID={game.schedule.awayTeam.id}
+                                awayTeamScore={game.score.awayScoreTotal}
+                                homeTeamName={this.props.homeTeamName}
+                                homeTeamCity={this.props.homeTeamCity}
+                                homeTeamID={game.schedule.homeTeam.id}
+                                homeTeamScore={game.score.homeScoreTotal}
+                                gameDateTime={game.schedule.startTime}
+                                gameID={game.schedule.id}
                             />
         );
 
@@ -83,19 +80,6 @@ export default class ApiCall extends React.Component{
   }
 
 }
-
-        if(this.props.ApiLink === "teamQuery") {
-            if (!this.state.results) { return null }
-
-            else {
-
-                /* Finish this... 
-                const teams = this.state.results.
-                 */
-            }
-            
-        }
-
   }
 
 

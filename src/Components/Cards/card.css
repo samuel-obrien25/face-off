@@ -33,6 +33,10 @@
     transform:translateY(50px);
 }
 
+.card:hover{
+    cursor: pointer;
+}
+
 
 button{
     border: none;
@@ -58,13 +62,28 @@ button{
 .date-time{
     position: absolute;
     top:0;
-    width: 60%;
+    width: 80%;
     left:0;
     right:0;
     margin:auto;
     background-color: #222;
     color: #fff;
     height: 1.2em;
+    padding-top: 5px;
+}
+
+.score{
+    position: absolute;
+}
+
+.away-score{
+    top: 50px;
+    right: 50px;
+}
+
+.home-score{
+    bottom: 30px;
+    left:50px;
 }
 /*======================================
 --------Animations and Transitions------

@@ -23,8 +23,7 @@ class Schedule extends React.Component{
     
     handleClick(e) {
         let currentTeam = e.target.tagName === "BUTTON" ? e.target.value : e.target.parentElement.value, //Handles clicks to H2/H3's.
-            scheduleBaseURL = 'https://api.mysportsfeeds.com/v1.2/pull/nhl/2018-2019-regular/full_game_schedule.json?team=',
-            gameDetailsBaseURL = ''
+            scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             cardContainerTeamList = document.getElementById("card_container_team_list");
             //Transitions TeamCards Out
             cardContainerTeamList.classList.remove("fade-in");
@@ -39,23 +38,23 @@ class Schedule extends React.Component{
                 isScheduleListActive:true,
            };
         }, () => {
-            console.log(this.state.queryRecipe);
+            console.log(this.state.scheduleQueryRecipe);
         });
 };
 
     resetAPICall() {
-        let baseURL = 'https://api.mysportsfeeds.com/v1.2/pull/nhl/2018-2019-regular/full_game_schedule.json?team=';
+        let baseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=';
 
 
         this.setState(()=>{
             return{
-                queryRecipe: baseURL,
+                scheduleQueryRecipe: baseURL,
                 isFabActive: false,
                 isScheduleListActive: false,
                 isTeamListActive: true
             };
         }, () => {
-            console.log(this.state.queryRecipe);
+            console.log("reset API and " + this.state.scheduleQueryRecipe);
         });
     };
     render(){
@@ -72,7 +71,7 @@ class Schedule extends React.Component{
                             <br/>   
 
                             <ApiCall
-                                url={this.state.queryRecipe}
+                                url={this.state.scheduleQueryRecipe}
                                 ApiLink="gameScheduleQuery"
                                 onClick={this.getGameDetails}
                             />

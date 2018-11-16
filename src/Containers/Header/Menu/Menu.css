@@ -1,105 +1,42 @@
 @media only screen and (min-width: 1px) {
-    
-.menu-wrapper{
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    height: 75px;
-    background: #020202;
-}
+    .primary-menu{
+        width:100%;
+        height: 100%;
+        display: flex;
+    }
 
-.primary-menu, .secondary-menu{
-    width: 100%;
-}
+    .primary-menu ul{
+        margin:auto;
+        padding: 25px 50px;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 0;
+    }
 
-.primary-menu ul, .secondary-menu ul{
-    padding: 0;
-    margin: auto;
-    display: flex;
-}
+    .primary-menu ul li{
+        margin: auto;
+        list-style: none;
+        display: inline-block;
+        width: 90%;
+        height: 100px;
+        border: 3px solid #222;
+        display: flex;
+        border-radius: 8px;
+        margin-bottom: 25px;
+    }
 
-.primary-menu ul li, .secondary-menu ul li{
-    display: inline;
-    padding: 27px 5px;
-    border: 2px solid #fff;
-    margin: auto;
-    position: relative;
-}
+    .primary-menu ul li a{
+        margin:auto;
+        color: #222;
+        text-decoration: unset;
+        font-weight: 300;
+        font-size: 18px;
+    }
 
-.primary-menu ul li a, .primary-menu ul li a:active, .primary-menu ul li a:visited, .secondary-menu ul li a, .secondary-menu ul li a:active, .secondary-menu ul li a:visited{
-    color: #FFF;
-    text-decoration: none;
-    position: relative;
-}
 }
 
 
 @media only screen and (min-width: 575px) {
 
-    .menu-wrapper{
-        position: absolute;
-        top: 150px;
-        left: 0;
-        height: 50px;
-        width: 100%;
-        background: unset;
-    }
-
-    .primary-menu, .secondary-menu{
-        width: calc(50% - 100px);
-        max-width: 500px;
-        padding: unset;
-        margin: auto;
-        display: flex;
-    }
-
-    .primary-menu{
-        float:left;
-    }
-
-    .secondary-menu{
-        float:right;
-    }
-
-    .primary-menu ul, .secondary-menu ul, .secondary-menu p{
-        padding: 0;
-        margin: auto;
-        display: inline-flex;
-    }
-
-    .primary-menu ul li, .secondary-menu ul li{
-        display: inline;
-        padding: 5px 15px;
-        margin: auto;
-        position: relative;
-        border: unset;
-    }
-
-    .secondary-menu p{
-        margin: auto;
-        margin-right: 0;
-    }
-
-    nav ul li:hover{
-        cursor: pointer;
-    }
-
-    nav ul li a::after, .active_menu::after{
-        content: '';
-        position: absolute;
-        bottom:-5px;
-        left:2%;
-        width: 96%;
-        height: 2px;
-        background: #fff;
-        opacity: 0;
-        transform: translateX(-15px);
-        transition: .3s ease-in-out;
-    }
-
-    .menu-item_active, nav ul li a:hover::after, .active_menu::after{
-        opacity: 1;
-        transform: translateX(0px);
-    }
 }
