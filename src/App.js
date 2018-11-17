@@ -53,7 +53,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <Router basename={'/face-off'}>
       <div className="App">
         <div className="container">
 
