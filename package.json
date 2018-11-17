@@ -2,6 +2,7 @@
   "name": "face-off",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://samuel-obrien25.github.io/face-off",
   "dependencies": {
     "@material-ui/core": "^1.4.0",
     "@material-ui/icons": "^1.1.0",
@@ -17,6 +18,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "face-off -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
