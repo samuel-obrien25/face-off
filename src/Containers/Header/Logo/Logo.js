@@ -103,7 +103,7 @@ render(){
             currentLogo = "https://www-league.nhlstatic.com/images/logos/teams-current-circle/54.svg"
             break;
         default:
-            currentLogo = '';
+            currentLogo = 'https://www-league.nhlstatic.com/images/logos/league-light/133.svg';
             break;        
     }
 
