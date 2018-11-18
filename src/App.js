@@ -12,10 +12,6 @@ import Players from './Containers/Pages/Players';
 -----TO DO LIST---------------
 ============================*/
 //DO NOW
-//==Fix broken NHL logo in Header
-//==Rework Home Page
-//======Add "Home" and "Schedule" Buttons
-
 //==Sketch out the rest of the designs in XD
 //=====Game Card
 //=====Schedule Card
@@ -26,13 +22,15 @@ import Players from './Containers/Pages/Players';
 //DO SOON
 //==Reorganize components so that they make more sense
 
-//==Reorgainze CSS because it's out of control
+//==Reorganize CSS because it's out of control
 //======Choose One-- CamelCase or kabob-case
 
 //==Figure out how to convert a JSON string to a javascript Date object.
 //=======Use that knowledge to make UX improvements including
 //==========Auto scroll to latest game
-//==========Lightly gray(grey?) out previous games and include scores
+
+//==Add Customized Team Header to schedule page
+//=====Add Records
 
 
 //===========DO LATER

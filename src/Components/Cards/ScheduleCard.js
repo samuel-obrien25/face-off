@@ -6,28 +6,21 @@ import HomeTeam from './HomeTeam';
 
 class ScheduleCard extends React.Component{
 
-    constructor(props){
-        super(props);
-        this.state={
-            isGamePast: false
-        }
-    }
     //TO DO
-
 
     render() {
         let jsonDate = new Date(this.props.gameDateTime),
             currentDate = new Date(),
+            isPast = "future",
             formattedGameDate = jsonDate.toLocaleDateString() + ' at ' + jsonDate.toLocaleTimeString();
 
             if(jsonDate < currentDate) {
-                this.setState = {
-                    isGamePast: true
-                }
-            }   
-
+                //Is this bad practice?
+                isPast = "past";
+            }
+                        
   return (
-      <div className="schedule-card card">
+      <div className={`schedule-card card ${isPast}`}>
         <div className="date-time"><p><span className="game-date">{formattedGameDate}</span></p></div>
         
         <AwayTeam

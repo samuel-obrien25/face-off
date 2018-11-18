@@ -8,6 +8,7 @@ class TeamList extends React.Component{
         return(
 
             <div className="card_container card-container-teams" id="card_container_team_list">
+            <section className="division">
                 <h2 className="division-name">Atlantic</h2>
                 <Card 
                     cardType="teamCard"
@@ -65,6 +66,8 @@ class TeamList extends React.Component{
                     value="12"
                     onClick={this.props.handleClick}
                 />
+                </section>
+                <section className="division">
                 <h2 className="division-name">Metropolitan</h2>
                 <Card 
                     cardType="teamCard"
@@ -124,6 +127,8 @@ class TeamList extends React.Component{
                     value="5"
                     onClick={this.props.handleClick}
                 />
+                </section>
+                <section className="division">
                 <h2 className="division-name">Central</h2>
                 <Card 
                     cardType="teamCard"
@@ -174,6 +179,8 @@ class TeamList extends React.Component{
                     value="2"
                     onClick={this.props.handleClick}
                 />
+                </section>
+                <section className="division">
                 <h2 className="division-name">Pacific</h2>
                 <Card 
                     cardType="teamCard"
@@ -231,6 +238,7 @@ class TeamList extends React.Component{
                     value="142"
                     onClick={this.props.handleClick}
                 />
+                </section>
         </div>
     )}
 }

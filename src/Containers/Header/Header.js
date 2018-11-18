@@ -9,8 +9,8 @@ class Header extends React.Component{
     render() {
         return (
         <header className="App-header">
-            <h1 className="App-title">FACEOFF</h1>
-            <h2>An Unnoficial App For All Your NHL Schedule Needs</h2>
+            <h1 className="App-title">{this.props.appTitle}</h1>
+            <h2>{this.props.appSubTitle}</h2>
         </header>
         );
     }
