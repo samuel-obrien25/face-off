@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '../Header/Header';
-import ApiCall from '../../Components/API/ApiCall';
-import TeamList from '../../Components/Cards/TeamList/TeamList';
-import Fab from '../../Components/Buttons/Fab';
-import '../../App.css'
+import Header from '../Components/Header/Header';
+import ApiCall from '../API/ApiCall';
+import TeamList from '../Components/Cards/TeamList/TeamList';
+import Fab from '../Components/Buttons/Fab';
+import '../App.css'
 
 class Schedule extends React.Component{
     
@@ -13,14 +13,12 @@ class Schedule extends React.Component{
         this.resetAPICall = this.resetAPICall.bind(this);
         this.state = {
             scheduleQueryRecipe: '',
-            gameDetailsRecipe: '',
             isFabActive: false,
             isTeamListActive: true,
             isScheduleListActive: false,
         };
     }
 
-    
     handleClick(e) {
         let currentTeam = e.target.tagName === "BUTTON" ? e.target.value : e.target.parentElement.value, //Handles clicks to H2/H3's.
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
@@ -28,7 +26,6 @@ class Schedule extends React.Component{
             //Transitions TeamCards Out
             cardContainerTeamList.classList.remove("fade-in");
             cardContainerTeamList.classList.add("fade-out");
-
 
         this.setState(() => {
            return {
@@ -38,13 +35,29 @@ class Schedule extends React.Component{
                 isScheduleListActive:true,
            };
         }, () => {
-            console.log(this.state.scheduleQueryRecipe);
-        });
-};
+        //This is not ideal, but it's a workaround for now. Set a 1.7s timeout before getting the list of cards.
+        //I'm going by last past game instead of next future game because of it was scrolling too far.
+
+                setTimeout(function(){
+                    if(!document.getElementsByClassName("future")){ return } else {
+                    let lastGame = document.getElementsByClassName("past").length - 1;
+                    document.getElementsByClassName("past")[lastGame].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                },1700);
+            }
+        )};
 
     resetAPICall() {
         let baseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=';
-
+        
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
 
         this.setState(()=>{
             return{
@@ -53,14 +66,19 @@ class Schedule extends React.Component{
                 isScheduleListActive: false,
                 isTeamListActive: true
             };
-        }, () => {
-            console.log("reset API and " + this.state.scheduleQueryRecipe);
         });
+ 
+
     };
+
+    componentDidUpdate(){
+        window.scrollTo({
+            top: 0,
+        })
+}
 
     render(){
         if(this.state.isScheduleListActive){
-
 
             console.log(this.state.queryRecipe);
                 return (
@@ -102,7 +120,7 @@ class Schedule extends React.Component{
             <div className="wrapper wrapper__home">
                 <h2 className="page__title page__title_schedule">Choose a Team</h2>
             <br/>
-            <TeamList 
+            <TeamList
              handleClick = {this.handleClick}
             />
 

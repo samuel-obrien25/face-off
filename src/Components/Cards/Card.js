@@ -22,14 +22,16 @@ class Card extends React.Component{
     componentDidMount() {
         //Cycles through each card on mount and adds animation delay.
         this.addCardDelay();
+        window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              });    
         }
-
-    render() {
-
-
+        
+render() {
         //Team Cards
             if(this.props.cardType === "teamCard") {
-                this.addCardDelay();
                 return (
                     <TeamCard 
                         cityName= {this.props.cityName}
@@ -48,8 +50,6 @@ class Card extends React.Component{
         //Schedule Cards
         if(this.props.cardType === "scheduleCard") {
             this.addCardDelay();
-
-
             return(
                 <ScheduleCard
                     gameDateTime={this.props.gameDateTime}
@@ -64,6 +64,7 @@ class Card extends React.Component{
                     onClick={this.props.handleClick}
                 />
             )
+            
           }
 
         return (

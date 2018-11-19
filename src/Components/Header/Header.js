@@ -1,8 +1,6 @@
 import React from 'react';
-import Logo from './Logo/Logo';
 
 import '../Header/Header.css';
-import '../../Styles/league-colors.css';
 
 class Header extends React.Component{
     

@@ -1,8 +1,8 @@
 import React from 'react';
 import '../Cards/card.css';
 
-import AwayTeam from './AwayTeam';
-import HomeTeam from './HomeTeam';
+import AwayTeam from './TeamList/AwayTeam';
+import HomeTeam from './TeamList/HomeTeam';
 
 class ScheduleCard extends React.Component{
 

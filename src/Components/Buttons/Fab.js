@@ -5,13 +5,13 @@ class Fab extends React.Component{
 
     render() {
 
-        if(this.props.visible === false){
+        if(!this.props.visible){
              return (
                 <button className="fab hidden"
                         onClick={this.props.onClick}
                         visibile={this.props.isActive}
                         >
-                    BACK
+                    <h3>{this.props.fabText}</h3>
                 </button>
             )
         } else {

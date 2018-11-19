@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Route } from "../node_modules/react-router-dom
 
 import './App.css';
 
-import Home from './Containers/Pages/Home';
-import Schedule from './Containers/Pages/Schedule';
-import Teams from './Containers/Pages/Teams';
-import Players from './Containers/Pages/Players';
+import Home from './Pages/Home';
+import Schedule from './Pages/Schedule';
 
 /*============================
 -----TO DO LIST---------------
@@ -57,9 +55,7 @@ class App extends React.Component {
 
           <Route exact={true} path="/" component={Home} />
           <Route path="/schedule" component={Schedule} />
-          <Route path="/teams" component={Teams} />
-          <Route path="/players" component={Players} />
-
+          
         </div>
       </div>
       </Router>

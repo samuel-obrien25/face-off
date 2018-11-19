@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from '../Cards/Card';
-import '../../App.css';
+import Card from '../Components/Cards/Card';
+import LoadingCircle from '../Components/Loading/LoadingCircle';
+import '../App.css'
 
 export default class ApiCall extends React.Component{
     constructor (props){
@@ -8,6 +9,7 @@ export default class ApiCall extends React.Component{
 
         this.state = {
             schedule: '',
+            isLoaded: false
         };
     }
 
@@ -27,11 +29,13 @@ export default class ApiCall extends React.Component{
                 .then(data => data.json())
                 .then(data => {
                     this.setState({
-                        schedule: data
+                        schedule: data,
+                        isLoaded: true
                     });
                     })
                     return;
-                }    
+    }
+
 
     componentDidUpdate(prevProps, prevState){
         if(this.props.url !== prevProps.url){
@@ -44,15 +48,17 @@ export default class ApiCall extends React.Component{
         //Otherwise, ONLY making that check in componentDidUpdate just won't call the API, because spoiler alert, the component didn't update.
         //Calling the API in the render method and checking if prevProps !== current props will result in many hundreds of calls to the API. MySportsFeeds: If you ever read this, my bad...
         this.fetchSchedule();
-        window.scrollTo(0,0);
-
+        console.log(document.getElementsByClassName("future").length);
     }
 
-  render(){
-    
+  render(){    
         if(this.props.ApiLink === "gameScheduleQuery") {
 
-                if (!this.state.schedule){ return null; }
+                if (this.state.isLoaded === false){ 
+                    return (
+                        <LoadingCircle />
+                    ) 
+                }
                 
                 else{
                 const games = this.state.schedule.games,

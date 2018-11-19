@@ -1,6 +1,6 @@
 import React from 'react';
-import '../Cards/card.css'
-import Logo from '../../Containers/Header/Logo/Logo'
+import '../../Cards/card.css'
+import Logo from '../../Logo/Logo'
 class AwayTeam extends React.Component{
 
     render() {
@@ -9,7 +9,7 @@ class AwayTeam extends React.Component{
         //====Figure out how to A) Combine with HomeTeam Component, or B) DRY it up.
 
         //Lets make this even LESS performative!
-        //Gets the awayTeamID, which is a numer.
+        //Gets the awayTeamID, which is a number.
         //Converts it to a string for the Logo component.
         var awayTeamValue = this.props.awayTeamID,
             logoValue = awayTeamValue.toString();

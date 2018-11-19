@@ -3,11 +3,6 @@ import '../Logo/Logo.css';
 
 export default class Logo extends React.Component{
 
-
-    componentWillMount(){
-        
-    }
-
 render(){
     let teamValue = this.props.value,
         currentLogo;

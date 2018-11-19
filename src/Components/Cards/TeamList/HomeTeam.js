@@ -1,6 +1,6 @@
 import React from 'react';
-import '../Cards/card.css';
-import Logo from '../../Containers/Header/Logo/Logo';
+import '../../Cards/card.css'
+import Logo from '../../Logo/Logo'
 class HomeTeam extends React.Component{
 
     render() {

@@ -33,7 +33,7 @@ Or, check it out live:
  - Research best practices for writing CSS in React and reorganize CSS
 	 - Make sure all classes are consistently formatted
 - ~~- Convert JSON date to JS Date~~ **(DONE)**
-	- Use that information to auto scroll to next upcoming game
+	~~- Use that information to auto scroll to next upcoming game~~ **(DONE)**
 - Style Header component based on selected Team
 - Add Team's Record to card components
 - Put time/effort into making UI improvements

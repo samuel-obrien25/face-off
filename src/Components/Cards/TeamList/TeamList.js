@@ -4,7 +4,9 @@ import '../../Cards/card.css';
 
 class TeamList extends React.Component{
 
+
     render() {
+
         return(
 
             <div className="card_container card-container-teams" id="card_container_team_list">

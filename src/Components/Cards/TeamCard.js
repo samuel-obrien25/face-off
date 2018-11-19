@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../Containers/Header/Logo/Logo'
+import Logo from '../Logo/Logo'
 import '../Cards/card.css';
 
 export default class TeamCard extends React.Component{
