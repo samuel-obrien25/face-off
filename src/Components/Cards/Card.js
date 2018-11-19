@@ -22,7 +22,7 @@ class Card extends React.Component{
     componentDidMount() {
         //Cycles through each card on mount and adds animation delay.
         this.addCardDelay();
-    }
+        }
 
     render() {
 

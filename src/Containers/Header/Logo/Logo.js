@@ -4,6 +4,10 @@ import '../Logo/Logo.css';
 export default class Logo extends React.Component{
 
 
+    componentWillMount(){
+        
+    }
+
 render(){
     let teamValue = this.props.value,
         currentLogo;
@@ -103,7 +107,7 @@ render(){
             currentLogo = "https://www-league.nhlstatic.com/images/logos/teams-current-circle/54.svg"
             break;
         default:
-            currentLogo = '';
+            currentLogo = 'https://www-league.nhlstatic.com/images/logos/league-light/133.svg';
             break;        
     }
 

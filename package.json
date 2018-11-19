@@ -2,6 +2,7 @@
   "name": "face-off",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://samuel-obrien25.github.io/face-off",
   "dependencies": {
     "@material-ui/core": "^1.4.0",
     "@material-ui/icons": "^1.1.0",
@@ -14,7 +15,6 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4"
   },
-  "homepage": "https://samuel-obrien25.github.io/face-off/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -22,5 +22,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }

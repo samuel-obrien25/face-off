@@ -10,7 +10,7 @@ export default class TeamCard extends React.Component{
                   let rawTeamName = this.props.cityName,
                       combinedTeamName = rawTeamName.replace(' ', '-').replace('.', '').toLowerCase();
                   return (
-                      <button className={`card teamCard ${combinedTeamName}`}
+                      <button className={`card team-card ${combinedTeamName}`}
                               onClick={this.props.onClick}
                               value={this.props.value}
                               >

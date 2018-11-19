@@ -6,16 +6,14 @@
     width: 94%;
     margin: auto;
     height: inherit;
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 1 auto;
-    justify-content: start;
+    display: inline-block;
+    text-align: center;
 }
 
 .division-name{
-    width: 100%;
     text-align: left;
     padding-left: 50px;
+    clear:both;
 }
 
 .card{
@@ -31,6 +29,7 @@
     animation: .3s ease-in-out fadeIn forwards;
     opacity: 0;
     transform:translateY(50px);
+    float: left;
 }
 
 .card:hover{
@@ -49,6 +48,10 @@ button{
     height: 300px;
     display: flex;
     flex-direction: column;
+}
+
+.past{
+    background-color: #e0e0e0
 }
 
 .schedule-card p, .schedule-card .team{
@@ -118,10 +121,10 @@ button{
 }
 @media only screen and (min-width: 600px) {
     .card{
-        width: 22%;
-        margin: 25px auto;
-        max-width: 200px;
+        width: 30%;
+        margin: 1.5%;
         height: 300px;
+        display: inline-block;
     }
 
     .card:hover{
@@ -129,4 +132,76 @@ button{
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         cursor: pointer;
     }
+
+
+    /*=======================================================
+    ---------------TEAM CARDS-------------------------------
+    ========================================================*/
+
+    .team-card{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .team-card h2, .team-card h3, .team-card .logo-container{
+        position: relative;
+        margin: auto;
+        left: auto;
+        right: auto;
+    }
+
+    .team-card h2{
+        margin-top: 20%;
+        font-size: 18px;
+    }
+
+    .team-card h3{
+        font-size: 28px;
+    }
+
+    .team-card .logo-container{
+        width: 50%;
+        max-width: 125px;
+    }
+    /*=======================================================
+    ---------------SCHEDULE CARDS-------------------------------
+    ========================================================*/
+
+    .schedule-card{
+        width: 47%;
+    }
+
+    .schedule-card .away-team{
+        margin-top: 50px;
+    }
+
+    .schedule-card .away-team .logo-container{
+        top: 12%;
+    }
+
+    .schedule-card .away-score{
+        top: 55px;
+    }
+
+    .schedule-card .home-team .logo-container{
+        bottom: 12%;
+    }
+
+    .schedule-card .home-score{
+        bottom: 55px;
+    }
+
+
+}
+
+@media only screen and (min-width: 1150px) {
+        .card{
+            width: 22%;
+            max-width: 275px;
+        }
+
+        .schedule-card{
+            width: 30%;
+            max-width: 100%;
+        }
 }

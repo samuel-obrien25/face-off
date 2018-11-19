@@ -57,14 +57,17 @@ class Schedule extends React.Component{
             console.log("reset API and " + this.state.scheduleQueryRecipe);
         });
     };
+
     render(){
         if(this.state.isScheduleListActive){
+
 
             console.log(this.state.queryRecipe);
                 return (
                     <div>
                         <Header 
-                           onClick={this.handleClick}
+                            appTitle={this.props.activeTeam}
+                            appSubTitle={this.props.activeTeamRecord}
                             />
                         <div className="wrapper wrapper__home">
                             <h2 className="page__title page__title_schedule">Choose a Game</h2>
@@ -93,24 +96,20 @@ class Schedule extends React.Component{
         
             <div>
             <Header 
-                onClick={this.handleClick}
+                appTitle="FACEOFF"
+                appSubTitle="An Unnoficial App For All Your NHL Schedule Needs"
             />
             <div className="wrapper wrapper__home">
-                <h2 className="page__title page__title_schedule">Choose Team</h2>
+                <h2 className="page__title page__title_schedule">Choose a Team</h2>
             <br/>
             <TeamList 
              handleClick = {this.handleClick}
             />
 
 
-        <Fab visible= {true}
+        <Fab visible={true}
              onClick={this.handleClick}
              fabText="View all games"
-             value=""
-        />
-        <Fab visible={this.state.isFabActive}
-             onClick={this.resetAPICall}
-             fabText="Back"
         />
 
         </div>

@@ -31,8 +31,7 @@ export default class ApiCall extends React.Component{
                     });
                     })
                     return;
-                }
-    
+                }    
 
     componentDidUpdate(prevProps, prevState){
         if(this.props.url !== prevProps.url){
@@ -45,6 +44,8 @@ export default class ApiCall extends React.Component{
         //Otherwise, ONLY making that check in componentDidUpdate just won't call the API, because spoiler alert, the component didn't update.
         //Calling the API in the render method and checking if prevProps !== current props will result in many hundreds of calls to the API. MySportsFeeds: If you ever read this, my bad...
         this.fetchSchedule();
+        window.scrollTo(0,0);
+
     }
 
   render(){
@@ -68,13 +69,17 @@ export default class ApiCall extends React.Component{
                                 homeTeamScore={game.score.homeScoreTotal}
                                 gameDateTime={game.schedule.startTime}
                                 gameID={game.schedule.id}
+                                onClick={this.handleClick}
                             />
         );
 
     return (
-
-        <div id="card_container_schedule_list" className="card_container card-container-schedule fade-in">
+        <div onLoad={this.props.onLoad}
+             id="card_container_schedule_list" 
+             className="card_container card-container-schedule fade-in">
+                
             {gameCard}
+            
         </div>
     )
   }

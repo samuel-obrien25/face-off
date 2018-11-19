@@ -10,9 +10,15 @@
     color: white;
     position: relative;
     z-index: 9000;
+    text-align:center;
 }
 
 .App-title{
-    width: 100%;
-    position: absolute;
+    margin: auto;
+    font-family: "Roboto";
+    font-size: 32px;
+}
+
+.App-header h2{
+    font-size: 18px;
 }
