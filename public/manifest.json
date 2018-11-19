@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-  "short_name": "React App",
-  "name": "Create React App Sample",
-=======
   "short_name": "Face Off",
   "name": "Face Off | Hockey Data Analysis",
->>>>>>> 01dce747b2cfd2fae35ad5a24098c8dce6e6d439
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,7 +8,7 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
