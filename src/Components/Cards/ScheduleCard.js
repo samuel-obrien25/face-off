@@ -1,8 +1,7 @@
 import React from 'react';
 import '../Cards/card.css';
 
-import AwayTeam from './TeamList/AwayTeam';
-import HomeTeam from './TeamList/HomeTeam';
+import Team from './TeamList/Team';
 
 class ScheduleCard extends React.Component{
 
@@ -29,23 +28,24 @@ class ScheduleCard extends React.Component{
             }
                         
   return (
-      <div className={`schedule-card card ${isPast}`}>
+    <div className={`schedule-card card ${isPast}`}>
         <div className="date-time"><p><span className="game-date">{formattedGameDate}</span></p></div>
-        
-        <AwayTeam
+        <Team
             awayTeamID={this.props.awayTeamID}
+            teamName={this.props.teamName}
+            teamCity={this.props.teamCity}
             awayTeamScore={this.props.awayTeamScore}
-            awayTeamName={this.props.awayTeamName}
-            awayTeamCity={this.props.awayTeamCity}
-        />
-            <p>At</p>
-        <HomeTeam
+            />
+        <p>At</p>
+        <Team
+            isHomeTeam={true}
             homeTeamID={this.props.homeTeamID}
+            teamName={this.props.teamName}
+            teamCity={this.props.teamCity}
             homeTeamScore={this.props.homeTeamScore}
-            homeTeamName={this.props.homeTeamName}
-            homeTeamCity={this.props.homeTeamCity}
-        />
-        </div>
+            />
+
+    </div>
   )
 }
 }
