@@ -39,12 +39,13 @@ render() {
                         onClick={this.props.onClick}
                         value={this.props.value}
                     />
-                  )}
+                  );
+                }
 
                 //Menu Cards
             if(this.props.cardType === "menuCard") {
                 this.addCardDelay();
-                <MenuCard />;
+                return <MenuCard />
                 }
 
         //Schedule Cards

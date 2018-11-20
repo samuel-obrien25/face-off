@@ -16,6 +16,7 @@ class Schedule extends React.Component{
             isFabActive: false,
             isTeamListActive: true,
             isScheduleListActive: false,
+            activeTeamName: 'unset'
         };
     }
 
@@ -33,6 +34,7 @@ class Schedule extends React.Component{
                 isFabActive: true,
                 isTeamListActive: false,
                 isScheduleListActive:true,
+                activeTeamName: currentTeam
            };
         }, () => {
         //I should revisit this at some point, but I think it will work for the vast majority of the time.
@@ -96,8 +98,7 @@ class Schedule extends React.Component{
                 return (
                     <div>
                         <Header 
-                            appTitle={this.props.activeTeam}
-                            appSubTitle={this.props.activeTeamRecord}
+                            activeTeamName={this.state.activeTeamName}
                             />
                         <div className="wrapper wrapper__home">
                             <h2 className="page__title page__title_schedule">Choose a Game</h2>
