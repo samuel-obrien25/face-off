@@ -12,7 +12,16 @@ class ScheduleCard extends React.Component{
         let jsonDate = new Date(this.props.gameDateTime),
             currentDate = new Date(),
             isPast = "future",
-            formattedGameDate = jsonDate.toLocaleDateString() + ' at ' + jsonDate.toLocaleTimeString();
+            weekday = new Array(7);
+                weekday[0] =  "Sunday";
+                weekday[1] = "Monday";
+                weekday[2] = "Tuesday";
+                weekday[3] = "Wednesday";
+                weekday[4] = "Thursday";
+                weekday[5] = "Friday";
+                weekday[6] = "Saturday";
+            
+        let formattedGameDate = weekday[jsonDate.getDay()] + ', ' + jsonDate.toLocaleDateString() + ' at ' + jsonDate.toLocaleTimeString();
 
             if(jsonDate < currentDate) {
                 //Is this bad practice?

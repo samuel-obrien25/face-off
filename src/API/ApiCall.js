@@ -36,7 +36,6 @@ export default class ApiCall extends React.Component{
                     return;
     }
 
-
     componentDidUpdate(prevProps, prevState){
         if(this.props.url !== prevProps.url){
             this.fetchSchedule();
@@ -77,22 +76,20 @@ export default class ApiCall extends React.Component{
                                 gameID={game.schedule.id}
                                 onClick={this.handleClick}
                             />
-        );
+                        );
 
-    return (
-        <div onLoad={this.props.onLoad}
-             id="card_container_schedule_list" 
-             className="card_container card-container-schedule fade-in">
-                
-            {gameCard}
-            
-        </div>
-    )
-  }
+                        return (
+                            <div onLoad={this.props.onLoad}
+                                id="card_container_schedule_list" 
+                                className="card_container card-container-schedule fade-in">
+                                    
+                                {gameCard}
+                                
+                            </div>
+                        )
+                    }
 
-}
-  }
-
-
+        }
+    }
 }
 

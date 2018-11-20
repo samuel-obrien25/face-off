@@ -35,20 +35,32 @@ class Schedule extends React.Component{
                 isScheduleListActive:true,
            };
         }, () => {
-        //This is not ideal, but it's a workaround for now. Set a 1.7s timeout before getting the list of cards.
-        //I'm going by last past game instead of next future game because of it was scrolling too far.
+        //I should revisit this at some point, but I think it will work for the vast majority of the time.
+        //Problem: I cannot figure out where to reliably call a function once the first upcoming game is loaded.
+        //Solution: Set interval that returns on fail, and clears interval on successful scrollIntoView.
+        //Note to self: this would be a great opportunity to learn unit testing. 
 
-                setTimeout(function(){
-                    if(!document.getElementsByClassName("future")){ return } else {
-                    let lastGame = document.getElementsByClassName("past").length - 1;
-                    document.getElementsByClassName("past")[lastGame].scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                let timeOutAfterScroll = setInterval(scrollToNextGame, 500);
+                function stopTimeoutAfterScroll() {
+                    clearInterval(timeOutAfterScroll);
                 }
-                },1700);
+
+                function scrollToNextGame() {
+                    setTimeout(function () {
+                        if (document.getElementsByClassName("future").length > 1) {
+                            document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            stopTimeoutAfterScroll();
+                        } else {
+                            return
+                        }
+                    }, 1000)
+                }
             }
-        )};
+        )
+    };
 
     resetAPICall() {
         let baseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=';
