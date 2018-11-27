@@ -1,12 +1,26 @@
 import React from 'react';
+import { NavLink } from "../../../../node_modules/react-router-dom/";
+
 import '../Menu/Menu.css';
 
-import PrimaryMenu from './PrimaryMenu';
+class Menu extends React.Component{
 
-const Menu = () => {    
+    render() {
+
         return (
-            <PrimaryMenu />
-        );
-    }    
-    export default Menu;
+              <nav className="primary-menu" >
+                <ul id="primaryMenu" onChange={this.props.resetAPI}>
+                    <li>
+                        <NavLink to="/" exact activeClassName="active_menu">Home</NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="/schedule" activeClassName="active_menu">Schedule</NavLink>
+                    </li>
+                </ul>
+            </nav>
+              );
+    }
+    }
     
+    export default Menu;

@@ -4,138 +4,145 @@ import Logo from '../../Logo/Logo'
 class Team extends React.Component{
 
     render() {
+        let teamName,
+            teamCity,
+            teamValue,
+            logoValue;
+
+
         if(this.props.isHomeTeam){
-            var teamValue = this.props.homeTeamID,
-                logoValue = teamValue.toString();
+            teamValue = this.props.homeTeamID;
+            logoValue = teamValue.toString();
 
         } else {
-            var teamValue = this.props.awayTeamID,
-                logoValue = teamValue.toString();
+            teamValue = this.props.awayTeamID;
+            logoValue = teamValue.toString();
         }
+
 
         switch (teamValue) {
             case 1:
-            var teamName = 'Lightning',
+                teamName = 'Lightning';
                 teamCity = 'Tampa Bay';
             break;
             case 2:
-            var teamName = 'Jets',
+                teamName = 'Jets';
                 teamCity = 'Winnipeg';
             break;
             case 3:
-            var teamName = 'Hurricanes',
+                teamName = 'Hurricanes';
                 teamCity = 'Carolina';
             break;
             case 4:
-            var teamName = 'Panthers',
+                teamName = 'Panthers';
                 teamCity = 'Florida';
            break;
             case 5:
-            var teamName = 'Capitals',
+                teamName = 'Capitals';
                 teamCity = 'Washington';
            break;
             case 6:
-            var teamName = 'Flyers',
+                teamName = 'Flyers';
                 teamCity = 'Philadelphia';
            break;
             case 7:
-            var teamName = 'Devils',
+                teamName = 'Devils';
                 teamCity = 'New Jersey';
            break;
             case 8:
-            var teamName = 'Islanders',
+                teamName = 'Islanders';
                 teamCity = 'New York';
            break;
             case 9:
-            var teamName = 'Rangers',
+                teamName = 'Rangers';
                 teamCity = 'New York';
            break;
             case 10:
-            var teamName = 'Penguins',
+                teamName = 'Penguins';
                 teamCity = 'Pittsburgh';
            break;
             case 11:
-            var teamName = 'Bruins',
+                teamName = 'Bruins';
                 teamCity = 'Boston';
            break;
             case 12:
-            var teamName = 'Maple Leafs',
+                teamName = 'Maple Leafs';
                 teamCity = 'Toronto';
            break;
             case 13:
-            var teamName = 'Senators',
+                teamName = 'Senators';
                 teamCity = 'Ottawa';
            break;
             case 14:
-            var teamName = 'Canadians',
+                teamName = 'Canadians';
                 teamCity = 'Montreal';
            break;
             case 15:
-            var teamName = 'Sabres',
+                teamName = 'Sabres';
                 teamCity = 'Buffalo';
            break;
             case 16:
-            var teamName = 'Red Wings',
+                teamName = 'Red Wings';
                 teamCity = 'Detroit';
            break;
             case 17:
-            var teamName = 'Blues',
+                teamName = 'Blues';
                 teamCity = 'St. Louis';
            break;
             case 18:
-            var teamName = 'Predators',
+                teamName = 'Predators';
                 teamCity = 'Nasheville';
            break;
             case 19:
-            var teamName = 'Blue Jackets',
+                teamName = 'Blue Jackets';
                 teamCity = 'Columbus';
            break;
             case 20:
-            var teamName = 'Blackhawks',
+                teamName = 'Blackhawks';
                 teamCity = 'Chicago';
            break;
             case 21:
-            var teamName = 'Canucks',
+                teamName = 'Canucks';
                 teamCity = 'Vancouver';
            break;
             case 22:
-            var teamName = 'Avalanche',
+                teamName = 'Avalanche';
                 teamCity = 'Colorado';
            break;
             case 23:
-            var teamName = 'Flames',
+                teamName = 'Flames';
                 teamCity = 'Calgary';
            break;
             case 24:
-            var teamName = 'Oilers',
+                teamName = 'Oilers';
                 teamCity = 'Edmonton';
            break;
             case 25:
-            var teamName = 'Wild',
+                teamName = 'Wild';
                 teamCity = 'Minnesota';
            break;
             case 26:
-            var teamName = 'Sharks',
+                teamName = 'Sharks';
                 teamCity = 'San Jose';
            break;
             case 27:
-            var teamName = 'Stars',
+                teamName = 'Stars';
                 teamCity = 'Dallas';
            break;
             case 28:
-            var teamName = 'Kings',
+                teamName = 'Kings';
                 teamCity = 'Los Angeles';
            break;
             case 29:
-            var teamName = 'Ducks',
+                teamName = 'Ducks';
                 teamCity = 'Anaheim';
            break;
             case 30:
-            var teamName = 'Coyotes',
+                teamName = 'Coyotes';
                 teamCity = 'Arizona';
            break;
             case 142:
-            var teamName = 'Golden Knights',
+                teamName = 'Golden Knights';
                 teamCity = 'Los Vegas';
            break;
           default:

@@ -36,7 +36,7 @@ export default class ApiCall extends React.Component{
                     return;
     }
 
-    componentDidUpdate(prevProps, prevState){
+    componentDidUpdate(prevProps){
         if(this.props.url !== prevProps.url){
             this.fetchSchedule();
         }
@@ -53,43 +53,43 @@ export default class ApiCall extends React.Component{
   render(){    
         if(this.props.ApiLink === "gameScheduleQuery") {
 
-                if (this.state.isLoaded === false){ 
-                    return (
-                        <LoadingCircle />
-                    ) 
-                }
-                
-                else{
+            if (this.state.isLoaded === false){ 
+                //Doesn't work as intended
+                return (
+                    <LoadingCircle />
+                ) 
+            }
+            
+            else{
                 const games = this.state.schedule.games,
-                      gameCard = games.map((game) =>
-                            <Card key={game.schedule.id}
-                                cardType="scheduleCard"
-                                awayTeamName={this.props.awayTeamName}
-                                awayTeamCity={this.props.awayTeamCity}
-                                awayTeamID={game.schedule.awayTeam.id}
-                                awayTeamScore={game.score.awayScoreTotal}
-                                homeTeamName={this.props.homeTeamName}
-                                homeTeamCity={this.props.homeTeamCity}
-                                homeTeamID={game.schedule.homeTeam.id}
-                                homeTeamScore={game.score.homeScoreTotal}
-                                gameDateTime={game.schedule.startTime}
-                                gameID={game.schedule.id}
-                                onClick={this.handleClick}
-                                activeTeamName={this.props.activeTeamName}
-                            />
-                        );
+                    gameCard = games.map((game) =>
+                        <Card key={game.schedule.id}
+                            cardType="scheduleCard"
+                            awayTeamName={this.props.awayTeamName}
+                            awayTeamCity={this.props.awayTeamCity}
+                            awayTeamID={game.schedule.awayTeam.id}
+                            awayTeamScore={game.score.awayScoreTotal}
+                            homeTeamName={this.props.homeTeamName}
+                            homeTeamCity={this.props.homeTeamCity}
+                            homeTeamID={game.schedule.homeTeam.id}
+                            homeTeamScore={game.score.homeScoreTotal}
+                            gameDateTime={game.schedule.startTime}
+                            gameID={game.schedule.id}
+                            onClick={this.handleClick}
+                            activeTeamName={this.props.activeTeamName}
+                        />
+                    );
 
-                        return (
-                            <div onLoad={this.props.onLoad}
-                                id="card_container_schedule_list" 
-                                className="card_container card-container-schedule fade-in">
-                                    
-                                {gameCard}
+                    return (
+                        <div onLoad={this.props.onLoad}
+                            id="card_container_schedule_list" 
+                            className="card_container card-container-schedule fade-in">
                                 
-                            </div>
-                        )
-                    }
-
+                            {gameCard}
+                            
+                        </div>
+                    )
+                }
         }
     }
 }

@@ -43,25 +43,25 @@ class Schedule extends React.Component{
     };
 
     scrollToNextGame(){
-    let timeOutAfterScroll = setInterval(findNextGame, 500);
-    function stopTimeoutAfterScroll() {
-        clearInterval(timeOutAfterScroll);
-    }
+        let timeOutAfterScroll = setInterval(findNextGame, 500);
+        function stopTimeoutAfterScroll() {
+            clearInterval(timeOutAfterScroll);
+        }
 
-    function findNextGame() {
-        setTimeout(function () {
-            if (document.getElementsByClassName("future").length > 1) {
-                document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                stopTimeoutAfterScroll();
-            } else {
-                return
-            }
-        }, 1000)
+        function findNextGame() {
+            setTimeout(function () {
+                if (document.getElementsByClassName("future").length > 1) {
+                    document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    stopTimeoutAfterScroll();
+                } else {
+                    return
+                }
+            }, 1000)
+        }
     }
-}
 
     resetAPICall() {
         let baseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=';
@@ -89,21 +89,21 @@ class Schedule extends React.Component{
         window.scrollTo({
             top: 0,
         })
-}
+    }
 
     render(){
         if(this.state.isScheduleListActive){
-
+            //Good to have reference too the API link...
             console.log(this.state.queryRecipe);
+
                 return (
                     <div>
                         <Header 
                             activeTeamName={this.state.activeTeamName}
-                            />
+                        />
                         <div className="wrapper wrapper__home">
                             <h2 className="page__title page__title_schedule">Choose a Game</h2>
                             <br/>   
-
                             <ApiCall
                                 url={this.state.scheduleQueryRecipe}
                                 ApiLink="gameScheduleQuery"
@@ -111,49 +111,47 @@ class Schedule extends React.Component{
                                 activeTeamName={this.state.activeTeamName}
                             />
                 
-                <Fab visible={this.state.isFabActive} 
-                     onClick={this.scrollToNextGame}
-                     fabText="Next Game"
-                     className="next-game-fab"
-                />
+                            <Fab visible={this.state.isFabActive} 
+                                onClick={this.scrollToNextGame}
+                                fabText="Next Game"
+                                className="next-game-fab"
+                            />
 
-                <Fab visible={this.state.isFabActive}
-                     onClick={this.resetAPICall}
-                     fabText="Back"
-                />
+                            <Fab visible={this.state.isFabActive}
+                                onClick={this.resetAPICall}
+                                fabText="Back"
+                            />
         
-                </div>
-                </div>
+                        </div>
+                    </div>
         
                 )
         }
 
         if(this.state.isTeamListActive){
 
-        return (
-        
-            <div>
-            <Header 
-                appTitle="FACEOFF"
-                appSubTitle="An Unnoficial App For All Your NHL Schedule Needs"
-            />
-            <div className="wrapper wrapper__home">
-                <h2 className="page__title page__title_schedule">Choose a Team</h2>
-            <br/>
-            <TeamList
-             handleClick = {this.handleClick}
-             value = {this.currentTeam}
-            />
-
-        <Fab visible={true}
-             onClick={this.handleClick}
-             fabText="View all games"
-        />
-
-        </div>
-        </div>
-    )
-}
+            return (
+                <div>
+                    <Header 
+                        appTitle="Face Off"
+                        appSubTitle="Quick access to NHL Schedule, Stats, and more"
+                    />
+                    <div className="wrapper wrapper__home">
+                        <h2 className="page__title page__title_schedule">Choose a Team</h2>
+                        <br/>
+                        <TeamList
+                            handleClick = {this.handleClick}
+                            value = {this.currentTeam}
+                        />
+                        <Fab 
+                            visible={true}
+                            onClick={this.handleClick}
+                            fabText="View all games"
+                        />
+                    </div>
+                </div>
+            )
+        }
     }
 }
 
