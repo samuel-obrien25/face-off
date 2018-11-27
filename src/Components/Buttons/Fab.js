@@ -7,7 +7,7 @@ class Fab extends React.Component{
 
         if(!this.props.visible){
              return (
-                <button className="fab hidden"
+                <button className={`fab hidden ${this.props.className}`}
                         onClick={this.props.onClick}
                         visibile={this.props.isActive}
                         >
@@ -16,7 +16,7 @@ class Fab extends React.Component{
             )
         } else {
               return (
-            <button className="fab fade-in"
+            <button className={`fab fade-in ${this.props.className}`}
                     onClick={this.props.onClick}
                     visibile={this.props.isActive}
                     >

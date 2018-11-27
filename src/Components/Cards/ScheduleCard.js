@@ -29,7 +29,7 @@ class ScheduleCard extends React.Component{
                         
   return (
     <div className={`schedule-card card ${isPast}`}>
-        <div className="date-time"><p><span className="game-date">{formattedGameDate}</span></p></div>
+        <div className={`date-time team${this.props.activeTeamName}`}><p><span className="game-date">{formattedGameDate}</span></p></div>
         <Team
             awayTeamID={this.props.awayTeamID}
             teamName={this.props.teamName}

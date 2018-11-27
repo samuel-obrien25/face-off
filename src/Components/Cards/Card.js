@@ -63,6 +63,7 @@ render() {
                     homeTeamCity={this.props.homeTeamCity}
                     homeTeamScore={this.props.homeTeamScore}
                     onClick={this.props.handleClick}
+                    activeTeamName={this.props.activeTeamName}
                 />
             )
             

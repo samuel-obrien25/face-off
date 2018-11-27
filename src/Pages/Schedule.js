@@ -3,7 +3,8 @@ import Header from '../Components/Header/Header';
 import ApiCall from '../API/ApiCall';
 import TeamList from '../Components/Cards/TeamList/TeamList';
 import Fab from '../Components/Buttons/Fab';
-import '../App.css'
+import '../App.css';
+import '../Utilities/league-colors.css';
 
 class Schedule extends React.Component{
     
@@ -11,6 +12,7 @@ class Schedule extends React.Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.resetAPICall = this.resetAPICall.bind(this);
+        this.scrollToNextGame = this.scrollToNextGame.bind(this);
         this.state = {
             scheduleQueryRecipe: '',
             isFabActive: false,
@@ -36,33 +38,30 @@ class Schedule extends React.Component{
                 isScheduleListActive:true,
                 activeTeamName: currentTeam
            };
-        }, () => {
-        //I should revisit this at some point, but I think it will work for the vast majority of the time.
-        //Problem: I cannot figure out where to reliably call a function once the first upcoming game is loaded.
-        //Solution: Set interval that returns on fail, and clears interval on successful scrollIntoView.
-        //Note to self: this would be a great opportunity to learn unit testing. 
-
-                let timeOutAfterScroll = setInterval(scrollToNextGame, 500);
-                function stopTimeoutAfterScroll() {
-                    clearInterval(timeOutAfterScroll);
-                }
-
-                function scrollToNextGame() {
-                    setTimeout(function () {
-                        if (document.getElementsByClassName("future").length > 1) {
-                            document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                            stopTimeoutAfterScroll();
-                        } else {
-                            return
-                        }
-                    }, 1000)
-                }
-            }
+        }
         )
     };
+
+    scrollToNextGame(){
+    let timeOutAfterScroll = setInterval(findNextGame, 500);
+    function stopTimeoutAfterScroll() {
+        clearInterval(timeOutAfterScroll);
+    }
+
+    function findNextGame() {
+        setTimeout(function () {
+            if (document.getElementsByClassName("future").length > 1) {
+                document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                stopTimeoutAfterScroll();
+            } else {
+                return
+            }
+        }, 1000)
+    }
+}
 
     resetAPICall() {
         let baseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=';
@@ -78,7 +77,8 @@ class Schedule extends React.Component{
                 scheduleQueryRecipe: baseURL,
                 isFabActive: false,
                 isScheduleListActive: false,
-                isTeamListActive: true
+                isTeamListActive: true,
+                activeTeamName: 'unset'
             };
         });
  
@@ -108,7 +108,14 @@ class Schedule extends React.Component{
                                 url={this.state.scheduleQueryRecipe}
                                 ApiLink="gameScheduleQuery"
                                 onClick={this.getGameDetails}
+                                activeTeamName={this.state.activeTeamName}
                             />
+                
+                <Fab visible={this.state.isFabActive} 
+                     onClick={this.scrollToNextGame}
+                     fabText="Next Game"
+                     className="next-game-fab"
+                />
 
                 <Fab visible={this.state.isFabActive}
                      onClick={this.resetAPICall}
@@ -135,8 +142,8 @@ class Schedule extends React.Component{
             <br/>
             <TeamList
              handleClick = {this.handleClick}
+             value = {this.currentTeam}
             />
-
 
         <Fab visible={true}
              onClick={this.handleClick}

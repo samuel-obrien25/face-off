@@ -75,6 +75,7 @@ export default class ApiCall extends React.Component{
                                 gameDateTime={game.schedule.startTime}
                                 gameID={game.schedule.id}
                                 onClick={this.handleClick}
+                                activeTeamName={this.props.activeTeamName}
                             />
                         );
 

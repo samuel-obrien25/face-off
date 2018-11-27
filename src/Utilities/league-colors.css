@@ -1,0 +1,158 @@
+/*===================================
+----------League Colors-------------
+===================================*/
+.team1{ /*Lightning*/
+    background-color: #00205b;
+    color: rgba(255,255,255.85);
+   }
+   
+   .team2{ /*Jets*/
+    background-color: #041e42;
+    color: rgba(255,255,255.85);
+   }
+   
+   .team3{ /*Hurricanes*/
+       background-color: #c8102e;
+       color: rgba(255,255,255.85);
+   
+   }
+   
+   .team4{/*Panthers*/
+       background-color: #041e42;
+       color: rgba(255,255,255.85);
+   }
+   
+   .team5{ /*Capitals*/
+       background-color: #041e42;
+       color: rgba(255,255,255.85);
+   }
+   
+   .team6{ /*Flyers*/
+       background-color: #fa4616;
+       color: rgba(255,255,255.85);
+   }
+   
+   .team7{ /*Devils*/
+       background-color: #c8102e;
+       color: rgba(255,255,255.85);
+   }
+   
+   .team8{ /*Islanders*/
+       background-color: #003087;
+       color: rgba(255,255,255.85);
+   }
+   
+   .team9{ /*Rangers*/
+    background-color: #0033a0;
+    color: rgba(255,255,255.85);
+   }
+   
+   .team10{ /*Penguins*/
+    background-color: #ffb81c;
+    color: rgba(0,0,0,.85);
+   }
+   
+   .team11{/*bruins*/
+       background-color: #ffb81c;
+       color: rgba(0,0,0,.85);   
+   }
+   
+   .team12{ /*Maple Leafs*/
+       background-color: #00205b;
+       color: rgba(255,255,255.85);   
+   }
+   
+   .team13{/*Senators*/
+       background-color: #c8102e;
+       color: rgba(255,255,255.85);   
+   }
+   
+   .team14{ /*Canadiens*/
+       background-color: #001e62;
+       color: rgba(255,255,255.85);   
+   }
+   
+   .team15{/*Sabres*/
+       background-color: #041e42;
+       color: rgba(255,255,255.85);
+   }
+   
+   .team16{/*Red Wings*/
+   background-color: #c8102e;
+   color: rgba(255,255,255.85);
+   }
+   
+   .team17{ /*Blues*/
+    background-color: #003087;
+    color: rgba(255,255,255.85);
+   }
+   
+   .team18{ /*Predators*/
+       background-color: #ffb81c;
+       color: rgba(0,0,0,.85);   
+   }
+   
+   .team19{ /*Blue Jackets*/
+       background-color: #041e42;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team20{/*Black Hawks*/
+       background-color: #010101;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team21{/*Avalanche*/
+       background-color: #236192;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team22{/*Canucks*/
+       background-color: #00205b;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team23{/*Flames*/
+       background-color: #c8102e;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team24{/*Oilers*/
+       background-color: #cf4520;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team25{/*Wild*/
+       background-color: #154734;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team26{/*Sharks*/
+       background-color: #006272;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team27{/*Stars*/
+       background-color: #006341;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team28{/*Kings*/
+       background-color: #010101;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team29{/*Ducks*/
+       background-color: #fc4c02;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team30{/*Coyotes*/
+       background-color: #862633;
+       color: rgba(255,255,255,.85);
+   }
+   
+   .team142{/*Golden Knights*/
+       background-color: #b4975a;
+       color: rgba(255,255,255,.85);
+   }
