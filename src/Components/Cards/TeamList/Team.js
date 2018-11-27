@@ -9,7 +9,6 @@ class Team extends React.Component{
             teamValue,
             logoValue;
 
-
         if(this.props.isHomeTeam){
             teamValue = this.props.homeTeamID;
             logoValue = teamValue.toString();
@@ -18,7 +17,6 @@ class Team extends React.Component{
             teamValue = this.props.awayTeamID;
             logoValue = teamValue.toString();
         }
-
 
         switch (teamValue) {
             case 1:

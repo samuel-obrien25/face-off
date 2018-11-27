@@ -11,6 +11,7 @@
     position: relative;
     z-index: 9000;
     text-align:center;
+    transition: .25s ease-in-out;
 }
 
 .App-title{

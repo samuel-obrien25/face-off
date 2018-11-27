@@ -76,14 +76,15 @@ export default class ApiCall extends React.Component{
                             gameDateTime={game.schedule.startTime}
                             gameID={game.schedule.id}
                             onClick={this.handleClick}
+                            activeTeamID={this.props.activeTeamID}
                             activeTeamName={this.props.activeTeamName}
                         />
                     );
 
                     return (
-                        <div onLoad={this.props.onLoad}
-                            id="card_container_schedule_list" 
-                            className="card_container card-container-schedule fade-in">
+                         <div onLoad={this.props.onLoad}
+                              id="card_container_schedule_list" 
+                              className="card_container card-container-schedule fade-in">
                                 
                             {gameCard}
                             

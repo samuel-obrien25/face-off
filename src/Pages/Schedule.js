@@ -18,12 +18,15 @@ class Schedule extends React.Component{
             isFabActive: false,
             isTeamListActive: true,
             isScheduleListActive: false,
-            activeTeamName: 'unset'
+            activeTeamID: '',
+            headerH1: '',
+            headerH2: ''
         };
     }
 
     handleClick(e) {
         let currentTeam = e.target.tagName === "BUTTON" ? e.target.value : e.target.parentElement.value, //Handles clicks to H2/H3's.
+            currentTeamName = e.target.firstChild.innerHTML + " " + e.target.firstChild.nextSibling.innerHTML,
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             cardContainerTeamList = document.getElementById("card_container_team_list");
             //Transitions TeamCards Out
@@ -36,31 +39,20 @@ class Schedule extends React.Component{
                 isFabActive: true,
                 isTeamListActive: false,
                 isScheduleListActive:true,
-                activeTeamName: currentTeam
+                activeTeamID: currentTeam,
+                headerH1: currentTeamName,
            };
         }
         )
     };
 
-    scrollToNextGame(){
-        let timeOutAfterScroll = setInterval(findNextGame, 500);
-        function stopTimeoutAfterScroll() {
-            clearInterval(timeOutAfterScroll);
-        }
-
-        function findNextGame() {
-            setTimeout(function () {
-                if (document.getElementsByClassName("future").length > 1) {
-                    document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    stopTimeoutAfterScroll();
-                } else {
-                    return
-                }
-            }, 1000)
-        }
+    scrollToNextGame(){ 
+        if (document.getElementsByClassName("future").length > 1) {
+            document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        } else { return }
     }
 
     resetAPICall() {
@@ -78,7 +70,7 @@ class Schedule extends React.Component{
                 isFabActive: false,
                 isScheduleListActive: false,
                 isTeamListActive: true,
-                activeTeamName: 'unset'
+                headerH1: ''
             };
         });
  
@@ -99,7 +91,9 @@ class Schedule extends React.Component{
                 return (
                     <div>
                         <Header 
-                            activeTeamName={this.state.activeTeamName}
+                            activeTeamID={this.state.activeTeamID}
+                            headerH1={this.state.headerH1}
+                            headerH2={this.state.headerH2}
                         />
                         <div className="wrapper wrapper__home">
                             <h2 className="page__title page__title_schedule">Choose a Game</h2>
@@ -108,7 +102,7 @@ class Schedule extends React.Component{
                                 url={this.state.scheduleQueryRecipe}
                                 ApiLink="gameScheduleQuery"
                                 onClick={this.getGameDetails}
-                                activeTeamName={this.state.activeTeamName}
+                                activeTeamID={this.state.activeTeamID}
                             />
                 
                             <Fab visible={this.state.isFabActive} 
@@ -133,8 +127,8 @@ class Schedule extends React.Component{
             return (
                 <div>
                     <Header 
-                        appTitle="Face Off"
-                        appSubTitle="Quick access to NHL Schedule, Stats, and more"
+                        headerH1={this.state.headerH1}
+                        headerH2={this.state.headerH2}
                     />
                     <div className="wrapper wrapper__home">
                         <h2 className="page__title page__title_schedule">Choose a Team</h2>

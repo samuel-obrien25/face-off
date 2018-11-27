@@ -1,7 +1,6 @@
 import React from 'react';
 import '../Cards/card.css';
 import TeamCard from './TeamCard';
-import MenuCard from './MenuCard';
 import ScheduleCard from './ScheduleCard';
 
 class Card extends React.Component{
@@ -42,12 +41,6 @@ render() {
                   );
                 }
 
-                //Menu Cards
-            if(this.props.cardType === "menuCard") {
-                this.addCardDelay();
-                return <MenuCard />
-                }
-
         //Schedule Cards
         if(this.props.cardType === "scheduleCard") {
             this.addCardDelay();
@@ -63,17 +56,12 @@ render() {
                     homeTeamCity={this.props.homeTeamCity}
                     homeTeamScore={this.props.homeTeamScore}
                     onClick={this.props.handleClick}
-                    activeTeamName={this.props.activeTeamName}
+                    activeTeamID={this.props.activeTeamID}
                 />
             )
             
           }
-
-        return (
-            <div className="card">
-            </div>
-        );
-    }
+        }
     }
     
 export default Card;
