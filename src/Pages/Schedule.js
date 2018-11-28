@@ -105,16 +105,19 @@ class Schedule extends React.Component{
                                 activeTeamID={this.state.activeTeamID}
                             />
                 
-                            <Fab visible={this.state.isFabActive} 
-                                onClick={this.scrollToNextGame}
-                                fabText="Next Game"
-                                className="next-game-fab"
-                            />
+                            <div className="fab-container">
+                                <Fab visible={this.state.isFabActive} 
+                                    onClick={this.scrollToNextGame}
+                                    fabText="Next Game"
+                                    fabClass={`fab next-game-fab team${this.state.activeTeamID}`}
+                                    />
 
-                            <Fab visible={this.state.isFabActive}
-                                onClick={this.resetAPICall}
-                                fabText="Back"
-                            />
+                                <Fab visible={this.state.isFabActive}
+                                    onClick={this.resetAPICall}
+                                    fabClass={`fab team${this.state.activeTeamID}`}
+                                    fabText="Back"
+                                />
+                            </div>
         
                         </div>
                     </div>
@@ -137,11 +140,14 @@ class Schedule extends React.Component{
                             handleClick = {this.handleClick}
                             value = {this.currentTeam}
                         />
-                        <Fab 
-                            visible={true}
-                            onClick={this.handleClick}
-                            fabText="View all games"
-                        />
+                        <div className="fab-container">
+                            <Fab 
+                                visible={true}
+                                onClick={this.handleClick}
+                                fabClass="fab"
+                                fabText="View all games"
+                            />
+                        </div>
                     </div>
                 </div>
             )

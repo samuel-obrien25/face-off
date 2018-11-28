@@ -4,11 +4,14 @@ import Logo from '../../Logo/Logo'
 class Team extends React.Component{
 
     render() {
+        //Variables that feed into Home team and Away team components
         let teamName,
             teamCity,
             teamValue,
             logoValue;
 
+            //Gets props.isHomeTeam from Card.js
+            
         if(this.props.isHomeTeam){
             teamValue = this.props.homeTeamID;
             logoValue = teamValue.toString();
@@ -17,7 +20,7 @@ class Team extends React.Component{
             teamValue = this.props.awayTeamID;
             logoValue = teamValue.toString();
         }
-
+            //Assign teamName and TeamCity data based on teamID
         switch (teamValue) {
             case 1:
                 teamName = 'Lightning';
@@ -148,6 +151,7 @@ class Team extends React.Component{
         }
 
         if(this.props.isHomeTeam){
+            //Should I break these out into individual components again?
             return(
                 <div className="team home-team">
                     <h2>{teamName}</h2>

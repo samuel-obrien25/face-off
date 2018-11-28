@@ -43,6 +43,7 @@ render() {
 
         //Schedule Cards
         if(this.props.cardType === "scheduleCard") {
+            //Adds card animation delay effect
             this.addCardDelay();
             return(
                 <ScheduleCard
