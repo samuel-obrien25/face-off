@@ -4,6 +4,11 @@ import LoadingCircle from '../Components/Loading/LoadingCircle';
 import '../App.css'
 
 export default class ApiCall extends React.Component{
+
+//To Do
+// == Document code
+// == Figure out if anything can be broken out into its own component
+
     constructor (props){
         super(props);
 

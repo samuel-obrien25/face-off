@@ -4,7 +4,7 @@ import TeamCard from './TeamCard';
 import ScheduleCard from './ScheduleCard';
 
 class Card extends React.Component{
-
+    //Cycles through each card on mount and adds animation delay.
     addCardDelay = () => {
         let cardsList = document.getElementsByClassName("card"),
             i = 0;
@@ -19,7 +19,6 @@ class Card extends React.Component{
     }
 
     componentDidMount() {
-        //Cycles through each card on mount and adds animation delay.
         this.addCardDelay();
         window.scrollTo({
                 top: 0,
@@ -60,9 +59,8 @@ render() {
                     activeTeamID={this.props.activeTeamID}
                 />
             )
-            
-          }
         }
     }
+}
     
 export default Card;

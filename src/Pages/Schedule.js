@@ -26,7 +26,7 @@ class Schedule extends React.Component{
 
     handleClick(e) {
         let currentTeam = e.target.tagName === "BUTTON" ? e.target.value : e.target.parentElement.value, //Handles clicks to H2/H3's.
-            currentTeamName = e.target.firstChild.innerHTML + " " + e.target.firstChild.nextSibling.innerHTML,
+            currentTeamName = e.target.firstChild.innerHTML + " " + e.target.firstChild.nextSibling.innerHTML, //THIS DOES NOT WORK ON MOBILE
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             cardContainerTeamList = document.getElementById("card_container_team_list");
             //Transitions TeamCards Out

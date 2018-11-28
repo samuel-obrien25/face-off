@@ -1,4 +1,7 @@
 @media screen and (min-width:1px){
+    /* TO DO
+    // Make View All Games --> Next Game Fab transition smooth
+    */
 
     .fab-container{
         position: fixed;
@@ -6,7 +9,7 @@
         right: 30px;
         height: 50px;
         width: 250px;
-        transition: .25s ease-in-out;
+        transition: .5s ease-in-out;
         display: flex;
     }
 
@@ -14,7 +17,7 @@
         border-radius: 8px;
         background-color: #fff;
         box-shadow: 2px 2px 6px rgba(0,0,0,.4);
-        transition: .25s ease-in-out;
+        transition: .5s ease-in-out;
         border: 2px solid rgba(255,255,255,.5);
         display: flex;
         margin:auto;
@@ -31,10 +34,6 @@
     .fab h3{
         margin: auto;
         padding: 0px 10px;
-    }
-
-    .next-game-fab{
-        right: 125px;
     }
 }
 
