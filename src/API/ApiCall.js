@@ -14,7 +14,7 @@ export default class ApiCall extends React.Component{
 
         this.state = {
             schedule: '',
-            isLoaded: false
+            isLoaded: false,
         };
     }
 
@@ -52,10 +52,9 @@ export default class ApiCall extends React.Component{
         //Otherwise, ONLY making that check in componentDidUpdate just won't call the API, because spoiler alert, the component didn't update.
         //Calling the API in the render method and checking if prevProps !== current props will result in many hundreds of calls to the API. MySportsFeeds: If you ever read this, my bad...
         this.fetchSchedule();
-        console.log(document.getElementsByClassName("future").length);
     }
 
-  render(){    
+  render(){
         if(this.props.ApiLink === "gameScheduleQuery") {
 
             if (this.state.isLoaded === false){ 

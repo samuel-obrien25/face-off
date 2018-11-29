@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Components/Header/Header';
 import ApiCall from '../API/ApiCall';
+import GetTeamStats from '../API/GetTeamStats';
 import TeamList from '../Components/Cards/TeamList/TeamList';
 import Fab from '../Components/Buttons/Fab';
 import '../App.css';
@@ -15,6 +16,7 @@ class Schedule extends React.Component{
         this.scrollToNextGame = this.scrollToNextGame.bind(this);
         this.state = {
             scheduleQueryRecipe: '',
+            teamStatsQueryRecipe: '',
             isFabActive: false,
             isTeamListActive: true,
             isScheduleListActive: false,
@@ -29,6 +31,7 @@ class Schedule extends React.Component{
         let currentTeam = e.target.tagName === "BUTTON" ? e.target.value : e.target.parentElement.value, //Handles clicks to H2/H3's.
             currentTeamName = e.target.firstChild.innerHTML + " " + e.target.firstChild.nextSibling.innerHTML, //THIS DOES NOT WORK ON MOBILE
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
+            teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team=',
             cardContainerTeamList = document.getElementById("card_container_team_list");
             //Transitions TeamCards Out
             cardContainerTeamList.classList.remove("fade-in");
@@ -37,17 +40,17 @@ class Schedule extends React.Component{
         this.setState(() => {
            return {
                 scheduleQueryRecipe: scheduleBaseURL + currentTeam,
+                teamStatsQueryRecipe: teamStatsBaseURL + currentTeam,
                 isFabActive: true,
                 isTeamListActive: false,
                 isScheduleListActive:true,
                 activeTeamID: currentTeam,
                 headerH1: currentTeamName,
            };
-        }
-        )
+        });
     };
 
-    scrollToNextGame(){ 
+    scrollToNextGame(){
         if (document.getElementsByClassName("future").length > 1) {
             document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
                 behavior: 'smooth',
@@ -57,7 +60,8 @@ class Schedule extends React.Component{
     }
 
     resetAPICall() {
-        let baseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=';
+        let scheduleQueryBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
+            teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team='
         
         window.scrollTo({
             top: 0,
@@ -67,7 +71,8 @@ class Schedule extends React.Component{
 
         this.setState(()=>{
             return{
-                scheduleQueryRecipe: baseURL,
+                scheduleQueryRecipe: scheduleQueryBaseURL,
+                teamStatsBaseURL: teamStatsBaseURL,
                 isFabActive: false,
                 isScheduleListActive: false,
                 isTeamListActive: true,
@@ -78,20 +83,73 @@ class Schedule extends React.Component{
 
     };
 
+    setDateH2(){
+
+        //Basically, I have no idea where to call this function WITHOUT setinterval.
+        //It works...
+
+        let timer = setInterval(prependMonthSection, 200);
+
+        function prependMonthSection() {
+            let scheduleCardsList = document.getElementsByClassName("schedule-card"),
+
+                january = document.createElement("H2"),
+                february = document.createElement("H2"),
+                march = document.createElement("H2"),
+                april = document.createElement("H2"),
+                october = document.createElement("H2"),
+                november = document.createElement("H2"),
+                december = document.createElement("H2");
+                
+                january.innerHTML = "January";
+                february.innerHTML = "February";
+                march.innerHTML = "March";
+                april.innerHTML = "April";
+                october.innerHTML = "October";
+                november.innerHTML = "November";
+                december.innerHTML = "December";
+
+            let monthH2s = [january, february, march, april, october, november, december];
+
+                for(let i = 0; i < monthH2s.length; i++){
+                    monthH2s[i].className = "month";
+                }
+
+            if(scheduleCardsList.length > 60){
+                clearInterval(timer);
+                document.querySelectorAll("[data-month='0']")[0].insertAdjacentElement('beforebegin', january);
+                document.querySelectorAll("[data-month='1']")[0].insertAdjacentElement('beforebegin', february);
+                document.querySelectorAll("[data-month='2']")[0].insertAdjacentElement('beforebegin', march);
+                document.querySelectorAll("[data-month='3']")[0].insertAdjacentElement('beforebegin', april);
+                document.querySelectorAll("[data-month='9']")[0].insertAdjacentElement('beforebegin', october);
+                document.querySelectorAll("[data-month='10']")[0].insertAdjacentElement('beforebegin', november);
+                document.querySelectorAll("[data-month='11']")[0].insertAdjacentElement('beforebegin', december);
+            }
+        }
+    }
+
+
     componentDidUpdate(){
         window.scrollTo({
             top: 0,
-        })
+        });
     }
 
     render(){
         if(this.state.isScheduleListActive){
             //Good to have reference too the API link...
             console.log(this.state.queryRecipe);
+            this.setDateH2();
 
                 return (
                     <div>
-                        <Header 
+                    <GetTeamStats
+                        url={this.state.teamStatsQueryRecipe}
+                        ApiLink="teamStatsQuery"
+                        activeTeamID={this.state.activeTeamID}
+                        
+                    />
+                        <Header
                             activeTeamID={this.state.activeTeamID}
                             headerH1={this.state.headerH1}
                             headerH2={this.state.headerH2}
@@ -102,10 +160,9 @@ class Schedule extends React.Component{
                             <ApiCall
                                 url={this.state.scheduleQueryRecipe}
                                 ApiLink="gameScheduleQuery"
-                                onClick={this.getGameDetails}
                                 activeTeamID={this.state.activeTeamID}
                             />
-                
+
                             <div className="fab-container">
                                 <Fab visible={this.state.isFabActive} 
                                     onClick={this.scrollToNextGame}

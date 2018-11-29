@@ -18,14 +18,14 @@ class ScheduleCard extends React.Component{
             currentDate = new Date(),
             isPast = "future",
             weekday = new Array(7);
-                weekday[0] =  "Sunday";
+                weekday[0] = "Sunday";
                 weekday[1] = "Monday";
                 weekday[2] = "Tuesday";
                 weekday[3] = "Wednesday";
                 weekday[4] = "Thursday";
                 weekday[5] = "Friday";
                 weekday[6] = "Saturday";
-            
+
         let formattedGameDate = weekday[jsonDate.getDay()] + ', ' + jsonDate.toLocaleDateString() + ' at ' + jsonDate.toLocaleTimeString();
 
             if(jsonDate < currentDate) {
@@ -34,9 +34,13 @@ class ScheduleCard extends React.Component{
                 //Is this bad practice?
                 isPast = "past";
             }
+        
+
                         
   return (
-    <div className={`schedule-card card ${isPast}`}>
+    <div className={`schedule-card card ${isPast}`}
+         data-month={jsonDate.getMonth()}
+    >
         <div className={`date-time team${this.props.activeTeamID}`}><p><span className="game-date">{formattedGameDate}</span></p></div>
         <Team
             awayTeamID={this.props.awayTeamID}

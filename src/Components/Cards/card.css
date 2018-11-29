@@ -19,12 +19,13 @@
         height: 100%;
     }
 
-    .division-name {
+    .division-name, .month {
         text-align: left;
         padding: 20px;
         border-bottom: 1px solid #555;
         width: 50%;
         clear: both;
+        margin-left: 10px;
     }
 
     .card{
@@ -41,6 +42,7 @@
         opacity: 0;
         transform:translateY(50px);
         float: left;
+        overflow: hidden;
     }
 
     .card:hover{
@@ -55,6 +57,7 @@
     /*======================================
     ------------SCHEDULE CARDS--------------
     =======================================*/
+
     .schedule-card{
         height: 300px;
         display: flex;
@@ -76,7 +79,7 @@
     .date-time{
         position: absolute;
         top:0;
-        width: 80%;
+        width: 100%;
         left:0;
         right:0;
         margin:auto;

@@ -17,15 +17,18 @@ class Card extends React.Component{
             cardsList[i].style.animationDelay = l;
         }
     }
+ 
 
     componentDidMount() {
         this.addCardDelay();
+
         window.scrollTo({
                 top: 0,
                 left: 0,
                 behavior: 'smooth'
               });    
-        }
+    }
+
         
 render() {
         //Team Cards
@@ -44,6 +47,7 @@ render() {
         if(this.props.cardType === "scheduleCard") {
             //Adds card animation delay effect
             this.addCardDelay();
+
             return(
                 <ScheduleCard
                     gameDateTime={this.props.gameDateTime}
@@ -57,6 +61,7 @@ render() {
                     homeTeamScore={this.props.homeTeamScore}
                     onClick={this.props.handleClick}
                     activeTeamID={this.props.activeTeamID}
+                    month={this.props.month}
                 />
             )
         }
