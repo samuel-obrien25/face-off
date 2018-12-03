@@ -21,11 +21,6 @@ class Card extends React.Component{
 
     componentDidMount() {
         this.addCardDelay();
-
-        window.scrollTo({
-                top: 0,
-                left: 0,
-              });    
     }
 
         
