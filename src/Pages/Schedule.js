@@ -33,10 +33,12 @@ class Schedule extends React.Component{
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team=',
             cardContainerTeamList = document.getElementById("card_container_team_list");
+            
             //Transitions TeamCards Out
             cardContainerTeamList.classList.remove("fade-in");
             cardContainerTeamList.classList.add("fade-out");
 
+            if(currentTeamName === null){ return }
         this.setState(() => {
            return {
                 scheduleQueryRecipe: scheduleBaseURL + currentTeam,
