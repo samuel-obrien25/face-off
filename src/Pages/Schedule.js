@@ -65,11 +65,7 @@ class Schedule extends React.Component{
         let scheduleQueryBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team='
         
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        })
+        window.scrollTo(0,0);
 
         this.setState(()=>{
             return{
@@ -132,9 +128,7 @@ class Schedule extends React.Component{
 
 
     componentDidUpdate(){
-        window.scrollTo({
-            top: 0,
-        });
+        window.scrollTo(0,0);
     }
 
     render(){
