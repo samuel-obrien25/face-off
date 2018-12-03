@@ -1,5 +1,9 @@
 @media only screen and (min-width: 1px) {
 
+    html, body{
+        scroll-behavior: smooth;
+    }
+
     .card_container{
         position: absolute;
         top:50px;
@@ -9,6 +13,7 @@
         height: inherit;
         display: inline-block;
         text-align: center;
+        scroll-behavior: smooth;
     }
     /*==================================
     ------------DIVISIONS----------------
@@ -43,6 +48,7 @@
         transform:translateY(50px);
         float: left;
         overflow: hidden;
+        scroll-behavior: smooth;
     }
 
     .card:hover{
