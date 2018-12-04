@@ -1,15 +1,23 @@
 /*===================================
 ----------League Colors-------------
 ===================================*/
-.team1{ /*Lightning*/
-    background-color: #00205b;
-    color: rgba(255,255,255.85);
+    .team1{ /*Lightning*/
+        background-color: #00205b;
+        color: rgba(255,255,255.85);
+   }
+
+   .team1 > *{
+        color: rgba(255,255,255.85);
    }
    
    .team2{ /*Jets*/
-    background-color: #041e42;
-    color: rgba(255,255,255.85);
+        background-color: #041e42;
+        color: rgba(255,255,255.85);
    }
+
+   .team2 > *{
+        color: rgba(255,255,255.85);
+    }
    
    .team3{ /*Hurricanes*/
        background-color: #c8102e;

@@ -23,6 +23,8 @@
         margin:auto;
         margin-right:0;
         height: 100%;
+        color: inherit;
+
     }
 
     .fab:hover{
