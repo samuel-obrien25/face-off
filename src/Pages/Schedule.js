@@ -192,14 +192,14 @@ class Schedule extends React.Component{
                             handleClick = {this.handleClick}
                             value = {this.currentTeam}
                         />
-                        <div className="fab-container">
+                        {/* <div className="fab-container">
                             <Fab 
                                 visible={true}
                                 onClick={this.handleClick}
                                 fabClass="fab"
                                 fabText="View all games"
-                            />
-                        </div>
+                                />
+                        </div> */}
                     </div>
                 </div>
             )

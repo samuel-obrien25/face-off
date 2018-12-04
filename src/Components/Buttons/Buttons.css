@@ -23,8 +23,6 @@
         margin:auto;
         margin-right:0;
         height: 100%;
-        color: inherit;
-
     }
 
     .fab:hover{
@@ -40,6 +38,7 @@
     .fab h3{
         margin: auto;
         padding: 0px 10px;
+        color: currentColor;
     }
 }
 
