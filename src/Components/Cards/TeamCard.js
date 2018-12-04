@@ -1,5 +1,6 @@
 import React from 'react';
-import Logo from '../Logo/Logo'
+import Logo from '../Logo/Logo';
+import ThreeDotMenu from '../Buttons/ThreeDotMenu';
 import '../Cards/card.css';
 
 export default class TeamCard extends React.Component{
@@ -17,6 +18,7 @@ export default class TeamCard extends React.Component{
                     onClick={this.props.onClick}
                     value={this.props.value}
                     >
+                    <ThreeDotMenu />
                     <h2>{this.props.cityName}</h2>
                     <h3>{this.props.teamName}</h3>
                     <Logo value={this.props.value} />
