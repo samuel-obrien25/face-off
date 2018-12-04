@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from '../Components/Cards/Card';
 import LoadingCircle from '../Components/Loading/LoadingCircle';
 import '../App.css'
 

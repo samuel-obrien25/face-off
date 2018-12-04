@@ -28,8 +28,8 @@ class Schedule extends React.Component{
 
     handleClick(e) {
         e.preventDefault();
-        let currentTeam = e.target.tagName === "BUTTON" ? e.target.value : e.target.parentElement.value, //Handles clicks to H2/H3's.
-            currentTeamName = e.target.firstChild.innerHTML + " " + e.target.firstChild.nextSibling.innerHTML, //THIS DOES NOT WORK ON MOBILE
+        let currentTeam = e.target.closest(".card").value, //Properly handles clicks to nested elements
+            currentTeamName = e.target.closest(".card").firstChild.innerHTML + " " + e.target.closest(".card").firstChild.nextSibling.innerHTML, //Gets closest card, then concatenates(?) child H2 and H3
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team=',
             cardContainerTeamList = document.getElementById("card_container_team_list");
@@ -65,7 +65,7 @@ class Schedule extends React.Component{
         let scheduleQueryBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team='
         
-        window.scrollTo(0,0);
+        window.scrollTo(0,0)
 
         this.setState(()=>{
             return{
