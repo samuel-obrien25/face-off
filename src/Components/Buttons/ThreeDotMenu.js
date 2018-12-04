@@ -5,10 +5,8 @@ const ThreeDotMenu = () => {
 
     const handleClick = (e) => {
         e.stopPropagation();
-         
-        
-        e.target.closest(".three-dot-menu").classList.toggle("hidden-three-dot-menu");
-        e.target.closest("three-dot-menu-wrapper").classList.toggle("three-dot-menu-wrapper-active");
+//TO DO -- find closest three-dot-menu-wrapper . find next three-dot-menu I think that SHOULD be ok
+        e.target.closest(".three-dot-menu-wrapper").classList.toggle("three-dot-menu-hidden");
     }
 
     return (

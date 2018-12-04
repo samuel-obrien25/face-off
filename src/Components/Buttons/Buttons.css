@@ -53,16 +53,6 @@
         padding: 25px;
     }
 
-    .three-dot-menu-wrapper-active::before{
-            width: 300px;
-            height: 200px;
-            content: '';
-            background-color: #FFF;
-            position: absolute;
-            left: 0;
-            top: 0;
-    }
-
     .three-dot-button{
         width: auto;
         height: auto;
@@ -70,7 +60,9 @@
         flex-direction: row;
         background-color: inherit;
         z-index: 9200;
-        position: relative;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 
     .three-dot-menu-wrapper:hover > .dot{
