@@ -31,6 +31,10 @@
         box-shadow: 2px 2px 9px rgba(0,0,0,.65);
     }
 
+    .fab:focus{
+        outline: none;
+    }
+
     .fab h3{
         margin: auto;
         padding: 0px 10px;

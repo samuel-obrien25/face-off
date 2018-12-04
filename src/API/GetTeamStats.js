@@ -1,4 +1,5 @@
 import React from 'react';
+
 import LoadingCircle from '../Components/Loading/LoadingCircle';
 import '../App.css'
 
@@ -12,33 +13,32 @@ export default class GetTeamStats extends React.Component{
         super(props);
 
         this.state = {
+            teamStats: '',
             isLoaded: false,
-            teamStats: ''
         };
     }
 
     fetchTeamStats(){
-        const   
-            username = 'sobrien',
-            password = 'MYSPORTSFEEDS',
-            init = {
-                type: "GET",
-                url: this.props.url,
-                dataType: 'json',
-                async: false,
-                headers: {
-                    "Authorization": "Basic " + btoa(username + ":" + password)
-                }
-        };
-        fetch(this.props.url, init)
-            .then(data => data.json())
-            .then(data => {
+        const   username = 'sobrien',
+                password = 'MYSPORTSFEEDS',
+                url = this.props.url,
+                init = {
+                    type: "GET",
+                    dataType: 'json',
+                    async: false,
+                    headers: {
+                        "Authorization": "Basic " + btoa(username + ":" + password)
+                    }
+                 };
+        fetch(url, init)
+            .then(resp => resp.json())
+            .then(resp => {
                 this.setState({
-                    teamStats: data,
+                    teamStats: resp,
+                    isLoaded: true
                 });
-                })
+                });
                 return;
-
     }
 
     componentDidUpdate(prevProps){
@@ -54,9 +54,9 @@ export default class GetTeamStats extends React.Component{
         this.fetchTeamStats();
     }
 
-  render(){
+    render(){
         if(this.props.ApiLink === "teamStatsQuery") {
-            console.log(this.state.teamStats);
+
             if (this.state.isLoaded === false){ 
                 //Doesn't work as intended
                 return (
@@ -65,13 +65,15 @@ export default class GetTeamStats extends React.Component{
             }
             
             else{
-                    return (
-                         <div onLoad={this.props.onLoad}>
-
+                const teamStats = this.state.teamStats.teamStatsTotals[0];
+                console.log(teamStats);
+                return (
+                         <div>
+                         
                         </div>
                     )
                 }
         }
-    }
+    }    
 }
 

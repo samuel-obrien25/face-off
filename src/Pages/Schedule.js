@@ -22,7 +22,7 @@ class Schedule extends React.Component{
             isScheduleListActive: false,
             activeTeamID: '',
             headerH1: '',
-            headerH2: ''
+            headerH2: '',
         };
     }
 
@@ -38,7 +38,7 @@ class Schedule extends React.Component{
             cardContainerTeamList.classList.remove("fade-in");
             cardContainerTeamList.classList.add("fade-out");
 
-            if(currentTeamName === null){ return }
+            if(!currentTeamName){ return }
         this.setState(() => {
            return {
                 scheduleQueryRecipe: scheduleBaseURL + currentTeam,
@@ -48,6 +48,7 @@ class Schedule extends React.Component{
                 isScheduleListActive:true,
                 activeTeamID: currentTeam,
                 headerH1: currentTeamName,
+                headerH2: this.props.currentTeamRecord,
            };
         });
     };
@@ -74,7 +75,8 @@ class Schedule extends React.Component{
                 isFabActive: false,
                 isScheduleListActive: false,
                 isTeamListActive: true,
-                headerH1: ''
+                headerH1: '',
+                headerH2: '',
             };
         });
  
@@ -134,7 +136,8 @@ class Schedule extends React.Component{
     render(){
         if(this.state.isScheduleListActive){
             //Good to have reference too the API link...
-            console.log(this.state.queryRecipe);
+            console.log("The current TeamStatsQueryRecipe is " + this.state.teamStatsQueryRecipe);
+            console.log("The current scheduleQueryRecipe is " + this.state.scheduleQueryRecipe);
             this.setDateH2();
 
                 return (
@@ -143,7 +146,7 @@ class Schedule extends React.Component{
                         url={this.state.teamStatsQueryRecipe}
                         ApiLink="teamStatsQuery"
                         activeTeamID={this.state.activeTeamID}
-                        
+                        activeTeamRecord = {this.props.activeTeamRecord}
                     />
                         <Header
                             activeTeamID={this.state.activeTeamID}
@@ -183,10 +186,6 @@ class Schedule extends React.Component{
 
             return (
                 <div>
-                    <Header 
-                        headerH1={this.state.headerH1}
-                        headerH2={this.state.headerH2}
-                    />
                     <div className="wrapper wrapper__home">
                         <h2 className="page__title page__title_schedule">Choose a Team</h2>
                         <br/>

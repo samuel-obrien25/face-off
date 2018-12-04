@@ -21,16 +21,16 @@ export default class ApiCall extends React.Component{
     fetchSchedule(){
     const   username = 'sobrien',
             password = 'MYSPORTSFEEDS',
+            url = this.props.url,
             init = {
                 type: "GET",
-                url: this.props.url,
                 dataType: 'json',
                 async: false,
                 headers: {
                     "Authorization": "Basic " + btoa(username + ":" + password)
                 }
             };
-            fetch(this.props.url, init)
+            fetch(url, init)
                 .then(data => data.json())
                 .then(data => {
                     this.setState({
@@ -86,8 +86,7 @@ export default class ApiCall extends React.Component{
                     );
 
                     return (
-                         <div onLoad={this.props.onLoad}
-                              id="card_container_schedule_list" 
+                         <div id="card_container_schedule_list" 
                               className="card_container card-container-schedule fade-in">
                                 
                             {gameCard}
