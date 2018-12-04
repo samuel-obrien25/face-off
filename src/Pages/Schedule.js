@@ -142,17 +142,16 @@ class Schedule extends React.Component{
 
                 return (
                     <div>
-                    <GetTeamStats
-                        url={this.state.teamStatsQueryRecipe}
-                        ApiLink="teamStatsQuery"
-                        activeTeamID={this.state.activeTeamID}
-                        activeTeamRecord = {this.props.activeTeamRecord}
-                    />
                         <Header
                             activeTeamID={this.state.activeTeamID}
                             headerH1={this.state.headerH1}
-                            headerH2={this.state.headerH2}
-                        />
+                        > 
+                            <GetTeamStats
+                                url={this.state.teamStatsQueryRecipe}
+                                ApiLink="teamStatsQuery"
+                            />
+                        </Header>
+                        
                         <div className="wrapper wrapper__home">
                             <h2 className="page__title page__title_schedule">Choose a Game</h2>
                             <br/>   

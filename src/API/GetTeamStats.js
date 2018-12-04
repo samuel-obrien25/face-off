@@ -14,7 +14,7 @@ export default class GetTeamStats extends React.Component{
 
         this.state = {
             teamStats: '',
-            isLoaded: false,
+            isLoading: true,
         };
     }
 
@@ -35,7 +35,7 @@ export default class GetTeamStats extends React.Component{
             .then(resp => {
                 this.setState({
                     teamStats: resp,
-                    isLoaded: true
+                    isLoading: false
                 });
                 });
                 return;
@@ -57,7 +57,7 @@ export default class GetTeamStats extends React.Component{
     render(){
         if(this.props.ApiLink === "teamStatsQuery") {
 
-            if (this.state.isLoaded === false){ 
+            if (this.state.isLoading){ 
                 //Doesn't work as intended
                 return (
                     <LoadingCircle />
@@ -65,12 +65,13 @@ export default class GetTeamStats extends React.Component{
             }
             
             else{
-                const teamStats = this.state.teamStats.teamStatsTotals[0];
-                console.log(teamStats);
-                return (
-                         <div>
-                         
-                        </div>
+                const teamWins = this.state.teamStats.teamStatsTotals[0].stats.standings.wins,
+                      teamLosses = this.state.teamStats.teamStatsTotals[0].stats.standings.losses,
+                      teamOvertimeLosses = this.state.teamStats.teamStatsTotals[0].stats.standings.overtimeLosses;
+                
+                    console.log(teamWins + ", " + teamLosses + ", " + teamOvertimeLosses);
+                    return (
+                        <h2 className="fade-in team-record">Record: ({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</h2>                       
                     )
                 }
         }
