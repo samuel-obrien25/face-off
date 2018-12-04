@@ -27,13 +27,13 @@ class Schedule extends React.Component{
     }
 
     handleClick(e) {
-        e.preventDefault();
-        let currentTeam = e.target.closest(".card").value, //Properly handles clicks to nested elements
+                //Properly handles clicks to nested elements. Deep down in my heart I know this probably isn't right.
+        let currentTeam = e.target.closest(".card").getAttribute('teamValue'), 
             currentTeamName = e.target.closest(".card").firstChild.innerHTML + " " + e.target.closest(".card").firstChild.nextSibling.innerHTML, //Gets closest card, then concatenates(?) child H2 and H3
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team=',
             cardContainerTeamList = document.getElementById("card_container_team_list");
-            
+            console.log(currentTeam);
             //Transitions TeamCards Out
             cardContainerTeamList.classList.remove("fade-in");
             cardContainerTeamList.classList.add("fade-out");
@@ -190,16 +190,8 @@ class Schedule extends React.Component{
                         <br/>
                         <TeamList
                             handleClick = {this.handleClick}
-                            value = {this.currentTeam}
+                            teamValue = {this.currentTeam}
                         />
-                        {/* <div className="fab-container">
-                            <Fab 
-                                visible={true}
-                                onClick={this.handleClick}
-                                fabClass="fab"
-                                fabText="View all games"
-                                />
-                        </div> */}
                     </div>
                 </div>
             )

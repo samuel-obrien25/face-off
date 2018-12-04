@@ -156,7 +156,7 @@ class Team extends React.Component{
                 <div className="team home-team">
                     <h2>{teamName}</h2>
                     <h3>{teamCity}</h3>
-                    <Logo value={logoValue} />
+                    <Logo teamValue={logoValue} />
                     <h2 className="score home-score">{this.props.homeTeamScore}</h2>
                 </div>
             )
@@ -165,7 +165,7 @@ class Team extends React.Component{
                 <div className="team away-team">
                     <h2>{teamName}</h2>
                     <h3>{teamCity}</h3>
-                    <Logo value={logoValue} />
+                    <Logo teamValue={logoValue} />
                     <h2 className="score away-score">{this.props.awayTeamScore}</h2>
                 </div>
                 )

@@ -32,7 +32,7 @@ render() {
                         cityName= {this.props.cityName}
                         teamName={this.props.teamName}
                         onClick={this.props.onClick}
-                        value={this.props.value}
+                        teamValue={this.props.teamValue}
                     />
                   );
                 }

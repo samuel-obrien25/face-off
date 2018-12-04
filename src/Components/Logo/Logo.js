@@ -4,7 +4,7 @@ import '../Logo/Logo.css';
 export default class Logo extends React.Component{
 
 render(){
-    let teamValue = this.props.value,
+    let teamValue = this.props.teamValue,
         currentLogo;
 
     switch(teamValue) {

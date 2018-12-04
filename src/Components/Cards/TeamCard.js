@@ -14,15 +14,15 @@ export default class TeamCard extends React.Component{
 
         //Team Cards
         return (
-            <button className= "card team-card"
+            <div className= "card team-card"
                     onClick={this.props.onClick}
-                    value={this.props.value}
+                    teamValue={this.props.teamValue}
                     >
-                    <ThreeDotMenu />
                     <h2>{this.props.cityName}</h2>
                     <h3>{this.props.teamName}</h3>
-                    <Logo value={this.props.value} />
-            </button>
+                    <Logo teamValue={this.props.teamValue} />
+                    <ThreeDotMenu />
+            </div>
         )
     }
 }

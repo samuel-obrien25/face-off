@@ -17,9 +17,9 @@ const ThreeDotMenu = () => {
         >
         <div className= "three-dot-button"
         >
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
         </div>
         <div className="three-dot-menu hidden-three-dot-menu">
         <h2> <span>&#9733;</span> Favorite Team</h2>
