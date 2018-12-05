@@ -7,7 +7,7 @@ Developed with React.js. Powered by data provided by MySportsFeeds API.
 ## Getting Started
 
     git clone https://github.com/samuel-obrien25/face-off
-Or, check it out live:
+Or, check out the latest build live:
 	https://face-off-build.herokuapp.com/
 
 ## TO-DO List

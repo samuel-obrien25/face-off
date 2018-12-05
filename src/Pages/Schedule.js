@@ -66,7 +66,6 @@ class Schedule extends React.Component{
         let scheduleQueryBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team='
         
-        window.scrollTo(0,0)
 
         this.setState(()=>{
             return{
@@ -78,9 +77,8 @@ class Schedule extends React.Component{
                 headerH1: '',
                 headerH2: '',
             };
-        });
- 
-
+        }, );
+        window.scrollTo(0,0);
     };
 
     setDateH2(){
