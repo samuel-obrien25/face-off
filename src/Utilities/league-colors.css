@@ -3,163 +3,144 @@
 ===================================*/
     .team1{ /*Lightning*/
         background-color: #00205b;
-        color: rgba(255,255,255.85);
-   }
-
-   .team1 > *{
-        color: rgba(255,255,255.85);
    }
    
    .team2{ /*Jets*/
         background-color: #041e42;
-        color: rgba(255,255,255.85);
    }
-
-   .team2 > *{
-        color: rgba(255,255,255.85);
-    }
    
    .team3{ /*Hurricanes*/
        background-color: #c8102e;
-       color: rgba(255,255,255.85);
    }
    
    .team4{/*Panthers*/
        background-color: #041e42;
-       color: rgba(255,255,255.85);
    }
    
    .team5{ /*Capitals*/
        background-color: #041e42;
-       color: rgba(255,255,255.85);
    }
    
    .team6{ /*Flyers*/
        background-color: #fa4616;
-       color: rgba(255,255,255.85);
    }
    
    .team7{ /*Devils*/
        background-color: #c8102e;
-       color: rgba(255,255,255.85);
    }
    
    .team8{ /*Islanders*/
        background-color: #003087;
-       color: rgba(255,255,255.85);
    }
    
    .team9{ /*Rangers*/
     background-color: #0033a0;
-    color: rgba(255,255,255.85);
    }
    
    .team10{ /*Penguins*/
     background-color: #ffb81c;
-    color: rgba(0,0,0,.85);
    }
    
    .team11{/*bruins*/
        background-color: #ffb81c;
-       color: rgba(0,0,0,.85);   
    }
    
    .team12{ /*Maple Leafs*/
        background-color: #00205b;
-       color: rgba(255,255,255.85);   
    }
    
    .team13{/*Senators*/
        background-color: #c8102e;
-       color: rgba(255,255,255.85);   
    }
    
    .team14{ /*Canadiens*/
        background-color: #001e62;
-       color: rgba(255,255,255.85);   
    }
    
    .team15{/*Sabres*/
        background-color: #041e42;
-       color: rgba(255,255,255.85);
    }
    
    .team16{/*Red Wings*/
    background-color: #c8102e;
-   color: rgba(255,255,255.85);
    }
    
    .team17{ /*Blues*/
     background-color: #003087;
-    color: rgba(255,255,255.85);
    }
    
    .team18{ /*Predators*/
        background-color: #ffb81c;
-       color: rgba(0,0,0,.85);   
    }
    
    .team19{ /*Blue Jackets*/
        background-color: #041e42;
-       color: rgba(255,255,255,.85);
    }
    
    .team20{/*Black Hawks*/
        background-color: #010101;
-       color: rgba(255,255,255,.85);
    }
    
    .team21{/*Avalanche*/
        background-color: #236192;
-       color: rgba(255,255,255,.85);
    }
    
    .team22{/*Canucks*/
        background-color: #00205b;
-       color: rgba(255,255,255,.85);
    }
    
    .team23{/*Flames*/
        background-color: #c8102e;
-       color: rgba(255,255,255,.85);
    }
    
    .team24{/*Oilers*/
        background-color: #cf4520;
-       color: rgba(255,255,255,.85);
    }
    
    .team25{/*Wild*/
        background-color: #154734;
-       color: rgba(255,255,255,.85);
    }
    
    .team26{/*Sharks*/
        background-color: #006272;
-       color: rgba(255,255,255,.85);
    }
    
    .team27{/*Stars*/
        background-color: #006341;
-       color: rgba(255,255,255,.85);
    }
    
    .team28{/*Kings*/
        background-color: #010101;
-       color: rgba(255,255,255,.85);
    }
    
    .team29{/*Ducks*/
        background-color: #fc4c02;
-       color: rgba(255,255,255,.85);
    }
    
    .team30{/*Coyotes*/
        background-color: #862633;
-       color: rgba(255,255,255,.85);
    }
    
    .team142{/*Golden Knights*/
        background-color: #b4975a;
-       color: rgba(255,255,255,.85);
    }
+
+   /*===================================
+   -------------Headers and Buttons-----
+   ===================================*/
+
+.team1 h1, .team2 h1, .team3 h1, .team4 h1, .team5 h1, .team6 h1, .team7 h1, .team8 h1, .team9 h1, .team12 h1, .team13 h1, .team14 h1, .team15 h1, .team16 h1, .team17 h1, .team19 h1, .team20 h1, .team21 h1, .team22 h1, .team23 h1, .team24 h1, .team25 h1, .team26 h1, .team27 h1, .team28 h1, .team29 h1, .team30 h1, .team142 h1, button.team1, button.team2, button.team3, button.team4, button.team5, button.team6, button.team7, button.team8, button.team9, button.team12, button.team13, button.team14, button.team15, button.team16, button.team17, button.team19, button.team20, button.team21, button.team22, button.team23, button.team24, button.team25, button.team26, button.team27, button.team28, button.team29, button.team30, button.team142{
+    color: rgba(255,255,255,.8)
+}
+
+.team1 h2, .team2 h2, .team3 h2, .team4 h2, .team5 h2, .team6 h2, .team7 h2, .team8 h2, .team9 h2, .team12 h2, .team13 h2, .team14 h2, .team15 h2, .team16 h2, .team17 h2, .team19 h2, .team20 h2, .team21 h2, .team22 h2, .team23 h2, .team24 h2, .team25 h2, .team26 h2, .team27 h2, .team28 h2, .team29 h2, .team30 h2, .team142 h2{
+    color: rgba(255,255,255,.65);
+}
+
+.team10 h1, .team11 h1, .team18 h1, button.team10, button.team11, button.team18{
+    color: rgba(0,0,0,.7);
+}
+
+.team10 h2, .team11 h2, .team18 h2{
+    color: rgba(0,0,0,.6)
+}
