@@ -4,7 +4,6 @@ import '../../Cards/card.css';
 
 class TeamList extends React.Component{
 
-
     render() {
 
         return(

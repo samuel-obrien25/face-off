@@ -3,10 +3,15 @@ import '../Buttons/Buttons.css';
 
 const ThreeDotMenu = () => {
 
-    const handleClick = (e) => {
+    let handleClick = (e) => {
         e.stopPropagation();
-//TO DO -- find closest three-dot-menu-wrapper . find next three-dot-menu I think that SHOULD be ok
-        e.target.closest(".three-dot-menu-wrapper").classList.toggle("three-dot-menu-hidden");
+       if(e.target.classList.contains("three-dot-menu-wrapper")){
+           e.target.lastChild.classList.toggle("hidden-three-dot-menu");
+       } else if(e.target.classList.contains("three-dot-button")){
+           e.target.parentElement.lastChild.classList.toggle("three-dot-menu-wrapper");
+       } else {
+           e.target.parentElement.parentElement.lastChild.classList.toggle("hidden-three-dot-menu");
+       }
     }
 
     return (

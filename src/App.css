@@ -54,7 +54,7 @@
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
-    transform: translateY(500px);
+    transform: translateY(50px);
   }
 
   100% {
