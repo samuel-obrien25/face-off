@@ -12,6 +12,8 @@
         width: 100%;
         flex-wrap: wrap;
         margin-top: 0;
+        text-align: left;
+
     }
 
     .primary-menu ul li{
@@ -20,18 +22,18 @@
         display: inline-block;
         width: 90%;
         height: 100px;
-        border: 3px solid #222;
         display: flex;
         border-radius: 8px;
         margin-bottom: 25px;
+
     }
 
     .primary-menu ul li a{
         margin:auto;
         color: #222;
-        text-decoration: unset;
         font-weight: 300;
-        font-size: 18px;
+        font-size: 32px;
+        display: block;
     }
 
 }

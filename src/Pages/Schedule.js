@@ -21,8 +21,8 @@ class Schedule extends React.Component{
             isTeamListActive: true,
             isScheduleListActive: false,
             activeTeamID: '',
-            headerH1: '',
-            headerH2: '',
+            headerH1: 'Face Off',
+            headerH2: 'Quick access to NHL Schedule, Stats, and more',
         };
     }
 
@@ -183,9 +183,11 @@ class Schedule extends React.Component{
 
             return (
                 <div>
+                    <Header
+                        headerH1 = {this.state.headerH1}
+                        headerH2 = {this.state.headerH2}
+                    />
                     <div className="wrapper wrapper__home">
-                        <h2 className="page__title page__title_schedule">Choose a Team</h2>
-                        <br/>
                         <TeamList
                             handleClick = {this.handleClick}
                             teamValue = {this.currentTeam}
