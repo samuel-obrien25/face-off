@@ -6,6 +6,7 @@ import TeamList from '../Components/Cards/TeamList/TeamList';
 import Fab from '../Components/Buttons/Fab';
 import '../App.css';
 import '../Utilities/league-colors.css';
+import { AutoComplete } from 'material-ui';
 
 class Schedule extends React.Component{
     
@@ -74,11 +75,15 @@ class Schedule extends React.Component{
                 isFabActive: false,
                 isScheduleListActive: false,
                 isTeamListActive: true,
-                headerH1: '',
-                headerH2: '',
+                headerH1: 'Face Off',
+                headerH2: 'Quick access to NHL Schedule, Stats, and more',
             };
         }, );
-        window.scrollTo(0,0);
+        window.scrollTo({
+            x: 0,
+            y: 0,
+            behavior: auto 
+        });
     };
 
     setDateH2(){
