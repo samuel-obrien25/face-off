@@ -3,24 +3,20 @@ import { NavLink } from "../../../../node_modules/react-router-dom/";
 
 import '../Menu/Menu.css';
 
-class Menu extends React.Component{
+const Menu = (props) => {
+    return (
+        <nav className="primary-menu" >
+            <ul id="primaryMenu" onChange={props.resetAPI}>
+                <li>
+                    <NavLink to="/" exact activeClassName="active_menu">Home</NavLink>
+                </li>
 
-    render() {
+                <li>
+                    <NavLink to="/schedule" activeClassName="active_menu">Schedule</NavLink>
+                </li>
+            </ul>
+        </nav>
+    )
+}
 
-        return (
-              <nav className="primary-menu" >
-                <ul id="primaryMenu" onChange={this.props.resetAPI}>
-                    <li>
-                        <NavLink to="/" exact activeClassName="active_menu">Home</NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/schedule" activeClassName="active_menu">Schedule</NavLink>
-                    </li>
-                </ul>
-            </nav>
-              );
-    }
-    }
-    
-    export default Menu;
+export default Menu;

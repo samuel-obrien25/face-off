@@ -1,10 +1,8 @@
 import React from 'react';
 import '../Logo/Logo.css';
 
-export default class Logo extends React.Component{
-
-render(){
-    let teamValue = this.props.teamValue,
+const Logo = (props) => {
+    let teamValue = props.teamValue,
         currentLogo;
 
     switch(teamValue) {
@@ -109,10 +107,10 @@ render(){
     return(
         <div className="logo-container">
             <img src = {currentLogo}
-                alt = {`${this.props.TeamName} logo`}
+                alt = {`${props.TeamName} logo`}
                 />
         </div>
     )
 }
 
-}
+export default Logo;

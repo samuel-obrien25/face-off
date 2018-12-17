@@ -3,18 +3,17 @@ import '../Cards/card.css';
 
 import Team from './TeamList/Team';
 
-class ScheduleCard extends React.Component{
-
+const ScheduleCard = (props) => {
     //TO DO
     //==Split Date into its own component
     //==Fix current games UX
     //==Add more game information onClick
 
-    render() {
+
         //Gets date from API response and converts it to a readable format for the Card
         //Needs to get split off into its own component
 
-        let jsonDate = new Date(this.props.gameDateTime),
+        let jsonDate = new Date(props.gameDateTime),
             currentDate = new Date(),
             isPast = "future",
             weekday = new Array(7);
@@ -41,24 +40,25 @@ class ScheduleCard extends React.Component{
     <div className={`schedule-card card ${isPast}`}
          data-month={jsonDate.getMonth()}
     >
-        <div className={`date-time team${this.props.activeTeamID}`}><p><span className="game-date">{formattedGameDate}</span></p></div>
+        <div className={`date-time team${props.activeTeamID}`}><p><span className="game-date">{formattedGameDate}</span></p></div>
         <Team
-            awayTeamID={this.props.awayTeamID}
-            teamName={this.props.teamName}
-            teamCity={this.props.teamCity}
-            awayTeamScore={this.props.awayTeamScore}
+            awayTeamID={props.awayTeamID}
+            teamName={props.teamName}
+            teamCity={props.teamCity}
+            awayTeamScore={props.awayTeamScore}
             />
         <p>At</p>
         <Team
             isHomeTeam={true}
-            homeTeamID={this.props.homeTeamID}
-            teamName={this.props.teamName}
-            teamCity={this.props.teamCity}
-            homeTeamScore={this.props.homeTeamScore}
+            homeTeamID={props.homeTeamID}
+            teamName={props.teamName}
+            teamCity={props.teamCity}
+            homeTeamScore={props.homeTeamScore}
             />
 
     </div>
   )
 }
-}
-export default ScheduleCard
+
+export default ScheduleCard;
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Buttons/Buttons.css';
 
+/*
 class Fab extends React.Component{
 
     //ClassName gets class from conditional rendering in the Schedule.js component.
@@ -17,6 +18,19 @@ class Fab extends React.Component{
         </button>
       )
     }
+}
+export default Fab;
+*/
+
+const Fab = (props) => {
+  return (
+    <button className={`fade-in ${props.fabClass}`}
+            onClick={props.onClick}
+            visibile={props.isActive}
+    >   
+        <h3>{props.fabText}</h3>
+    </button>
+  )
 }
 
 export default Fab;
