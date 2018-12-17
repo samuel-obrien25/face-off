@@ -29,7 +29,7 @@ Or, check out the latest build live:
  
 ### DO SOON
  - ~~Reorganize components/file structure so it actually makes sense~~ **(DONE)**
- - Rewrite all components that can be written as Stateless Functional Components
+ - ~~Rewrite all components that can be written as Stateless Functional Components~~ **(DONE)**
  - Research best practices for writing CSS in React and reorganize CSS
 	 - Make sure all classes are consistently formatted
 - ~~Convert JSON date to JS Date~~ **(DONE)**
