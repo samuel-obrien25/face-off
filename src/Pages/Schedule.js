@@ -2,11 +2,10 @@ import React from 'react';
 import Header from '../Components/Header/Header';
 import ApiCall from '../API/ApiCall';
 import GetTeamStats from '../API/GetTeamStats';
-import TeamList from '../Components/Cards/TeamList/TeamList';
+import TeamList from '../Components/Cards/TeamCard/TeamList';
 import Fab from '../Components/Buttons/Fab';
 import '../App.css';
 import '../Utilities/league-colors.css';
-import { AutoComplete } from 'material-ui';
 
 class Schedule extends React.Component{
     
@@ -33,10 +32,10 @@ class Schedule extends React.Component{
             currentTeamName = e.target.closest(".card").firstChild.innerHTML + " " + e.target.closest(".card").firstChild.nextSibling.innerHTML, //Gets closest card, then concatenates(?) child H2 and H3
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team=',
-            cardContainerTeamList = document.getElementById("card_container_team_list");
+            divisionContainer = document.getElementById("division-container");
             //Transitions TeamCards Out
-            cardContainerTeamList.classList.remove("fade-in");
-            cardContainerTeamList.classList.add("fade-out");
+            divisionContainer.classList.remove("fade-in");
+            divisionContainer.classList.add("fade-out");
 
             if(!currentTeamName){ 
                 return }
@@ -82,7 +81,7 @@ class Schedule extends React.Component{
         window.scrollTo({
             x: 0,
             y: 0,
-            behavior: auto 
+            behavior: "auto" 
         });
     };
 

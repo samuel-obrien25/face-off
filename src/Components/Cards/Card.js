@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Cards/card.css';
-import TeamCard from './TeamCard';
-import ScheduleCard from './ScheduleCard';
+import TeamCard from './TeamCard/TeamCard';
+import ScheduleCard from './ScheduleCard/ScheduleCard';
 
 class Card extends React.Component{
     //Cycles through each card on mount and adds animation delay.
@@ -13,16 +13,13 @@ class Card extends React.Component{
             let j = (i / 12),
                 k = j.toString(),
                 l = k + 's';
-
             cardsList[i].style.animationDelay = l;
         }
-    }
- 
+    } 
 
     componentDidMount() {
         this.addCardDelay();
     }
-
         
 render() {
         //Team Cards

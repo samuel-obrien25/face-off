@@ -1,7 +1,10 @@
 import React from 'react';
-import '../Cards/card.css';
+import '../card.css';
 
-import Team from './TeamList/Team';
+import HomeTeam from '../ScheduleCard/HomeTeam';
+import AwayTeam from '../ScheduleCard/AwayTeam';
+import GameDate from '../ScheduleCard/GameDate';
+
 
 const ScheduleCard = (props) => {
     //TO DO
@@ -13,42 +16,32 @@ const ScheduleCard = (props) => {
         //Gets date from API response and converts it to a readable format for the Card
         //Needs to get split off into its own component
 
-        let jsonDate = new Date(props.gameDateTime),
+        let isPast = "future",
             currentDate = new Date(),
-            isPast = "future",
-            weekday = new Array(7);
-                weekday[0] = "Sunday";
-                weekday[1] = "Monday";
-                weekday[2] = "Tuesday";
-                weekday[3] = "Wednesday";
-                weekday[4] = "Thursday";
-                weekday[5] = "Friday";
-                weekday[6] = "Saturday";
+            month = props.jsonDate.getMonth();
 
-        let formattedGameDate = weekday[jsonDate.getDay()] + ', ' + jsonDate.toLocaleDateString() + ' at ' + jsonDate.toLocaleTimeString();
-
-            if(jsonDate < currentDate) {
+        if(props.jsonDate < currentDate) {
                 //Adds "past" class if the currentDate is after the jsonDate
                 //Need to fix UX for CURRENT games. I think the function considers it a past game
                 //Is this bad practice?
                 isPast = "past";
             }
-        
-
-                        
   return (
     <div className={`schedule-card card ${isPast}`}
-         data-month={jsonDate.getMonth()}
+         data-month={month}
     >
-        <div className={`date-time team${props.activeTeamID}`}><p><span className="game-date">{formattedGameDate}</span></p></div>
-        <Team
+    <GameDate
+        jsonDate={props.jsonDate}
+        gameDateTime={props.gameDateTime}
+    />
+        <AwayTeam
             awayTeamID={props.awayTeamID}
             teamName={props.teamName}
             teamCity={props.teamCity}
             awayTeamScore={props.awayTeamScore}
             />
         <p>At</p>
-        <Team
+        <HomeTeam
             isHomeTeam={true}
             homeTeamID={props.homeTeamID}
             teamName={props.teamName}

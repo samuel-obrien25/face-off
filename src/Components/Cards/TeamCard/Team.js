@@ -1,6 +1,12 @@
 import React from 'react';
-import '../../Cards/card.css'
-import Logo from '../../Logo/Logo'
+import '../../Cards/card.css';
+
+import Logo from '../../Logo/Logo';
+
+import HomeTeam from '../ScheduleCard/HomeTeam';
+import AwayTeam from '../ScheduleCard/AwayTeam';
+
+
 class Team extends React.Component{
 
     render() {
@@ -153,21 +159,21 @@ class Team extends React.Component{
         if(this.props.isHomeTeam){
             //Should I break these out into individual components again?
             return(
-                <div className="team home-team">
+                <HomeTeam>
                     <h2>{teamName}</h2>
                     <h3>{teamCity}</h3>
                     <Logo teamValue={logoValue} />
                     <h2 className="score home-score">{this.props.homeTeamScore}</h2>
-                </div>
+                </HomeTeam>
             )
     } else {
             return(
-                <div className="team away-team">
+                <AwayTeam>
                     <h2>{teamName}</h2>
                     <h3>{teamCity}</h3>
                     <Logo teamValue={logoValue} />
                     <h2 className="score away-score">{this.props.awayTeamScore}</h2>
-                </div>
+                </AwayTeam>
                 )
         }
     }

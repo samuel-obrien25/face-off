@@ -19,9 +19,9 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <h3>
+      "children": <h2>
         Fab Test
-      </h3>,
+      </h2>,
       "className": "fade-in undefined",
       "onClick": undefined,
       "visibile": undefined,
@@ -36,7 +36,7 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": "Fab Test",
-      "type": "h3",
+      "type": "h2",
     },
     "type": "button",
   },
@@ -46,9 +46,9 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <h3>
+        "children": <h2>
           Fab Test
-        </h3>,
+        </h2>,
         "className": "fade-in undefined",
         "onClick": undefined,
         "visibile": undefined,
@@ -63,7 +63,7 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": "Fab Test",
-        "type": "h3",
+        "type": "h2",
       },
       "type": "button",
     },

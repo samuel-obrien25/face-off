@@ -7,7 +7,7 @@ const Fab = (props) => {
             onClick={props.onClick}
             visibile={props.isActive}
     >   
-        <h3>{props.fabText}</h3>
+        <h2>{props.fabText}</h2>
     </button>
   )
 }
