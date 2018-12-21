@@ -6,11 +6,13 @@ import './App.css';
 import Schedule from './Pages/Schedule';
 
 const App = () => {
+  const baseUrl = process.env.PUBLIC_URL;
+
   return (
     <Router>
       <div className="App">
         <div className="container">
-          <Route exact={true} path="/" component={Schedule} />
+          <Route path={baseUrl + "/"} component={Schedule} />
         </div>
       </div>
     </Router>
