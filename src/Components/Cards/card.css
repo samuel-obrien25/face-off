@@ -4,7 +4,7 @@
         scroll-behavior: smooth;
     }
 
-    .card_container{
+    .card-container{
         position: absolute;
         top:50px;
         left: 3%;
@@ -72,6 +72,10 @@
 
     .past{
         background-color: #e0e0e0
+    }
+    
+    .loser {
+        opacity: .25;
     }
 
     .schedule-card p, .schedule-card .team{

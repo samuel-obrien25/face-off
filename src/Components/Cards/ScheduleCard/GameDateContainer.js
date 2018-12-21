@@ -2,12 +2,7 @@ import React from 'react';
 import '../card.css';
 
 
-const GameDate = (props) => {
-    //TO DO
-    //==Split Date into its own component
-    //==Fix current games UX
-    //==Add more game information onClick
-
+const GameDateContainer = (props) => {
 
         //Gets date from API response and converts it to a readable format for the Card
         //Needs to get split off into its own component
@@ -22,16 +17,14 @@ const GameDate = (props) => {
                 weekday[6] = "Saturday";
 
         let formattedGameDate = weekday[jsonDate.getDay()] + ', ' + jsonDate.toLocaleDateString() + ' at ' + jsonDate.toLocaleTimeString();
-                        
+
   return (
-        <div className={`date-time team${props.activeTeamID}`}
-             jsonDate={jsonDate}
-             gameDateTime={props.gameDateTime}
-        >
+        <div className={`date-time team${props.activeTeamID}`}>
             <p><span className="game-date">{formattedGameDate}</span></p>
         </div>
   )
+
 }
 
-export default GameDate;
+export default GameDateContainer;
 

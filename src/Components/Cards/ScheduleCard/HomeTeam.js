@@ -5,8 +5,14 @@ import Logo from '../../Logo/Logo'
 
 const HomeTeam = (props) => {
 
+    let homeWin;
+    
+    if(props.didHomeWin) {
+        props.didHomeWin === "homeWin" ? homeWin = "winner" : homeWin = "loser";
+    }
+
     return (
-        <div className="team home-team">
+        <div className={`team home-team ${homeWin}`}>
             <h2>{props.teamName}</h2>
             <h3>{props.teamCity}</h3>
             <Logo teamValue={props.logoValue} />

@@ -1,15 +1,11 @@
 import React from 'react';
 import '../../Cards/card.css';
 
-import Logo from '../../Logo/Logo';
-
 import HomeTeam from '../ScheduleCard/HomeTeam';
 import AwayTeam from '../ScheduleCard/AwayTeam';
 
 
-class Team extends React.Component{
-
-    render() {
+const Team = (props) => {
         //Variables that feed into Home team and Away team components
         let teamName,
             teamCity,
@@ -18,12 +14,12 @@ class Team extends React.Component{
 
             //Gets props.isHomeTeam from Card.js
             
-        if(this.props.isHomeTeam){
-            teamValue = this.props.homeTeamID;
+        if(props.isHomeTeam){
+            teamValue = props.homeTeamID;
             logoValue = teamValue.toString();
 
         } else {
-            teamValue = this.props.awayTeamID;
+            teamValue = props.awayTeamID;
             logoValue = teamValue.toString();
         }
             //Assign teamName and TeamCity data based on teamID
@@ -156,27 +152,31 @@ class Team extends React.Component{
             console.log('error converting data');
         }
 
-        if(this.props.isHomeTeam){
-            //Should I break these out into individual components again?
+        if(props.isHomeTeam){
+
             return(
-                <HomeTeam>
-                    <h2>{teamName}</h2>
-                    <h3>{teamCity}</h3>
-                    <Logo teamValue={logoValue} />
-                    <h2 className="score home-score">{this.props.homeTeamScore}</h2>
-                </HomeTeam>
+                <HomeTeam
+                    teamName={teamName}
+                    teamCity={teamCity}
+                    didHomeWin={props.didHomeWin}
+                    homeTeamScore={props.homeTeamScore}
+                    logoValue={logoValue}
+                />
             )
+
     } else {
+
             return(
-                <AwayTeam>
-                    <h2>{teamName}</h2>
-                    <h3>{teamCity}</h3>
-                    <Logo teamValue={logoValue} />
-                    <h2 className="score away-score">{this.props.awayTeamScore}</h2>
-                </AwayTeam>
-                )
+                <AwayTeam
+                    teamName={teamName}
+                    teamCity={teamCity}
+                    didHomeWin={props.didHomeWin}
+                    awayTeamScore={props.awayTeamScore}
+                    logoValue={logoValue}
+                />
+            )
+        
         }
     }
-       
-}
+
  export default Team;
