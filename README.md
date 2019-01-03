@@ -1,4 +1,4 @@
-# FaceOff
+# Face Off
 
 An unofficial Web App for quick access to NHL Schedules, stats, and more.
 
