@@ -3,7 +3,7 @@ import '../Buttons/Buttons.css';
 
 const Fab = (props) => {
   return (
-    <button className={`fade-in ${props.fabClass}`}
+    <button className={`fade-in fab ${props.fabClass}`}
             onClick={props.onClick}
             visibile={props.isActive}
     >   

@@ -77,12 +77,7 @@ class Schedule extends React.Component{
                 headerH1: 'Face Off',
                 headerH2: 'Quick access to NHL Schedule, Stats, and more',
             };
-        }, );
-        window.scrollTo({
-            x: 0,
-            y: 0,
-            behavior: "auto" 
-        });
+        }, window.scrollTo(0,0));
     };
 
     setDateH2(){
@@ -130,14 +125,10 @@ class Schedule extends React.Component{
         }
     }
 
-
-    componentDidUpdate(){
-        window.scrollTo(0,0);
-    }
-
     render(){
+
         if(this.state.isScheduleListActive){
-            //Good to have reference too the API link...
+            //Good to have reference to the API link...
             console.log("The current TeamStatsQueryRecipe is " + this.state.teamStatsQueryRecipe);
             console.log("The current scheduleQueryRecipe is " + this.state.scheduleQueryRecipe);
             this.setDateH2();
