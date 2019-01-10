@@ -26,6 +26,5 @@ describe('GameDate', () => {
             <h2>Fab Test</h2>
         ])).toBe(true);
     });
-    */
 
 });
