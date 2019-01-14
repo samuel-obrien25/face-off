@@ -12,6 +12,7 @@ export default class GetTeamStats extends React.Component{
     constructor (props){
         super(props);
 
+        //teamStats: Placeholder for data fetched from an API call
         this.state = {
             teamStats: '',
             isLoading: true,

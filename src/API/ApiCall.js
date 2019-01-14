@@ -11,6 +11,17 @@ export default class ApiCall extends React.Component {
     // == Document code
     // == Figure out if anything can be broken out into its own component
 
+    //WHAT DOES THIS COMPONENT DO:
+    // == Makes a fetch request to the API based on URL prop
+    // == Returns a Loading circle component if loading
+    // == Returns an Error component if API call fails
+    // == Maps out fetched data to Card component
+
+
+    //schedule: placeholder for data recieved from fetch request
+    //isLoaded: boolean for loading animation
+    //error: if something doesn't go right, load Error component
+
     constructor(props) {
         super(props);
         this.state = {
@@ -51,6 +62,7 @@ export default class ApiCall extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        //If the component updates and the url prop is changed, make fetch request with updated URL
         if (this.props.url !== prevProps.url) {
             this.fetchSchedule();
         }
@@ -78,6 +90,7 @@ export default class ApiCall extends React.Component {
             //Map JSON Data to Card component
             else {
                 const   gameCard = schedule.games.map((game) =>
+
                             <Card key={game.schedule.id}
                                 cardType="scheduleCard"
                                 awayTeamName={this.props.awayTeamName}
@@ -94,6 +107,7 @@ export default class ApiCall extends React.Component {
                                 activeTeamID={this.props.activeTeamID}
                                 activeTeamName={this.props.activeTeamName}
                             />
+
                     );
                 //Return Schedule Card container with mapped Schedule Cards
                 return (
