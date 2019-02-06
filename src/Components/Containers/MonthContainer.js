@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import '../Cards/card.css';
 
@@ -60,6 +60,8 @@ class MonthContainer extends React.Component {
                 case scheduleListCheckPoint > MONTHS.March:
                     setMonthState("April");
                     break;
+                default:
+                    setMonthState("October");
             }
         });
     }

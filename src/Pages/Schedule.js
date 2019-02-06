@@ -28,9 +28,12 @@ class Schedule extends React.Component{
     }
 
     handleClick(e) {
-                //Properly handles clicks to nested elements. Deep down in my heart I know this probably isn't right.
-        let currentTeam = e.target.closest(".card").getAttribute('teamValue'), 
-            currentTeamName = e.target.closest(".card").firstChild.innerHTML + " " + e.target.closest(".card").firstChild.nextSibling.innerHTML, //Gets closest card, then concatenates(?) child H2 and H3
+                //Properly handles clicks to nested elements. Deep down in my heart I know this isn't right.
+        let targetTeam = e.target.closest(".card"),
+            targetTeamValue = targetTeam.getAttribute('teamValue'),
+            //Gets chosen card, then derives teamName and teamCity from its inner HTML
+            currentTeamName = targetTeam.firstChild.innerHTML,
+            currentTeamCity =  targetTeam.firstChild.nextElementSibling.innerHTML,
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team=',
             divisionContainer = document.getElementById("division-container");
@@ -38,18 +41,18 @@ class Schedule extends React.Component{
             divisionContainer.classList.remove("fade-in");
             divisionContainer.classList.add("fade-out");
 
-            if(!currentTeamName){ 
-                return }
+            if(!currentTeamName){ return }
         this.setState(() => {
            return {
-                scheduleQueryRecipe: scheduleBaseURL + currentTeam,
-                teamStatsQueryRecipe: teamStatsBaseURL + currentTeam,
+                scheduleQueryRecipe: scheduleBaseURL + targetTeamValue,
+                teamStatsQueryRecipe: teamStatsBaseURL + targetTeamValue,
                 isFabActive: true,
                 isTeamListActive: false,
                 isScheduleListActive:true,
-                activeTeamID: currentTeam,
+                activeTeamID: targetTeamValue,
                 headerH1: currentTeamName,
-                headerH2: this.props.currentTeamRecord,
+                headerH2: currentTeamCity,
+                headerH3: this.props.currentTeamRecord,
            };
         });
     };
@@ -93,6 +96,7 @@ class Schedule extends React.Component{
                         <Header
                             activeTeamID={this.state.activeTeamID}
                             headerH1={this.state.headerH1}
+                            headerH2={this.state.headerH2}
                         > 
                             <GetTeamStats
                                 url={this.state.teamStatsQueryRecipe}
@@ -141,7 +145,7 @@ class Schedule extends React.Component{
                     <div className="wrapper wrapper__home">
                         <TeamList
                             handleClick = {this.handleClick}
-                            teamValue = {this.currentTeam}
+                            teamValue = {this.targetTeamValue}
                         />
                     </div>
                 </div>
