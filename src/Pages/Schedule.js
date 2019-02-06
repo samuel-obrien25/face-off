@@ -106,7 +106,6 @@ class Schedule extends React.Component{
                         
                         <div className="wrapper wrapper__home">
                             <h2 className="page__title page__title_schedule">Choose a Game</h2>
-                            <br/>
                             <MonthContainer/>
                             <ApiCall
                                 url={this.state.scheduleQueryRecipe}
