@@ -35,17 +35,13 @@
     .division{
         width:100%;
         height: 100%;
+        overflow: auto;
+        padding-bottom: 25px;
     }
 
-    .division-name, .month {
+    .division-name{
         text-align: left;
-        border-bottom: 1px solid #555;
-        width: 50%;
         margin-left: 10px;
-    }
-
-    .month{
-        position: fixed;
     }
     .card{
         margin: 10px auto;
@@ -77,6 +73,10 @@
     /*======================================
     ------------SCHEDULE CARDS--------------
     =======================================*/
+    .month-wrapper{
+        width: 250px;
+        border-bottom: 2px solid black;
+    }
 
     .schedule-card{
         height: 300px;
