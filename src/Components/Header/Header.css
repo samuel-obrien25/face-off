@@ -16,11 +16,22 @@
 
 .App-title{
     margin: auto;
-    font-family: "Roboto";
-    font-size: 32px;
+    margin-bottom: 0px;
+    font-size: 24px;
 }
 
-.App-header h2{
+.App-subtitle{
+    font-size: 42px;
+    margin-top: 10px;
+}
+
+/*Styles for Home Page Header*/
+
+.teamundefined .App-title{
+    font-size: 36px;
+}
+
+.teamundefined .App-subtitle{
     font-size: 18px;
 }
 

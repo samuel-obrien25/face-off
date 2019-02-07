@@ -72,7 +72,7 @@ export default class GetTeamStats extends React.Component{
                 
                     console.log(teamWins + ", " + teamLosses + ", " + teamOvertimeLosses);
                     return (
-                       <h2 className="fade-in team-record">Record: ({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</h2>    
+                       <h3 className="fade-in team-record">Record: ({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</h3>    
                     )
                 }
         }
