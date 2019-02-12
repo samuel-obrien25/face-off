@@ -15,44 +15,47 @@ class Card extends React.Component{
                 l = k + 's';
             cardsList[i].style.animationDelay = l;
         }
-    } 
+    }
 
     componentDidMount() {
         this.addCardDelay();
     }
         
 render() {
+
+    const { activeTeamID, awayTeamCity, awayTeamID, awayTeamName, awayTeamScore, cardType, cityName, gameDateTime, handleClick, homeTeamCity, homeTeamID, homeTeamName, homeTeamScore, onClick, month, teamName, teamValue } = this.props;
+
         //Team Cards
-            if(this.props.cardType === "teamCard") {
+            if(cardType === "teamCard") {
                 return (
                     <TeamCard 
-                        cityName= {this.props.cityName}
-                        teamName={this.props.teamName}
-                        onClick={this.props.onClick}
-                        teamValue={this.props.teamValue}
+                        cityName= {cityName}
+                        teamName={teamName}
+                        onClick={onClick}
+                        teamValue={teamValue}
                     />
                   );
                 }
 
         //Schedule Cards
-        if(this.props.cardType === "scheduleCard") {
+        if(cardType === "scheduleCard") {
             //Adds card animation delay effect
             this.addCardDelay();
 
             return(
                 <ScheduleCard
-                    gameDateTime={this.props.gameDateTime}
-                    awayTeamID={this.props.awayTeamID}
-                    awayTeamName={this.props.awayTeamName}
-                    awayTeamCity={this.props.awayTeamCity}
-                    awayTeamScore={this.props.awayTeamScore}
-                    homeTeamID={this.props.homeTeamID}
-                    homeTeamName={this.props.homeTeamName}
-                    homeTeamCity={this.props.homeTeamCity}
-                    homeTeamScore={this.props.homeTeamScore}
-                    onClick={this.props.handleClick}
-                    activeTeamID={this.props.activeTeamID}
-                    month={this.props.month}
+                    gameDateTime={gameDateTime}
+                    awayTeamID={awayTeamID}
+                    awayTeamName={awayTeamName}
+                    awayTeamCity={awayTeamCity}
+                    awayTeamScore={awayTeamScore}
+                    homeTeamID={homeTeamID}
+                    homeTeamName={homeTeamName}
+                    homeTeamCity={homeTeamCity}
+                    homeTeamScore={homeTeamScore}
+                    onClick={handleClick}
+                    activeTeamID={activeTeamID}
+                    month={month}
                 />
             )
         }

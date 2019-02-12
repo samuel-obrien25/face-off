@@ -5,8 +5,20 @@ import GetTeamStats from '../API/GetTeamStats';
 import TeamList from '../Components/Cards/TeamCard/TeamList';
 import Fab from '../Components/Buttons/Fab';
 import MonthContainer from '../Components/Containers/MonthContainer';
+import styled from 'styled-components';
 import '../App.css';
 import '../Utilities/league-colors.css';
+
+const StyledFabWrapper = styled.div `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        height: 50px;
+        width: 250px;
+        transition: .5s ease-in-out;
+        display: flex;
+`;
+
 
 class Schedule extends React.Component{
     
@@ -23,6 +35,7 @@ class Schedule extends React.Component{
             headerH2: 'Quick access to NHL Schedule, Stats, and more',
         };
     }
+
 
     handleClick = (e) => {
                 //Properly handles clicks to nested elements. Deep down in my heart I know this isn't right.
@@ -121,7 +134,7 @@ class Schedule extends React.Component{
                                 activeTeamID={this.state.activeTeamID}
                             />
 
-                            <div className="fab-container">
+                            <StyledFabWrapper>
                                 <Fab visible={this.state.isFabActive} 
                                     onClick={this.scrollToNextGame}
                                     fabText="Next Game"
@@ -132,9 +145,8 @@ class Schedule extends React.Component{
                                     onClick={this.resetAPICall}
                                     fabClass={`fab team${this.state.activeTeamID}`}
                                     fabText="Back"
-                                />
-                            </div>
-        
+                                    />
+                            </StyledFabWrapper>        
                         </div>
                     </div>
         

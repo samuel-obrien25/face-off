@@ -15,7 +15,7 @@
         text-align: center;
         scroll-behavior: smooth;
     }
-
+    
     #card_container_schedule_list{
         overflow: auto;
         overflow-y: hidden;
@@ -77,7 +77,8 @@
     ------------SCHEDULE CARDS--------------
     =======================================*/
     .month-wrapper{
-        width: 250px;
+        width: 150px;
+        margin-left: 10px;
         border-bottom: 2px solid black;
     }
 

@@ -6,23 +6,26 @@ import AwayTeam from '../ScheduleCard/AwayTeam';
 
 
 const Team = (props) => {
+    
         //Variables that feed into Home team and Away team components
         let teamName,
             teamCity,
             teamValue,
             logoValue;
 
-            //Gets props.isHomeTeam from Card.js
-            
-        if(props.isHomeTeam){
-            teamValue = props.homeTeamID;
+        const { awayTeamID, awayTeamScore, didHomeWin, homeTeamID, homeTeamScore, isHomeTeam } = props;
+
+        //Gets props.isHomeTeam from Card.js
+        if(isHomeTeam){
+            teamValue = homeTeamID;
             logoValue = teamValue.toString();
 
         } else {
-            teamValue = props.awayTeamID;
+            teamValue = awayTeamID;
             logoValue = teamValue.toString();
         }
-            //Assign teamName and TeamCity data based on teamID
+        
+        //Assign teamName and TeamCity data based on teamID
         switch (teamValue) {
             case 1:
                 teamName = 'Lightning';
@@ -152,14 +155,14 @@ const Team = (props) => {
             console.log('error converting data');
         }
 
-        if(props.isHomeTeam){
+        if(isHomeTeam){
 
             return(
                 <HomeTeam
                     teamName={teamName}
                     teamCity={teamCity}
-                    didHomeWin={props.didHomeWin}
-                    homeTeamScore={props.homeTeamScore}
+                    didHomeWin={didHomeWin}
+                    homeTeamScore={homeTeamScore}
                     logoValue={logoValue}
                 />
             )
@@ -170,13 +173,14 @@ const Team = (props) => {
                 <AwayTeam
                     teamName={teamName}
                     teamCity={teamCity}
-                    didHomeWin={props.didHomeWin}
-                    awayTeamScore={props.awayTeamScore}
+                    didHomeWin={didHomeWin}
+                    awayTeamScore={awayTeamScore}
                     logoValue={logoValue}
                 />
             )
         
         }
+        
     }
 
  export default Team;
