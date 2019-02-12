@@ -12,9 +12,6 @@ class Schedule extends React.Component{
     
     constructor(props){
         super(props);
-        this.handleClick = this.handleClick.bind(this);
-        this.resetAPICall = this.resetAPICall.bind(this);
-        this.scrollToNextGame = this.scrollToNextGame.bind(this);
         this.state = {
             scheduleQueryRecipe: '',
             teamStatsQueryRecipe: '',
@@ -27,7 +24,7 @@ class Schedule extends React.Component{
         };
     }
 
-    handleClick(e) {
+    handleClick = (e) => {
                 //Properly handles clicks to nested elements. Deep down in my heart I know this isn't right.
         let targetTeam = e.target.closest(".card"),
             targetTeamValue = targetTeam.getAttribute('teamValue'),
@@ -57,7 +54,7 @@ class Schedule extends React.Component{
         });
     };
 
-    scrollToNextGame(){
+    scrollToNextGame = () => {
         if (document.getElementsByClassName("future").length > 1) {
             document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
                 behavior: 'smooth',
@@ -66,7 +63,18 @@ class Schedule extends React.Component{
         } else { return }
     }
 
-    resetAPICall() {
+    scaleScheduleCards = () => {
+        let scheduleCards = document.getElementsByClassName("card");
+        const docWidth = window.outerWidth/2;
+
+        for(let i = 0; i < scheduleCards.length; i++){
+            let scalePercent = scheduleCards[i].scrollLeft / docWidth;
+
+            scheduleCards[i].style.transform = "scale(" + scalePercent + ")";
+        }
+    }
+
+    resetAPICall = () => {
         let scheduleQueryBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team='
         
