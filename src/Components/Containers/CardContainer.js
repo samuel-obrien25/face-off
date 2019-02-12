@@ -6,7 +6,7 @@ const CardContainer = (props) => {
     window.scrollTo(0,0);
 
     return(
-        <div id={props.containerType} className= "card-container slide-in">
+        <div id={props.containerType} className="card-container slide-in">
             {props.children}
         </div>
     )

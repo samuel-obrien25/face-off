@@ -16,11 +16,8 @@
   font-size: large;
 }
 
-/*----What's the difference?? ----*/
-
 .wrapper {
   position: relative;
-  min-height: 101vh; /*Keeps the scroll bar always present. Prevents jumping*/
 }
 
 
