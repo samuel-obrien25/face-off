@@ -22,7 +22,7 @@ const ScheduleCard = (props) => {
 
     return (
 
-        <div className={`schedule-card card ${isGamePast}`}
+        <div className={`schedule-card card ${isGamePast} slide-in`}
             data-month={month}>
 
             <GameDateContainer

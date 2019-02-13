@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-//import '../Buttons/Buttons.css';
+import '../../Utilities/league-colors.css';
 
+//#region STYLES
 const StyledFab = styled.button`
   border-radius: 8px;
-  background-color: #fff;
   box-shadow: 2px 2px 6px rgba(0,0,0,.4);
   transition: .5s ease-in-out;
   border: 2px solid rgba(255,255,255,.5);
@@ -27,13 +27,16 @@ const StyledFabH2 = styled.h2`
     padding: 0px 10px;
     color: currentColor;
 `;
+//#endregion STYLES
+
+
 const Fab = (props) => {
 
-  const {fabClass, onClick, isActive} = props;
+  const {activeTeamID, onClick, isActive} = props;
 
   return (
-    <StyledFab onClick={onClick} visibile={isActive}>   
-        <h2>{props.fabText}</h2>
+    <StyledFab className={`team${ activeTeamID }`} onClick={onClick} visibile={isActive}>   
+        <StyledFabH2>{ props.fabText }</StyledFabH2>
     </StyledFab>
   );
 };

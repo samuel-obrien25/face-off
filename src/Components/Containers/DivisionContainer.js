@@ -6,7 +6,7 @@ const DivisionContainer = (props) => {
     window.scrollTo(0,0);
     
     return(
-        <section className="division slide-in">
+        <section className="division">
             <h2 className="division-name">{props.divisionTitle}</h2>
             {props.children}
         </section>

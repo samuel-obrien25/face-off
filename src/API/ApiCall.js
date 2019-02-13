@@ -7,17 +7,6 @@ import '../App.css'
 
 export default class ApiCall extends React.Component {
 
-    //To Do
-    // == Document code
-    // == Figure out if anything can be broken out into its own component
-
-    //WHAT DOES THIS COMPONENT DO:
-    // == Makes a fetch request to the API based on URL prop
-    // == Returns a Loading circle component if loading
-    // == Returns an Error component if API call fails
-    // == Maps out fetched data to Card component
-
-
     //schedule: placeholder for data recieved from fetch request
     //isLoaded: boolean for loading animation
     //error: if something doesn't go right, load Error component

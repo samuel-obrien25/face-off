@@ -1,5 +1,4 @@
 import React from 'react';
-import '../Buttons/Buttons.css';
 
 const Reload = () => {
   return (

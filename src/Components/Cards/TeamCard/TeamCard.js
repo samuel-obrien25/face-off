@@ -1,6 +1,15 @@
 import React from 'react';
 import Logo from '../../Logo/Logo';
 import '../card.css';
+import styled from 'styled-components';
+
+//#region STYLES
+const StyledTeamCard = styled.div`
+    
+`
+
+//#endregion STYLES
+
 
 const TeamCard = (props) => {
     
