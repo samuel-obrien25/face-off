@@ -3,7 +3,6 @@ import CardContainer from '../Components/Containers/CardContainer';
 import Card from '../Components/Cards/Card';
 import LoadingCircle from '../Components/Loading/LoadingCircle';
 import Error from '../Utilities/Error';
-import '../App.css'
 
 export default class ApiCall extends React.Component {
 

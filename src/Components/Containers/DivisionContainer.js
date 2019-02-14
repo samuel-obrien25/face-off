@@ -1,15 +1,26 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import '../Cards/card.css';
+const StyledDivisionContainer = styled.section`
+    width:100%;
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 25px;
+    position: relative;
+`;
+
+const StyledDivisionName = styled.h2`
+    text-align: left;
+`
 
 const DivisionContainer = (props) => {
     window.scrollTo(0,0);
     
     return(
-        <section className="division">
-            <h2 className="division-name">{props.divisionTitle}</h2>
+        <StyledDivisionContainer>
+            <StyledDivisionName>{ props.divisionTitle }</StyledDivisionName>
             {props.children}
-        </section>
+        </StyledDivisionContainer>
     )
     
 }

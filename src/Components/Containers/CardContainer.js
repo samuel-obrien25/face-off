@@ -1,6 +1,31 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import '../Cards/card.css';
+const StyledCardContainer = styled.div`
+        position: relative;
+        top: 50px;
+        width: 80%;
+        margin: auto;
+        height: inherit;
+        display: inline-block;
+        text-align: center;
+        scroll-behavior: smooth;
+`;
+
+const StyledScheduleCardContainer = styled(StyledCardContainer)`
+        overflow: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        display: flex;
+        position: relative;
+        height: auto;
+        padding: 20px 0px;
+        width: 95vw;
+        left: 0;
+        margin-top: -25px;
+        padding-bottom: 100px;
+        scroll-snap-type: x proximity;
+`
 
 class CardContainer extends React.Component {
 
@@ -25,13 +50,24 @@ class CardContainer extends React.Component {
     }
 
     render(){
+        const { containerType } = this.props;
         window.scrollTo(0, 0);
  
-        return (
-            <div onScroll={this.addCardScale} id={this.props.containerType} className="card-container">
-                { this.props.children }
-            </div>
-        )
+        if (containerType === "division-container") {
+            return (
+                <StyledCardContainer id={containerType}>
+                    {this.props.children}
+                </StyledCardContainer>
+            )
+        }
+
+        if (containerType === "card_container_schedule_list") {
+            return (
+                <StyledScheduleCardContainer onScroll={this.addCardScale} id={containerType}>
+                    {this.props.children}
+                </StyledScheduleCardContainer>
+            )
+        }
 
     }
 }

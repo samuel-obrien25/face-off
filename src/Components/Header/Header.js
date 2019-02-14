@@ -1,7 +1,41 @@
 import React from 'react';
 import LoadingCircle from '../Loading/LoadingCircle';
+import styled from 'styled-components';
+import '../../Utilities/league-colors.css';
 
-import '../Header/Header.css';
+
+//#region Styles
+const StyledHeader = styled.header`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #222;
+    width: auto;
+    height: 150px;
+    margin-bottom: 25px;
+    padding: 20px;
+    color: white;
+    position: relative;
+    z-index: 9000;
+    text-align:center;
+    transition: .25s ease-in-out;
+
+    h1 {
+        margin: auto;
+        margin-bottom: 0px;
+        font-size: ${props => props.activeTeamID ? '24px' : '42px'};
+    }
+
+    h2 {
+        font-size: ${props => props.activeTeamID ? '42px' : '24px'};
+        margin-top: 10px;
+    }
+
+    h3 {
+        margin: auto;
+    }
+`
+//#endregion Styles
 
 class Header extends React.Component{
 
@@ -17,19 +51,21 @@ class Header extends React.Component{
     }
     
     render() {
+        
+        const { activeTeamID, children, headerH1, headerH2 } = this.props;
         if(this.state.isLoading) {
             return (
-                <header className={`App-header team${this.props.activeTeamID}`}>
+                <StyledHeader className={`team${activeTeamID}`}>
                     <LoadingCircle />
-                </header>
+                </StyledHeader>
             )
         } else{
             return (
-            <header className={`App-header team team${this.props.activeTeamID}`}>
-                <h1 className="App-title fade-in">{this.props.headerH1}</h1>
-                <h2 className="App-subtitle fade-in">{this.props.headerH2}</h2>
-                    {this.props.children}
-            </header>
+            <StyledHeader className={`team${activeTeamID}`}>
+                <h1>{headerH1}</h1>
+                <h2>{headerH2}</h2>
+                    {children}
+            </StyledHeader>
             );
         }
     }

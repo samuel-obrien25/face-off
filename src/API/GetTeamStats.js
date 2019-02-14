@@ -1,7 +1,6 @@
 import React from 'react';
 
 import LoadingCircle from '../Components/Loading/LoadingCircle';
-import '../App.css'
 
 export default class GetTeamStats extends React.Component{
 

@@ -1,20 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "../node_modules/react-router-dom";
-
-import './App.css';
-
+import styled from 'styled-components';
 import Schedule from './Pages/Schedule';
+
+const StyledApp = styled.div`
+    text-align: center;
+`;
 
 const App = () => {
   const baseUrl = process.env.PUBLIC_URL;
 
   return (
     <Router>
-      <div className="App">
-        <div className="container">
-          <Route path={baseUrl + "/"} component={Schedule} />
-        </div>
-      </div>
+      <StyledApp>
+        <Route path={baseUrl + "/"} component={Schedule} />
+      </StyledApp>
     </Router>
   );
 };

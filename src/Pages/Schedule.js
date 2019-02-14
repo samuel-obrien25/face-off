@@ -6,7 +6,6 @@ import TeamList from '../Components/Cards/TeamCard/TeamList';
 import Fab from '../Components/Buttons/Fab';
 import MonthContainer from '../Components/Containers/MonthContainer';
 import styled from 'styled-components';
-import '../App.css';
 import '../Utilities/league-colors.css';
 
 //#region STYLES
@@ -19,6 +18,10 @@ const StyledFabWrapper = styled.div `
         transition: .5s ease-in-out;
         display: flex;
 `;
+
+const StyledWrapper = styled.main `
+        position: relative;
+`
 
 //#endregion STYLES
 
@@ -131,9 +134,9 @@ class Schedule extends React.Component{
             return (
                 <div>
                     <Header headerH1 = {headerH1} headerH2 = {headerH2} />
-                    <div className="wrapper wrapper__home">
-                        <TeamList handleClick = {this.handleClick} teamValue = {this.targetTeamValue} />
-                    </div>
+                    <StyledWrapper>
+                        <TeamList handleClick={this.handleClick} teamValue={this.targetTeamValue} />
+                    </StyledWrapper>
                 </div>
             )
         }
