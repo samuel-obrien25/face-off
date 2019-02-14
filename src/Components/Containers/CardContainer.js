@@ -9,6 +9,7 @@ class CardContainer extends React.Component {
     }
 
     addCardScale(){
+        /*
         let cardsList = document.getElementsByClassName("schedule-card"),
             viewCenterPoint = window.outerWidth / 2,
             i = 0;
@@ -20,6 +21,7 @@ class CardContainer extends React.Component {
 
             cardsList[i].style.transform = "scale(" + scaleValue + ")";
         }
+        */
     }
 
     render(){
@@ -27,7 +29,7 @@ class CardContainer extends React.Component {
  
         return (
             <div onScroll={this.addCardScale} id={this.props.containerType} className="card-container">
-                {this.props.children}
+                { this.props.children }
             </div>
         )
 

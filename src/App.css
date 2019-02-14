@@ -27,23 +27,6 @@
 ------------Animations/Transitions------------------------
 =============================================*/
 
-.fade-in{
-  transform: scaleY(1);
-  animation-name: fadeInAnimation;
-  animation-duration: 1s;
-  animation-delay: .5s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  transition:.25s;
-}
-
-
-.fade-out{
-  transform: translateY(-50px);
-  opacity: 0;
-  transition: .2s;
-}
-
 .hidden{
   opacity: 0;
   z-index: -100;

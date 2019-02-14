@@ -1,19 +1,35 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import '../Cards/card.css';
+
+
+const StyledMonthH2 = styled.h2`
+    text-align: left;
+    padding-left: 10px;
+    transition: .3s ease-in-out;
+    opacity: ${props => props.visible ? 1 : 0};
+    transform: ${props => props.visible ? "" : "translateY(15px)"};
+`
+
+const StyledMonthContainer = styled.div`
+    height: 50px;
+    border-bottom: 2px solid #000;
+    width: 200px;
+    margin-left: 20px;
+`
 
 class MonthContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.updateH2 = this.updateH2.bind(this);
         this.state = {
-            currentMonth: 'October'
+            currentMonth: 'October',
+            isVisible: false
         }
     }
 
     updateH2 = () => {
-        const SCHEDULE_LIST = document.getElementById("card_container_schedule_list"),
+         const SCHEDULE_LIST = document.getElementById("card_container_schedule_list"),
                MONTHS = {
                 January:  document.querySelectorAll("[data-month='0']")[0].offsetLeft,
                 February: document.querySelectorAll("[data-month='1']")[0].offsetLeft,
@@ -25,43 +41,59 @@ class MonthContainer extends React.Component {
         };
 
         const setMonthState = (month) => {
-                this.setState({
-                    currentMonth: month,
-                });
+            this.setState({
+                isVisible: false
+            });
+
+           setTimeout(()=>{
+               this.setState({
+                   currentMonth: month,
+                   isVisible: true
+               })
+            }, 600);
+
         };
         
             SCHEDULE_LIST.addEventListener("scroll", () => {
+
+                const {currentMonth} = this.state;
                 let scheduleListCheckPoint = SCHEDULE_LIST.scrollLeft + 300;                
 
             //If the distance between the first card of month X to the left side of card_container_schedule_list is 
             //less than or equal to the distance the card_container_schedule_list has been scrolled (plus the size of one card)
             //set state of current month to month X.
 
-            //Settimeout so function gets debounced.
             switch(true){
                 case scheduleListCheckPoint > 0 && scheduleListCheckPoint < MONTHS.November:
-                    setMonthState("October");
-                    break;
+                    if (currentMonth === "October") { break; }
+                        setMonthState("October");
+                        break;
                 case scheduleListCheckPoint > MONTHS.October && scheduleListCheckPoint < MONTHS.December:
-                    setMonthState("November");
-                    break;
+                    if (currentMonth === "November") { break; }
+                        setMonthState("November");
+                        break;
                 case scheduleListCheckPoint > MONTHS.November && scheduleListCheckPoint < MONTHS.January:
-                    setMonthState("December");
-                    break;
+                    if (currentMonth === "December") { break; } 
+                        setMonthState("December");
+                        break;
                 case scheduleListCheckPoint > MONTHS.December && scheduleListCheckPoint < MONTHS.February:
-                    setMonthState("January");
-                    break;
+                    if (currentMonth === "January") { break; }
+                        setMonthState("January");
+                        break;
                 case scheduleListCheckPoint > MONTHS.January && scheduleListCheckPoint < MONTHS.March:
-                    setMonthState("February");
-                    break;
+                    if (currentMonth === "February") { break; }
+                        setMonthState("February");
+                        break;
                 case scheduleListCheckPoint > MONTHS.February && scheduleListCheckPoint < MONTHS.April:
-                    setMonthState("March");
-                    break;
+                    if (currentMonth === "March") { break; }
+                        setMonthState("March");
+                        break;
                 case scheduleListCheckPoint > MONTHS.March:
-                    setMonthState("April");
-                    break;
+                    if (currentMonth === "April") { break; }
+                        setMonthState("April");
+                        break;
                 default:
-                    setMonthState("October");
+                    break;
             }
         });
     }
@@ -69,38 +101,23 @@ class MonthContainer extends React.Component {
     componentDidMount() {
         //I need to figure out why #card_container_schedule_list returns null if I don't use setTimeout. 
         //Until then, setTimeout works around that
-        setTimeout(this.updateH2, 1000);
+        setTimeout(() => {
+            this.updateH2();
+            this.setState({
+                isVisible: true
+            });
+        }, 1000);
     };
 
-    componentDidUpdate(prevProps, prevState){
-        if(this.state.currentMonth !== prevState.currentMonth){
-            document.getElementById("divisionName").animate([
-                {
-                    opacity: 0,
-                    transform: 'translateY(20px)'
-                },
-                {
-                    opacity: 1,
-                    transform: 'translateY(0px)'
-                }
-            ], {
-                duration: 300,
-                fill: "forwards",
-                easing: "ease-in-out"
-            })
-
-        }
-    }
     render() {
+        const {currentMonth, isVisible} = this.state;
 
         return (
-            <div className="month-wrapper">
-                <h2 id="divisionName" className="division-name">{this.state.currentMonth}</h2>
-            </div>
+            <StyledMonthContainer>
+               <StyledMonthH2 visible={isVisible}> { currentMonth } </StyledMonthH2>
+            </StyledMonthContainer>
         )
-
     }
-
 }
 
 export default MonthContainer;

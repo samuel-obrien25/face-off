@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 //#region STYLES
 const StyledTeamCard = styled.div`
-    
+
 `
 
 //#endregion STYLES
@@ -14,7 +14,7 @@ const StyledTeamCard = styled.div`
 const TeamCard = (props) => {
     
     return(
-        <div className= "card team-card slide-in"
+        <div className= "card team-card"
              onClick={props.onClick}
              teamValue={props.teamValue}//Might be redundant?
              >
