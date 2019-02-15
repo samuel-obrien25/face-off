@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../Cards/card.css';
 
 import HomeTeam from '../ScheduleCard/HomeTeam';
 import AwayTeam from '../ScheduleCard/AwayTeam';

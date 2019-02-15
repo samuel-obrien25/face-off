@@ -4,7 +4,6 @@ import CardContainer from '../../Containers/CardContainer';
 import DivisionContainer from '../../Containers/DivisionContainer';
 import Card from '../../Cards/Card';
 
-import '../../Cards/card.css';
 
 const TeamList = (props) => {
 

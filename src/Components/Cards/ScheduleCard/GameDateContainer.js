@@ -1,5 +1,23 @@
 import React from 'react';
-import '../card.css';
+import styled from 'styled-components';
+
+const StyledGameDateContainer = styled.div`
+    position: absolute;
+    top:0;
+    width: 100%;
+    left:0;
+    right:0;
+    margin:auto;
+    background-color: #222;
+    color: #fff;
+    height: 1.2em;
+    padding-top: 5px;
+    display: flex;
+`;
+
+const StyledGameDate = styled.p`
+    margin: auto;
+`;
 
 
 const GameDateContainer = (props) => {
@@ -19,9 +37,9 @@ const GameDateContainer = (props) => {
         let formattedGameDate = weekday[jsonDate.getDay()] + ', ' + jsonDate.toLocaleDateString() + ' at ' + jsonDate.toLocaleTimeString();
 
   return (
-        <div className={`date-time team${props.activeTeamID}`}>
-            <p><span className="game-date">{formattedGameDate}</span></p>
-        </div>
+        <StyledGameDateContainer className={`team${props.activeTeamID}`}>
+            <StyledGameDate> {formattedGameDate}</StyledGameDate>
+        </StyledGameDateContainer>
   )
 
 }

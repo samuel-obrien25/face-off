@@ -1,5 +1,4 @@
 import React from 'react';
-import '../Cards/card.css';
 import TeamCard from './TeamCard/TeamCard';
 import ScheduleCard from './ScheduleCard/ScheduleCard';
 

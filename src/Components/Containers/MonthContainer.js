@@ -1,22 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import '../Cards/card.css';
 
-
-const StyledMonthH2 = styled.h2`
-    text-align: left;
-    padding-left: 10px;
-    transition: .3s ease-in-out;
-    opacity: ${props => props.visible ? 1 : 0};
-    transform: ${props => props.visible ? "" : "translateY(15px)"};
-`
 
 const StyledMonthContainer = styled.div`
     height: 50px;
     border-bottom: 2px solid #000;
     width: 200px;
     margin-left: 20px;
-`
+
+    & h2{
+        text-align: left;
+        padding-left: 10px;
+        transition: .3s ease-in-out;
+        opacity: ${props => props.visible ? 1 : 0};
+        transform: ${props => props.visible ? "" : "translateY(15px)"};
+    }
+`;
 
 class MonthContainer extends React.Component {
 
@@ -114,7 +113,7 @@ class MonthContainer extends React.Component {
 
         return (
             <StyledMonthContainer>
-               <StyledMonthH2 visible={isVisible}> { currentMonth } </StyledMonthH2>
+               <h2 visible={isVisible}> { currentMonth } </h2>
             </StyledMonthContainer>
         )
     }

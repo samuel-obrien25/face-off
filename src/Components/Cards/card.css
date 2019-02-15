@@ -29,11 +29,6 @@
     ------------SCHEDULE CARDS--------------
     =======================================*/
     .schedule-card{
-        height: 300px;
-        display: inline-block;
-        margin: auto 10px;
-        min-width: 350px;
-        scroll-snap-align: center;
     }
 
     .past{
@@ -51,20 +46,7 @@
     .schedule-card .team{
         padding: 20px;
     }
-
-    .date-time{
-        position: absolute;
-        top:0;
-        width: 100%;
-        left:0;
-        right:0;
-        margin:auto;
-        background-color: #222;
-        color: #fff;
-        height: 1.2em;
-        padding-top: 5px;
-    }
-
+    
     .score{
         position: absolute;
     }
@@ -96,37 +78,6 @@
     .card:hover{
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         cursor: pointer;
-    }
-
-
-    /*=======================================================
-    ---------------TEAM CARDS-------------------------------
-    ========================================================*/
-
-    .team-card{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .team-card h2, .team-card h3, .team-card .logo-container{
-        position: relative;
-        margin: auto;
-        left: auto;
-        right: auto;
-    }
-
-    .team-card h2{
-        margin-top: 20%;
-        font-size: 18px;
-    }
-
-    .team-card h3{
-        font-size: 28px;
-    }
-
-    .team-card .logo-container{
-        width: 50%;
-        max-width: 125px;
     }
 
     /*=======================================================

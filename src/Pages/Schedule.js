@@ -44,7 +44,8 @@ class Schedule extends React.Component{
     handleClick = (e) => {
         //Properly handles clicks to nested elements. Deep down in my heart I know this isn't right.
         let targetTeam = e.target.closest(".card"),
-            targetTeamValue = targetTeam.getAttribute('teamValue'),
+            targetTeamValue = targetTeam.dataset.teamid,
+
             //Gets chosen card, then derives teamName and teamCity from its inner HTML
             currentTeamName = targetTeam.firstChild.innerHTML,
             currentTeamCity =  targetTeam.firstChild.nextElementSibling.innerHTML,
