@@ -10,14 +10,8 @@ const StyledHomeTeam = styled.div`
 
 const HomeTeam = (props) => {
 
-    let homeWin;
-    
-    if(props.didHomeWin) {
-        props.didHomeWin === "homeWin" ? homeWin = "winner" : homeWin = "loser";
-    }
-
     return (
-        <StyledHomeTeam className={`team home-team ${homeWin}`}>
+        <StyledHomeTeam didHomeWin={props.didHomeWin}>
             <h2>{props.teamName}</h2>
             <h3>{props.teamCity}</h3>
             <Logo teamValue={props.logoValue} />
