@@ -5,21 +5,37 @@ import styled from 'styled-components';
 
 //#region STYLES
 const StyledScheduleCard = styled.div`
-        margin: auto 10px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        display: inline-block;
-        height: 300px;
-        width: 100%;
-        min-width: 350px;
-        transition: .25s ease-in-out;
-        background: #fff;
-        position: relative;
-        border-radius: 5px;
-        overflow: hidden;
-        scroll-behavior: smooth;
-        scroll-snap-align: center;
-        background-color: ${props => props.isGamePast === "past" ? "#e0e0e0" : "#fff"};
+    margin: auto 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    height: 300px;
+    width: 100%;
+    min-width: 350px;
+    transition: .25s ease-in-out;
+    background: #fff;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-align: center;
+    background-color: ${props => props.isGamePast === "past" ? "#e0e0e0" : "#fff"};
 `;
+
+const StyledGameScore = styled.div`
+    position: absolute;
+    top: 15px;
+    height: calc(100% - 15px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    & *{
+        margin: auto;
+    }
+
+    & p{
+        font-weight: 600;
+    }
+`
 
 //#endregion STYLES
 
@@ -42,12 +58,12 @@ const ScheduleCard = (props) => {
 
     return (
 
-        <StyledScheduleCard data-month={month} isPast={isGamePast}>
-
+        <StyledScheduleCard data-month={month} isPast={isGamePast} cardType={"scheduleCard"}>
             <GameDateContainer
                 gameDateTime={props.gameDateTime}
                 activeTeamID={props.activeTeamID}
             />
+            <StyledGameScore>
             <Team
                 didHomeWin={didHomeWin}
                 awayTeamID={props.awayTeamID}
@@ -64,7 +80,7 @@ const ScheduleCard = (props) => {
                 teamCity={props.teamCity}
                 homeTeamScore={props.homeTeamScore}
             />
-
+            </StyledGameScore>
         </StyledScheduleCard>
     )
 }

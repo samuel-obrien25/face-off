@@ -71,10 +71,10 @@ const StyledTeamCard = styled.div`
 const TeamCard = (props) => {
 
     return (
-        <StyledTeamCard className="card team-card" onClick={props.onClick} teamValue={props.teamValue} data-teamID={props.teamValue}>
+        <StyledTeamCard className="card team-card" onClick={props.onClick} teamValue={props.teamValue} data-teamid={props.teamValue}>
             <h2>{props.cityName}</h2>
             <h3>{props.teamName}</h3>
-            <Logo teamValue={props.teamValue} />
+            <Logo cardType={"teamCard"} teamValue={props.teamValue} />
         </StyledTeamCard>
     )
 }

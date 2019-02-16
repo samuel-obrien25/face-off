@@ -1,5 +1,25 @@
 import React from 'react';
-import '../Logo/Logo.css';
+import styled from 'styled-components';
+
+const StyledLogoContainer = styled.div`
+    border-radius: 50%;
+    width: 75px;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 0;
+    position: ${ props=>props.cardType === "teamCard" ? "absolute" : "relative"};
+    left: ${ props=>props.cardType === "teamCard" ? "20px" : "0px"};
+`;
+
+const StyledLogo = styled.img`
+    margin: auto;
+    width: 100%;
+    position: relative;
+    height: auto; 
+`;
 
 const Logo = (props) => {
     let teamValue = props.teamValue,
@@ -105,11 +125,11 @@ const Logo = (props) => {
     }
 
     return(
-        <div className="logo-container">
-            <img src = {currentLogo}
+        <StyledLogoContainer cardType={props.cardType}>
+            <StyledLogo src = {currentLogo}
                 alt = {`${props.TeamName} logo`}
                 />
-        </div>
+        </StyledLogoContainer>
     )
 }
 
