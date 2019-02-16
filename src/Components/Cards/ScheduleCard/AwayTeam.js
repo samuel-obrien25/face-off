@@ -1,7 +1,11 @@
 
 import React from 'react';
-import '../../Cards/card.css'
-import Logo from '../../Logo/Logo'
+import Logo from '../../Logo/Logo';
+import styled from 'styled-components';
+
+const StyledAwayTeam = styled.div`
+    
+`
 
 const AwayTeam = (props) => {
 

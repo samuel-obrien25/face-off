@@ -1,7 +1,6 @@
 import React from 'react';
 
 import LoadingCircle from '../Components/Loading/LoadingCircle';
-import '../App.css'
 
 export default class GetTeamStats extends React.Component{
 
@@ -56,9 +55,11 @@ export default class GetTeamStats extends React.Component{
     }
 
     render(){
+        const { isLoading, teamStats } = this.state;
+
         if(this.props.ApiLink === "teamStatsQuery") {
 
-            if (this.state.isLoading){ 
+            if (isLoading){ 
                 //Doesn't work as intended
                 return (
                     <LoadingCircle />
@@ -66,9 +67,9 @@ export default class GetTeamStats extends React.Component{
             }
             
             else{
-                const teamWins = this.state.teamStats.teamStatsTotals[0].stats.standings.wins,
-                      teamLosses = this.state.teamStats.teamStatsTotals[0].stats.standings.losses,
-                      teamOvertimeLosses = this.state.teamStats.teamStatsTotals[0].stats.standings.overtimeLosses;
+                const teamWins = teamStats.teamStatsTotals[0].stats.standings.wins,
+                      teamLosses = teamStats.teamStatsTotals[0].stats.standings.losses,
+                      teamOvertimeLosses = teamStats.teamStatsTotals[0].stats.standings.overtimeLosses;
                 
                     console.log(teamWins + ", " + teamLosses + ", " + teamOvertimeLosses);
                     return (

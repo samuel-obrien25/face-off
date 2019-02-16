@@ -1,50 +1,11 @@
-@media only screen and (min-width: 1px) {
-
-    html, body{
-        scroll-behavior: smooth;
-    }
-
-    .card-container{
-        position: absolute;
-        top:50px;
-        left: 3%;
-        width: 94%;
-        margin: auto;
-        height: inherit;
-        display: inline-block;
-        text-align: center;
-        scroll-behavior: smooth;
-    }
-
-    #card_container_schedule_list{
-        overflow: auto;
-        overflow-y: hidden;
-        white-space: nowrap;
-        display: flex;
-        position: relative;
-        height: auto;
-        padding: 20px 0px;
-        width: 95vw;
-        left: 0;
-        margin-top: -25px;
-        padding-bottom: 100px;
-    }
+@media only screen and (min-width: 1px) {    
 
     /*==================================
     ------------DIVISIONS----------------
     ===================================*/
 
-    .division{
-        width:100%;
-        height: 100%;
-        overflow: auto;
-        padding-bottom: 25px;
-    }
 
-    .division-name{
-        text-align: left;
-        margin-left: 10px;
-    }
+
     .card{
         margin: 10px auto;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -55,9 +16,6 @@
         background: #fff;
         position: relative;
         border-radius: 5px;
-        animation: .3s ease-in-out fadeIn forwards;
-        opacity: 0;
-        transform:translateY(50px);
         float: left;
         overflow: hidden;
         scroll-behavior: smooth;
@@ -67,24 +25,10 @@
         cursor: pointer;
     }
 
-
-    button{
-        border: none;
-    }
-
     /*======================================
     ------------SCHEDULE CARDS--------------
     =======================================*/
-    .month-wrapper{
-        width: 250px;
-        border-bottom: 2px solid black;
-    }
-
     .schedule-card{
-        height: 300px;
-        display: inline-block;
-        margin: auto 10px;
-        min-width: 350px;
     }
 
     .past{
@@ -102,20 +46,7 @@
     .schedule-card .team{
         padding: 20px;
     }
-
-    .date-time{
-        position: absolute;
-        top:0;
-        width: 100%;
-        left:0;
-        right:0;
-        margin:auto;
-        background-color: #222;
-        color: #fff;
-        height: 1.2em;
-        padding-top: 5px;
-    }
-
+    
     .score{
         position: absolute;
     }
@@ -129,38 +60,12 @@
         bottom: 30px;
         left:50px;
     }
+}
     /*======================================
     --------Animations and Transitions------
     ======================================*/
 
     /*Overrides .fade-in @ app.css MUST FIX!*/
-    .fade-in{
-        animation: .3s fadeIn forwards;
-    }
-
-    @keyframes fadeIn {
-        from{
-            opacity: 0;
-            transform:translateY(50px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes fadeOut {
-        from{
-            opacity: 1;
-            transform: translateY(0);
-        }
-        to{
-            opacity: 0;
-            transform: translateY(-50px);
-        }
-    }
-
-}
 
 @media only screen and (min-width: 600px) {
     .card{
@@ -173,37 +78,6 @@
     .card:hover{
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         cursor: pointer;
-    }
-
-
-    /*=======================================================
-    ---------------TEAM CARDS-------------------------------
-    ========================================================*/
-
-    .team-card{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .team-card h2, .team-card h3, .team-card .logo-container{
-        position: relative;
-        margin: auto;
-        left: auto;
-        right: auto;
-    }
-
-    .team-card h2{
-        margin-top: 20%;
-        font-size: 18px;
-    }
-
-    .team-card h3{
-        font-size: 28px;
-    }
-
-    .team-card .logo-container{
-        width: 50%;
-        max-width: 125px;
     }
 
     /*=======================================================

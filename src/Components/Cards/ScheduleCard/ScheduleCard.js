@@ -1,8 +1,28 @@
 import React from 'react';
-import '../card.css';
-
 import Team from '../TeamCard/Team';
 import GameDateContainer from './GameDateContainer';
+import styled from 'styled-components';
+
+//#region STYLES
+const StyledScheduleCard = styled.div`
+        margin: auto 10px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        display: inline-block;
+        height: 300px;
+        width: 100%;
+        min-width: 350px;
+        transition: .25s ease-in-out;
+        background: #fff;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-align: center;
+        background-color: ${props => props.isGamePast === "past" ? "#e0e0e0" : "#fff"};
+`;
+
+//#endregion STYLES
+
 
 
 const ScheduleCard = (props) => {
@@ -22,8 +42,7 @@ const ScheduleCard = (props) => {
 
     return (
 
-        <div className={`schedule-card card ${isGamePast}`}
-            data-month={month}>
+        <StyledScheduleCard data-month={month} isPast={isGamePast}>
 
             <GameDateContainer
                 gameDateTime={props.gameDateTime}
@@ -46,7 +65,7 @@ const ScheduleCard = (props) => {
                 homeTeamScore={props.homeTeamScore}
             />
 
-        </div>
+        </StyledScheduleCard>
     )
 }
 //TO DO

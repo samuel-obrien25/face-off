@@ -5,16 +5,30 @@ import GetTeamStats from '../API/GetTeamStats';
 import TeamList from '../Components/Cards/TeamCard/TeamList';
 import Fab from '../Components/Buttons/Fab';
 import MonthContainer from '../Components/Containers/MonthContainer';
-import '../App.css';
+import styled from 'styled-components';
 import '../Utilities/league-colors.css';
+
+//#region STYLES
+const StyledFabWrapper = styled.div `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        height: 50px;
+        width: 250px;
+        transition: .5s ease-in-out;
+        display: flex;
+`;
+
+const StyledWrapper = styled.main `
+        position: relative;
+`
+
+//#endregion STYLES
 
 class Schedule extends React.Component{
     
     constructor(props){
         super(props);
-        this.handleClick = this.handleClick.bind(this);
-        this.resetAPICall = this.resetAPICall.bind(this);
-        this.scrollToNextGame = this.scrollToNextGame.bind(this);
         this.state = {
             scheduleQueryRecipe: '',
             teamStatsQueryRecipe: '',
@@ -27,10 +41,11 @@ class Schedule extends React.Component{
         };
     }
 
-    handleClick(e) {
-                //Properly handles clicks to nested elements. Deep down in my heart I know this isn't right.
+    handleClick = (e) => {
+        //Properly handles clicks to nested elements. Deep down in my heart I know this isn't right.
         let targetTeam = e.target.closest(".card"),
-            targetTeamValue = targetTeam.getAttribute('teamValue'),
+            targetTeamValue = targetTeam.dataset.teamid,
+
             //Gets chosen card, then derives teamName and teamCity from its inner HTML
             currentTeamName = targetTeam.firstChild.innerHTML,
             currentTeamCity =  targetTeam.firstChild.nextElementSibling.innerHTML,
@@ -57,7 +72,7 @@ class Schedule extends React.Component{
         });
     };
 
-    scrollToNextGame(){
+    scrollToNextGame = () => {
         if (document.getElementsByClassName("future").length > 1) {
             document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
                 behavior: 'smooth',
@@ -66,7 +81,8 @@ class Schedule extends React.Component{
         } else { return }
     }
 
-    resetAPICall() {
+    
+    resetAPICall = () => {
         let scheduleQueryBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team='
         
@@ -86,67 +102,42 @@ class Schedule extends React.Component{
 
     render(){
 
-        if(this.state.isScheduleListActive){
+        const {activeTeamID, headerH1, headerH2, isFabActive, isScheduleListActive, isTeamListActive, scheduleQueryRecipe, teamStatsQueryRecipe, teamStatsBaseURL} = this.state;
+
+        if(isScheduleListActive){
             //Good to have reference to the API link...
-            console.log("The current TeamStatsQueryRecipe is " + this.state.teamStatsQueryRecipe);
-            console.log("The current scheduleQueryRecipe is " + this.state.scheduleQueryRecipe);
+            console.log("The current TeamStatsQueryRecipe is " + teamStatsQueryRecipe);
+            console.log("The current scheduleQueryRecipe is " + scheduleQueryRecipe);
 
                 return (
                     <div>
-                        <Header
-                            activeTeamID={this.state.activeTeamID}
-                            headerH1={this.state.headerH1}
-                            headerH2={this.state.headerH2}
-                        > 
-                            <GetTeamStats
-                                url={this.state.teamStatsQueryRecipe}
-                                ApiLink="teamStatsQuery"
-                            />
+                        <Header activeTeamID={activeTeamID} headerH1={headerH1} headerH2={headerH2}> 
+                            <GetTeamStats ApiLink="teamStatsQuery" url={teamStatsQueryRecipe} />
                         </Header>
                         
                         <div className="wrapper wrapper__home">
                             <h2 className="page__title page__title_schedule">Choose a Game</h2>
+                            
                             <MonthContainer/>
-                            <ApiCall
-                                url={this.state.scheduleQueryRecipe}
-                                ApiLink="gameScheduleQuery"
-                                activeTeamID={this.state.activeTeamID}
-                            />
-
-                            <div className="fab-container">
-                                <Fab visible={this.state.isFabActive} 
-                                    onClick={this.scrollToNextGame}
-                                    fabText="Next Game"
-                                    fabClass={`fab next-game-fab team${this.state.activeTeamID}`}
-                                    />
-
-                                <Fab visible={this.state.isFabActive}
-                                    onClick={this.resetAPICall}
-                                    fabClass={`fab team${this.state.activeTeamID}`}
-                                    fabText="Back"
-                                />
-                            </div>
-        
+                            <ApiCall activeTeamID={activeTeamID} ApiLink="gameScheduleQuery" url={scheduleQueryRecipe}/>
+                            <StyledFabWrapper>
+                                <Fab activeTeamID={activeTeamID} fabText="Next Game" onClick={this.scrollToNextGame} visible={isFabActive} />
+                                <Fab activeTeamID={activeTeamID} fabText="Back" onClick={this.resetAPICall} visible={isFabActive} />
+                            </StyledFabWrapper>        
                         </div>
                     </div>
         
                 )
         }
 
-        if(this.state.isTeamListActive){
+        if(isTeamListActive){
 
             return (
                 <div>
-                    <Header
-                        headerH1 = {this.state.headerH1}
-                        headerH2 = {this.state.headerH2}
-                    />
-                    <div className="wrapper wrapper__home">
-                        <TeamList
-                            handleClick = {this.handleClick}
-                            teamValue = {this.targetTeamValue}
-                        />
-                    </div>
+                    <Header headerH1 = {headerH1} headerH2 = {headerH2} />
+                    <StyledWrapper>
+                        <TeamList handleClick={this.handleClick} teamValue={this.targetTeamValue} />
+                    </StyledWrapper>
                 </div>
             )
         }
