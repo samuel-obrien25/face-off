@@ -23,7 +23,7 @@ class MonthContainer extends React.Component {
         super(props);
         this.state = {
             currentMonth: 'October',
-            isVisible: false
+            isVisible: true
         }
     }
 

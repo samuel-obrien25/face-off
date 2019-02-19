@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledCardContainer = styled.div`
         position: relative;
         top: 50px;
-        width: 80%;
+        width: 85%;
         margin: auto;
         height: inherit;
         display: inline-block;
@@ -38,22 +38,6 @@ class CardContainer extends React.Component {
 
     constructor(props){
         super(props);
-    }
-
-    addCardScale(){
-        /*
-        let cardsList = document.getElementsByClassName("schedule-card"),
-            viewCenterPoint = window.outerWidth / 2,
-            i = 0;
-
-        for (i; i < cardsList.length; i++) {
-            let cardScrollPoint = cardsList[i].offsetLeft,
-                cardsListContainer = cardsList[i].parentElement.scrollLeft + 300,
-                scaleValue = (((cardsListContainer - cardScrollPoint) / viewCenterPoint) * 1.2);
-
-            cardsList[i].style.transform = "scale(" + scaleValue + ")";
-        }
-        */
     }
 
     render(){

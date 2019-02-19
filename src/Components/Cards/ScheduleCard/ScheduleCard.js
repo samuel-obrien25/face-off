@@ -62,6 +62,22 @@ class ScheduleCard extends React.Component {
     }
 }
 
+    addCardScale() {
+        let cardsList = document.getElementsByClassName("schedule-card"),
+            viewCenterPoint = window.outerWidth / 2,
+            i = 0;
+
+        for (i; i < cardsList.length; i++) {
+            let cardScrollPoint = cardsList[i].offsetLeft,
+                cardsListContainer = cardsList[i].parentElement.scrollLeft + 300;
+
+                if(cardsList[i].scrollLeft )
+                scaleValue = (((cardsListContainer - cardScrollPoint) / viewCenterPoint) * 1.2);
+
+            cardsList[i].style.transform = "scale(" + scaleValue + ")";
+        }
+    }
+
     componentDidMount() {
         this.dateCheck();
     }

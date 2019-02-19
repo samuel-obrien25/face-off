@@ -1,5 +1,4 @@
 import React from 'react';
-
 import LoadingCircle from '../Components/Loading/LoadingCircle';
 
 export default class GetTeamStats extends React.Component{
@@ -73,7 +72,7 @@ export default class GetTeamStats extends React.Component{
                 
                     console.log(teamWins + ", " + teamLosses + ", " + teamOvertimeLosses);
                     return (
-                       <h3 className="fade-in team-record">Record: ({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</h3>    
+                       <h3>({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</h3>    
                     )
                 }
         }
