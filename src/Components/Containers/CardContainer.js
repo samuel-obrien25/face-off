@@ -10,6 +10,13 @@ const StyledCardContainer = styled.div`
         display: inline-block;
         text-align: center;
         scroll-behavior: smooth;
+
+        @media (min-width: 600px) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        }
+
 `;
 
 const StyledScheduleCardContainer = styled(StyledCardContainer)`

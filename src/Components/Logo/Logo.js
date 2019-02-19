@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledLogoContainer = styled.div`
     border-radius: 50%;
-    width: 75px;
+    width: 80px;
     height: 100%;
     position: relative;
     margin: auto;
@@ -12,13 +12,21 @@ const StyledLogoContainer = styled.div`
     margin-left: 0;
     position: ${ props=>props.cardType === "teamCard" ? "absolute" : "relative"};
     left: ${ props=>props.cardType === "teamCard" ? "20px" : "0px"};
+    
+    @media screen and (min-width:600px){
+        position: relative;
+        height: auto;
+        left: auto;
+        margin: auto;
+        width: 125px;
+    }
 `;
 
 const StyledLogo = styled.img`
     margin: auto;
     width: 100%;
     position: relative;
-    height: auto; 
+    height: auto;
 `;
 
 const Logo = (props) => {
@@ -27,7 +35,7 @@ const Logo = (props) => {
 
     switch(teamValue) {
         case "1":
-            currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-14-dark.svg";
+            currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-14-light.svg";
             break;
         case "2":
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-52-dark.svg";
@@ -39,7 +47,7 @@ const Logo = (props) => {
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-13-dark.svg" ;
             break;
         case "5":
-            currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-15-dark.svg";
+            currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-15-light.svg";
             break;
         case "6":
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-4-dark.svg" ;
@@ -60,7 +68,7 @@ const Logo = (props) => {
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-6-dark.svg" ;
             break;
         case "12":
-            currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-10-dark.svg" ;
+            currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-10-light.svg" ;
             break;
         case "13":
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-9-dark.svg" ;
@@ -87,7 +95,7 @@ const Logo = (props) => {
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-16-dark.svg" ;
             break;
         case "21":
-            currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-23-dark.svg" ;
+            currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-23-light.svg" ;
             break;        
         case "22":
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-21-dark.svg" ;

@@ -7,10 +7,18 @@ const StyledDivisionContainer = styled.section`
     overflow: auto;
     padding-bottom: 25px;
     position: relative;
+
+    @media (min-width: 600px) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
 `;
 
 const StyledDivisionName = styled.h2`
     text-align: left;
+    width: 100%;
 `
 
 const DivisionContainer = (props) => {

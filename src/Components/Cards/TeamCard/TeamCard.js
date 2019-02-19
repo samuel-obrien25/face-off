@@ -19,6 +19,10 @@ const StyledTeamCard = styled.div`
         overflow: hidden;
         scroll-behavior: smooth;
 
+        :hover {
+            cursor: pointer;
+        }
+
         & h2, h3, .logo-container{
             position: relative;
             margin: auto;
@@ -36,31 +40,22 @@ const StyledTeamCard = styled.div`
             padding-left: 20px;
         }
 
-        & .logo-container{
-            width: 50%;
-            max-width: 125px;
-            position: absolute;
-            left: 0px;
-
-            & img{
-                margin: auto;
-                width: 60%;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 10px;
-            }
-        }
-
         @media (min-width: 600px) {
+            width: 250px;
+            height: 350px;
             display:flex;
             flex-direction: column;
+            margin: 15px auto;
 
-            :hover {
-                cursor: pointer;
+           :hover {
                 transform:translateY(-5px);
                 box-shadow: 2px 4px 6px rgba(0,0,0,.4);
             }
+
+            & h2, h3{
+                padding-left: 0px;
+            }
+
         }
 `;
 
@@ -71,7 +66,7 @@ const StyledTeamCard = styled.div`
 const TeamCard = (props) => {
 
     return (
-        <StyledTeamCard className="card team-card" onClick={props.onClick} teamValue={props.teamValue} data-teamid={props.teamValue}>
+        <StyledTeamCard className={`card team-card team${props.teamValue}`} onClick={props.onClick} teamValue={props.teamValue} data-teamid={props.teamValue}>
             <h2>{props.cityName}</h2>
             <h3>{props.teamName}</h3>
             <Logo cardType={"teamCard"} teamValue={props.teamValue} />
