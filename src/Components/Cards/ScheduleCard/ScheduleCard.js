@@ -2,7 +2,6 @@ import React from 'react';
 import Team from '../TeamCard/Team';
 import GameDateContainer from './GameDateContainer';
 import styled from 'styled-components';
-import RenderToLayer from 'material-ui/internal/RenderToLayer';
 
 //#region STYLES
 const StyledScheduleCard = styled.div`
@@ -18,6 +17,7 @@ const StyledScheduleCard = styled.div`
     overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-align: center;
+    opacity: ${props => props.isPast === "past" ? ".6" : "1"};
 `;
 
 const StyledGameScore = styled.div`
@@ -45,36 +45,34 @@ class ScheduleCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isGamePast: false,
+            isGamePast: true,
         };
     }
 
     dateCheck () {
-        const {gameDateTime} = this.props;
+        const { gameDateTime } = this.props;
 
         let currentDate = new Date(),
             currentGameDate = new Date(gameDateTime);
 
-        if (currentGameDate > currentDate) {
+        if (currentDate < currentGameDate) {
             this.setState({
-                isGamePast: true,
+                isGamePast: false,
             })
-        } else {
-            this.setState({
-                isGamePast: false
-            })
-        }
+    }
+}
 
+    componentDidMount() {
+        this.dateCheck();
     }
 
     render() {
 
         const {activeTeamID, awayTeamID, awayTeamScore, gameDateTime, homeTeamID, homeTeamScore, teamCity, teamName} = this.props;
 
-        let month = currentGameDate.getMonth(),
-            currentGameDate = new Date(gameDateTime);
+        let currentGameDate = new Date(gameDateTime),
+            month = currentGameDate.getMonth(),
             didHomeWin;
-
 
         if (homeTeamScore > awayTeamScore){
             didHomeWin = "homeWin";
@@ -84,9 +82,9 @@ class ScheduleCard extends React.Component {
 
         return (
 
-            <StyledScheduleCard data-month={month} cardType={"scheduleCard"}>
+            <StyledScheduleCard data-month={month} cardType={"scheduleCard"} isPast={this.state.isGamePast ? 'past' : 'future'}>
                 <GameDateContainer
-                    gameDateTime={gameDateTime}
+                    gameDateTime={currentGameDate}
                     activeTeamID={activeTeamID}
                 />
                 <StyledGameScore>

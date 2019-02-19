@@ -37,7 +37,7 @@ const GameDateContainer = (props) => {
         let formattedGameDate = weekday[jsonDate.getDay()] + ', ' + jsonDate.toLocaleDateString() + ' at ' + jsonDate.toLocaleTimeString();
 
   return (
-        <StyledGameDateContainer className={`team${props.activeTeamID}`}>
+        <StyledGameDateContainer gameDateTime={props.gameDateTime} className={`team${props.activeTeamID}`}>
             <StyledGameDate> {formattedGameDate}</StyledGameDate>
         </StyledGameDateContainer>
   )
