@@ -9,16 +9,6 @@ import styled from 'styled-components';
 import '../Utilities/league-colors.css';
 
 //#region STYLES
-const StyledFabWrapper = styled.div `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        height: 50px;
-        width: 250px;
-        transition: .5s ease-in-out;
-        display: flex;
-`;
-
 const StyledWrapper = styled.main `
         position: relative;
 `
@@ -71,16 +61,6 @@ class Schedule extends React.Component{
            };
         });
     };
-
-    scrollToNextGame = () => {
-        if (document.getElementsByClassName("future").length > 1) {
-            document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        } else { return }
-    }
-
     
     resetAPICall = () => {
         let scheduleQueryBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
@@ -120,10 +100,7 @@ class Schedule extends React.Component{
                             
                             <MonthContainer/>
                             <ApiCall activeTeamID={activeTeamID} ApiLink="gameScheduleQuery" url={scheduleQueryRecipe}/>
-                            <StyledFabWrapper>
-                                <Fab activeTeamID={activeTeamID} fabText="Next Game" onClick={this.scrollToNextGame} visible={isFabActive} />
-                                <Fab activeTeamID={activeTeamID} fabText="Back" onClick={this.resetAPICall} visible={isFabActive} />
-                            </StyledFabWrapper>        
+                                <Fab activeTeamID={activeTeamID} visible={isFabActive} />
                         </div>
                     </div>
         

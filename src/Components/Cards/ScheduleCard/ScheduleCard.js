@@ -65,6 +65,7 @@ class ScheduleCard extends React.Component {
     addCardScale() {
         let cardsList = document.getElementsByClassName("schedule-card"),
             viewCenterPoint = window.outerWidth / 2,
+            scaleValue,
             i = 0;
 
         for (i; i < cardsList.length; i++) {

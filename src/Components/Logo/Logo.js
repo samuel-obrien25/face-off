@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+//#region STYLES
 const StyledLogoContainer = styled.div`
     border-radius: 50%;
     width: 80px;
@@ -28,14 +29,17 @@ const StyledLogo = styled.img`
     position: relative;
     height: auto;
 `;
+//#endregion STYLES
 
 const Logo = (props) => {
-    let teamValue = props.teamValue,
-        currentLogo;
+    const { cardType, teamValue } = props;
+    let currentLogo;
 
+        //Huge switch statement that determines the logo based on team value. Also added some logic to check for card type.
+        //If cardType===teamCard, some teams go to *light* version of logo.
     switch(teamValue) {
         case "1":
-            if(props.cardType === "teamCard"){
+            if(cardType === "teamCard"){
                 currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-14-light.svg";
                 break;
             } else {
@@ -52,7 +56,7 @@ const Logo = (props) => {
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-13-dark.svg" ;
             break;
         case "5":
-            if (props.cardType === "teamCard") {
+            if (cardType === "teamCard") {
                 currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-15-light.svg";
                 break;
             } else {
@@ -78,7 +82,7 @@ const Logo = (props) => {
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-6-dark.svg" ;
             break;
         case "12":
-            if (props.cardType === "teamCard") {
+            if (cardType === "teamCard") {
                 currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-10-light.svg";
                 break;
             } else {
@@ -110,7 +114,7 @@ const Logo = (props) => {
             currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-16-dark.svg" ;
             break;
         case "21":
-            if (props.cardType === "teamCard") {
+            if (cardType === "teamCard") {
                 currentLogo = "https://www-league.nhlstatic.com/nhl.com/builds/site-core/3358ed0ede20e7e33cb07ec6be0713405ff6b894_1539029735/images/logos/team/current/team-23-light.svg";
                 break;
             } else {
@@ -153,7 +157,7 @@ const Logo = (props) => {
     }
 
     return(
-        <StyledLogoContainer cardType={props.cardType}>
+        <StyledLogoContainer cardType = {cardType}>
             <StyledLogo src = {currentLogo}
                 alt = {`${props.TeamName} logo`}
                 />

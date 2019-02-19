@@ -3,10 +3,6 @@ import LoadingCircle from '../Components/Loading/LoadingCircle';
 
 export default class GetTeamStats extends React.Component{
 
-//To Do
-// == Document code
-// == Figure out if anything can be broken out into its own component
-
     constructor (props){
         super(props);
 

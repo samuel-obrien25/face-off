@@ -16,7 +16,6 @@ const StyledHeader = styled.header`
     padding: 20px;
     color: white;
     position: relative;
-    z-index: 9000;
     text-align:center;
     transition: .25s ease-in-out;
 
