@@ -11,13 +11,24 @@ const StyledScheduleCard = styled.div`
     width: 100%;
     min-width: 350px;
     transition: .25s ease-in-out;
-    background: #fff;
+    background-color: ${props => props.isPast === "past" ? "lightgray" : "#fff"};
     position: relative;
     border-radius: 5px;
     overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-align: center;
     opacity: ${props => props.isPast === "past" ? ".6" : "1"};
+
+    @media (min-width: 600px) {
+        width: 350px;
+        height: 450px;
+        margin: auto 20px;
+
+            :hover{
+                box-shadow: 0 2px 6px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.4);
+                transform: translateY(-5px);
+            }
+    }
 `;
 
 const StyledGameScore = styled.div`
@@ -85,7 +96,8 @@ class ScheduleCard extends React.Component {
 
     render() {
 
-        const {activeTeamID, awayTeamID, awayTeamScore, gameDateTime, homeTeamID, homeTeamScore, teamCity, teamName} = this.props;
+        const {activeTeamID, awayTeamID, awayTeamScore, gameDateTime, homeTeamID, homeTeamScore, teamCity, teamName} = this.props,
+                pastOrFuture= this.state.isGamePast ? "past" : "future";
 
         let currentGameDate = new Date(gameDateTime),
             month = currentGameDate.getMonth(),
@@ -99,7 +111,7 @@ class ScheduleCard extends React.Component {
 
         return (
 
-            <StyledScheduleCard data-month={month} cardType={"scheduleCard"} isPast={this.state.isGamePast ? 'past' : 'future'}>
+            <StyledScheduleCard data-month={month} data-pastfuture={pastOrFuture} cardType={"scheduleCard"} isPast={this.state.isGamePast ? 'past' : 'future'}>
                 <GameDateContainer
                     gameDateTime={currentGameDate}
                     activeTeamID={activeTeamID}

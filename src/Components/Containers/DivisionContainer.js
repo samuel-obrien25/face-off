@@ -9,9 +9,7 @@ const StyledDivisionContainer = styled.section`
     position: relative;
 
     @media (min-width: 600px) {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: inline-block;
     }
 
 `;

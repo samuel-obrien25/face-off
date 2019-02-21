@@ -10,14 +10,22 @@ const StyledHeader = styled.header`
     flex-wrap: wrap;
     flex-direction: column;
     background-color: #222;
-    width: auto;
+    width: 100%;
     height: 150px;
-    margin-bottom: 25px;
-    padding: 20px;
+    padding: 20px 0;
     color: white;
-    position: relative;
+    position: fixed;
+    top:0;
+    left:0;
     text-align:center;
     transition: .25s ease-in-out;
+    z-index:8000;
+
+    & h1, h2, h3{
+        width: 80%;
+        margin: auto;
+        padding-left: 0px;
+    }
 
     h1 {
         margin: auto;
@@ -29,11 +37,8 @@ const StyledHeader = styled.header`
         font-size: ${props => props.activeTeamID ? '42px' : '24px'};
         margin-top: 10px;
     }
+`;
 
-    h3 {
-        margin: auto;
-    }
-`
 //#endregion Styles
 
 class Header extends React.Component{

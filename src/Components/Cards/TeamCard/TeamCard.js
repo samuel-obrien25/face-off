@@ -31,22 +31,10 @@ const StyledTeamCard = styled.div`
             right: auto;
         }
 
-        & h2{
-            font-size: 18px;
-            padding-left:20px;
-        }
-
-        & h3{
-            font-size: 28px;
-            padding-left: 20px;
-        }
-
         @media (min-width: 600px) {
             width: 250px;
             height: 350px;
-            display:flex;
-            flex-direction: column;
-            margin: 15px auto;
+            margin: 10px;
 
            :hover {
                 transform:translateY(-5px);
@@ -55,14 +43,24 @@ const StyledTeamCard = styled.div`
 
             & h2, h3{
                 padding-left: 0px;
+                margin-bottom: 0px;
             }
 
         }
 `;
 
-const StyledTeamRecord = styled(GetTeamStats)`
-    font-size: 18px;
+const StyledCityName = styled.h2`
+            font-size: 18px;
+            padding-left:20px;
+
 `;
+
+const StyledTeamName = styled.h3`
+    font-size: 28px;
+    padding-left: 20px;
+
+`;
+
 
 //#endregion STYLES
 
@@ -75,9 +73,9 @@ const TeamCard = (props) => {
 
     return (
         <StyledTeamCard className={`card team-card team${props.teamValue}`} onClick={props.onClick} teamValue={props.teamValue} data-teamid={props.teamValue}>
-            <h2>{props.cityName}</h2>
-            <h3>{props.teamName}</h3>
-            <StyledTeamRecord ApiLink="teamStatsQuery" url={recordQuery}/>
+            <StyledCityName>{props.cityName}</StyledCityName>
+            <StyledTeamName>{props.teamName}</StyledTeamName>
+            <GetTeamStats teamStatsLocation="teamCard" ApiLink="teamStatsQuery" url={recordQuery}/>
             <Logo cardType={"teamCard"} teamValue={props.teamValue} />
         </StyledTeamCard>
     )

@@ -5,6 +5,7 @@ import Schedule from './Pages/Schedule';
 
 const StyledApp = styled.div`
     text-align: center;
+    overflow: hidden;
 `;
 
 const App = () => {

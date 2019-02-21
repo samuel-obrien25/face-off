@@ -11,6 +11,7 @@ import '../Utilities/league-colors.css';
 //#region STYLES
 const StyledWrapper = styled.main `
         position: relative;
+        margin-top: 175px;
 `
 
 //#endregion STYLES
@@ -82,7 +83,7 @@ class Schedule extends React.Component{
 
     render(){
 
-        const {activeTeamID, headerH1, headerH2, isFabActive, isScheduleListActive, isTeamListActive, scheduleQueryRecipe, teamStatsQueryRecipe, teamStatsBaseURL} = this.state;
+        const {activeTeamID, headerH1, headerH2, isFabActive, isScheduleListActive, isTeamListActive, scheduleQueryRecipe, teamStatsQueryRecipe} = this.state;
 
         if(isScheduleListActive){
             //Good to have reference to the API link...
@@ -92,7 +93,7 @@ class Schedule extends React.Component{
                 return (
                     <div>
                         <Header activeTeamID={activeTeamID} headerH1={headerH1} headerH2={headerH2}> 
-                            <GetTeamStats ApiLink="teamStatsQuery" url={teamStatsQueryRecipe} />
+                            <GetTeamStats teamStatsLocation="header" ApiLink="teamStatsQuery" url={teamStatsQueryRecipe} />
                         </Header>
                         
                         <div className="wrapper wrapper__home">
@@ -100,7 +101,7 @@ class Schedule extends React.Component{
                             
                             <MonthContainer/>
                             <ApiCall activeTeamID={activeTeamID} ApiLink="gameScheduleQuery" url={scheduleQueryRecipe}/>
-                                <Fab activeTeamID={activeTeamID} visible={isFabActive} />
+                                <Fab activeTeamID={activeTeamID} visible={isFabActive} handleClick={this.resetAPICall}/>
                         </div>
                     </div>
         

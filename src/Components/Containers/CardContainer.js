@@ -3,20 +3,17 @@ import styled from 'styled-components';
 
 const StyledCardContainer = styled.div`
         position: relative;
-        top: 50px;
         width: 85%;
-        margin: auto;
+        margin: 15px auto;
         height: inherit;
         display: inline-block;
         text-align: center;
         scroll-behavior: smooth;
 
         @media (min-width: 600px) {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: inline-block;
+        max-width: 1100px;
         }
-
 `;
 
 const StyledScheduleCardContainer = styled(StyledCardContainer)`
@@ -29,16 +26,16 @@ const StyledScheduleCardContainer = styled(StyledCardContainer)`
         padding: 20px 0px;
         width: 95vw;
         left: 0;
-        margin-top: -25px;
-        padding-bottom: 100px;
+        margin-top: 200px;
         scroll-snap-type: x proximity;
-`
+        @media (min-width: 600px) {
+            display: flex;
+            flex-direction: row;
+            max-width: 98vw;
+        }
+`;
 
 class CardContainer extends React.Component {
-
-    constructor(props){
-        super(props);
-    }
 
     render(){
         const { containerType } = this.props;

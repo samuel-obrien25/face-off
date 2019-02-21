@@ -1,5 +1,11 @@
 import React from 'react';
+import styled from 'styled-components' ;
 import LoadingCircle from '../Components/Loading/LoadingCircle';
+
+const StyledH3 = styled.h3`
+    font-size: ${props => props.teamStatsLocation === "header" ? "24px" : "16px"};
+    padding-left: 20px;
+`;
 
 export default class GetTeamStats extends React.Component{
 
@@ -68,7 +74,7 @@ export default class GetTeamStats extends React.Component{
                 
                     console.log(teamWins + ", " + teamLosses + ", " + teamOvertimeLosses);
                     return (
-                       <h3>({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</h3>    
+                       <StyledH3 teamStatsLocation={this.props.teamStatsLocation}>({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</StyledH3>    
                     )
                 }
         }

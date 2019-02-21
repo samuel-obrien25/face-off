@@ -7,13 +7,21 @@ const StyledMonthContainer = styled.div`
     border-bottom: 2px solid #000;
     width: 200px;
     margin-left: 20px;
+    top: 180px;
+    position: fixed;
+    padding-bottom: 10px;
 
     & h2{
         text-align: left;
         padding-left: 10px;
         transition: .3s ease-in-out;
-        opacity: ${props => props.visible ? 1 : 0};
+        opacity: ${props => props.visible ? "1" : "0"};
         transform: ${props => props.visible ? "" : "translateY(15px)"};
+        padding-bottom: 10px;
+    }
+
+    @media (min-width: 600px) {
+        margin-left: 45px;
     }
 `;
 
@@ -112,8 +120,8 @@ class MonthContainer extends React.Component {
         const {currentMonth, isVisible} = this.state;
 
         return (
-            <StyledMonthContainer>
-               <h2 visible={isVisible}> { currentMonth } </h2>
+            <StyledMonthContainer visible={isVisible}>
+               <h2> { currentMonth } </h2>
             </StyledMonthContainer>
         )
     }

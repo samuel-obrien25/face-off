@@ -23,6 +23,8 @@ const StyledHamburger = styled.div`
     height: 2px;
     margin: auto;
     margin-top:-11px;
+    background-color: currentColor;
+    transition: .25s ease-in-out;
 
     ::before, ::after{
       content:'';
@@ -33,6 +35,7 @@ const StyledHamburger = styled.div`
       left: 0;
       right: 0;
       margin: auto;
+      transition: .2s ease-in-out;
     }
 
     ::before{
@@ -43,14 +46,25 @@ const StyledHamburger = styled.div`
       bottom: 35px;
     }
 `;
+
+const StyledActiveHamburger = styled(StyledHamburger)`
+  transform: rotate(90deg);
+
+  ::after{
+    display: none;
+  }
+`;
 const StyledFabH2 = styled.h2`
     margin: auto;
+    margin-right: ${props => props.isFabActive ? "75px" : "auto"};
     padding: 0px 10px;
     color: currentColor;
     position: absolute;
-    left: ${props => props.isFabActive ? "-175px" : "0px"};
+    width: ${props => props.isFabActive ? "200px" : "auto"};
     right: 0;
+    left: 0;
     bottom: ${props => props.isFabActive ? "25px" : "10px"};
+    text-align: ${props => props.isFabActive ? "right" : "center"};
 `;
 
 const ActiveFabWrapper = styled.div`
@@ -59,24 +73,18 @@ const ActiveFabWrapper = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(255,255,255,.4);
+    background-color: rgba(0,0,0,.4);
     z-index: 9999;
 `;
 
 const ActiveFabOne = styled(StyledFab)`
-  animation: ${FabRotate} .3s ease-in-out forwards;
-`;
 
-const FabRotate = keyframes `
-  to {
-    transform: rotate(180deg);
-  }
-`
+`;
 
 const FabSlideUp = keyframes`
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(125px);
   }
   to {
     opacity: 1;
@@ -114,13 +122,14 @@ class Fab extends React.Component{
     })
   }
 
+  Handle
+
   scrollToNextGame = () => {
-    if (document.getElementsByClassName("future").length > 1) {
-      document.getElementsByClassName("future")[0].previousElementSibling.scrollIntoView({
+      document.querySelector('[data-pastfuture="future"]').scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-    } else { return }
+      this.handleMenuClick();
   }
 
   render(){
@@ -130,15 +139,15 @@ class Fab extends React.Component{
           if(isFabActive) {
             return (
               <ActiveFabWrapper>
-                <ActiveFabThree onClick={this.scrollToNextGame}>
+                <ActiveFabThree className={`team${activeTeamID}`} onClick={this.scrollToNextGame}>
                   <StyledFabH2 isFabActive={isFabActive}>Next Game</StyledFabH2>
                 </ActiveFabThree>
 
-                <ActiveFabTwo >
+                <ActiveFabTwo className={`team${activeTeamID}`} onClick={this.props.handleClick}>
                   <StyledFabH2 isFabActive={isFabActive}>Teams</StyledFabH2>
                 </ActiveFabTwo>
 
-                <ActiveFabOne isActive="true" onClick={this.handleMenuClick}>
+                <ActiveFabOne className={`team${activeTeamID}`} isActive="true" onClick={this.handleMenuClick}>
                   <StyledFabH2 isFabActive={isFabActive}>Close</StyledFabH2>
                 </ActiveFabOne>
               </ActiveFabWrapper>
@@ -147,8 +156,8 @@ class Fab extends React.Component{
 
     return (
       <div>
-        <StyledFab onClick={this.handleMenuClick} isFabHidden={isFabHidden}>
-          <StyledHamburger className={`team${activeTeamID}`}></StyledHamburger>
+        <StyledFab className={`team${activeTeamID}`} onClick={this.handleMenuClick} isFabHidden={isFabHidden}>
+          <StyledHamburger></StyledHamburger>
           <StyledFabH2>{CurrentFabText}</StyledFabH2>
         </StyledFab>
       </div>
