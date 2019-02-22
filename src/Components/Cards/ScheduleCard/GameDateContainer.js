@@ -8,7 +8,6 @@ const StyledGameDateContainer = styled.div`
     left:0;
     right:0;
     margin:auto;
-    background-color: #222;
     color: #fff;
     height: 1.2em;
     padding-top: 5px;
