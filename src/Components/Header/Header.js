@@ -9,7 +9,7 @@ const StyledHeader = styled.header`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    background-color: #222;
+    background-color: ${props => props.headerStyle === "homeHeader" ? "#222" : ""};
     width: 100%;
     height: 150px;
     padding: 20px 0;
@@ -56,16 +56,16 @@ class Header extends React.Component{
     
     render() {
         
-        const { activeTeamID, children, headerH1, headerH2 } = this.props;
+        const { activeTeamID, children, headerH1, headerH2, headerStyle } = this.props;
         if(this.state.isLoading) {
             return (
-                <StyledHeader className={`team${activeTeamID}`}>
+                <StyledHeader headerStyle={headerStyle} className={`team${activeTeamID}`}>
                     <LoadingCircle />
                 </StyledHeader>
             )
         } else{
             return (
-            <StyledHeader className={`team${activeTeamID}`}>
+            <StyledHeader headerStyle={headerStyle} className={`team${activeTeamID}`}>
                 <h1>{headerH1}</h1>
                 <h2>{headerH2}</h2>
                     {children}

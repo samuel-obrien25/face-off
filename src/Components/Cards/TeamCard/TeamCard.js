@@ -13,7 +13,6 @@ const StyledTeamCard = styled.div`
         height: 100px;
         width: 100%;
         transition: .25s ease-in-out;
-        background: #fff;
         position: relative;
         border-radius: 5px;
         float: left;
