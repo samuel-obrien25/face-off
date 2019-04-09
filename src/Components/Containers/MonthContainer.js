@@ -36,8 +36,9 @@ class MonthContainer extends React.Component {
     }
 
     updateH2 = () => {
-         const SCHEDULE_LIST = document.getElementById("card_container_schedule_list"),
-               MONTHS = {
+        //Issue
+         const scheduleList = document.getElementById("card_container_schedule_list"),
+               Months = {
                 January:  document.querySelectorAll("[data-month='0']")[0].offsetLeft,
                 February: document.querySelectorAll("[data-month='1']")[0].offsetLeft,
                 March:    document.querySelectorAll("[data-month='2']")[0].offsetLeft,
@@ -61,41 +62,41 @@ class MonthContainer extends React.Component {
 
         };
         
-            SCHEDULE_LIST.addEventListener("scroll", () => {
+        scheduleList.addEventListener("scroll", () => {
 
                 const {currentMonth} = this.state;
-                let scheduleListCheckPoint = SCHEDULE_LIST.scrollLeft + 300;                
+                let scheduleListCheckPoint = scheduleList.scrollLeft + 300;                
 
             //If the distance between the first card of month X to the left side of card_container_schedule_list is 
             //less than or equal to the distance the card_container_schedule_list has been scrolled (plus the size of one card)
             //set state of current month to month X.
 
             switch(true){
-                case scheduleListCheckPoint > 0 && scheduleListCheckPoint < MONTHS.November:
+                case scheduleListCheckPoint > 0 && scheduleListCheckPoint < Months.November:
                     if (currentMonth === "October") { break; }
                         setMonthState("October");
                         break;
-                case scheduleListCheckPoint > MONTHS.October && scheduleListCheckPoint < MONTHS.December:
+                case scheduleListCheckPoint > Months.October && scheduleListCheckPoint < Months.December:
                     if (currentMonth === "November") { break; }
                         setMonthState("November");
                         break;
-                case scheduleListCheckPoint > MONTHS.November && scheduleListCheckPoint < MONTHS.January:
+                case scheduleListCheckPoint > Months.November && scheduleListCheckPoint < Months.January:
                     if (currentMonth === "December") { break; } 
                         setMonthState("December");
                         break;
-                case scheduleListCheckPoint > MONTHS.December && scheduleListCheckPoint < MONTHS.February:
+                case scheduleListCheckPoint > Months.December && scheduleListCheckPoint < Months.February:
                     if (currentMonth === "January") { break; }
                         setMonthState("January");
                         break;
-                case scheduleListCheckPoint > MONTHS.January && scheduleListCheckPoint < MONTHS.March:
+                case scheduleListCheckPoint > Months.January && scheduleListCheckPoint < Months.March:
                     if (currentMonth === "February") { break; }
                         setMonthState("February");
                         break;
-                case scheduleListCheckPoint > MONTHS.February && scheduleListCheckPoint < MONTHS.April:
+                case scheduleListCheckPoint > Months.February && scheduleListCheckPoint < Months.April:
                     if (currentMonth === "March") { break; }
                         setMonthState("March");
                         break;
-                case scheduleListCheckPoint > MONTHS.March:
+                case scheduleListCheckPoint > Months.March:
                     if (currentMonth === "April") { break; }
                         setMonthState("April");
                         break;
@@ -108,6 +109,7 @@ class MonthContainer extends React.Component {
     componentDidMount() {
         //I need to figure out why #card_container_schedule_list returns null if I don't use setTimeout. 
         //Until then, setTimeout works around that
+
         setTimeout(() => {
             this.updateH2();
             this.setState({
