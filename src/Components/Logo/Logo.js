@@ -32,7 +32,7 @@ const StyledLogo = styled.img`
 //#endregion STYLES
 
 const Logo = (props) => {
-    const { cardType, teamValue } = props;
+    const { cardType, teamName, teamValue } = props;
     let currentLogo;
 
         //Huge switch statement that determines the logo based on team value. Also added some logic to check for card type.
@@ -159,7 +159,7 @@ const Logo = (props) => {
     return(
         <StyledLogoContainer cardType = {cardType}>
             <StyledLogo src = {currentLogo}
-                alt = {`${props.TeamName} logo`}
+                alt = {`${teamName} logo`}
                 />
         </StyledLogoContainer>
     )

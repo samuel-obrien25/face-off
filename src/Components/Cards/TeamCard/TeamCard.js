@@ -75,7 +75,7 @@ const TeamCard = (props) => {
             <StyledCityName>{props.cityName}</StyledCityName>
             <StyledTeamName>{props.teamName}</StyledTeamName>
             <GetTeamStats teamStatsLocation="teamCard" ApiLink="teamStatsQuery" url={recordQuery}/>
-            <Logo cardType={"teamCard"} teamValue={props.teamValue} />
+            <Logo cardType={"teamCard"} teamValue={props.teamValue} alt={props.teamName}/>
         </StyledTeamCard>
     )
 }

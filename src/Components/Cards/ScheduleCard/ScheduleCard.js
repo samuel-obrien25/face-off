@@ -27,6 +27,7 @@ const StyledScheduleCard = styled.div`
             :hover{
                 box-shadow: 0 2px 6px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.4);
                 transform: translateY(-5px);
+                opacity: .85;
             }
     }
 `;

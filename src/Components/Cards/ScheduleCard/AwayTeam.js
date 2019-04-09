@@ -38,7 +38,7 @@ const AwayTeam = (props) => {
                 <h2>{props.teamName}</h2>
                 <h3>{props.teamCity}</h3>
             </StyledTeamNameWrapper>
-            <Logo teamValue={props.logoValue} />
+            <Logo teamValue={props.logoValue} teamName={props.teamName}/>
         </StyledAwayTeam>
     )
 }

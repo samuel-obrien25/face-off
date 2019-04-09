@@ -36,6 +36,7 @@ render() {
                     onClick={handleClick}
                     activeTeamID={activeTeamID}
                     month={month}
+                    teamName={teamName}
                 />
             )
         }

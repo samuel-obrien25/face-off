@@ -32,7 +32,7 @@ const StyledTeamNameWrapper = styled.div`
 const HomeTeam = (props) => {
     return (
         <StyledHomeTeam didHomeWin={props.didHomeWin}>
-        <Logo teamValue={props.logoValue} />
+        <Logo teamValue={props.logoValue} teamName={props.teamName}/>
         <StyledTeamNameWrapper>
             <h3>{props.teamCity}</h3>
             <h2>{props.teamName}</h2>
