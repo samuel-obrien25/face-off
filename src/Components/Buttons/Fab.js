@@ -4,11 +4,9 @@ import '../../Utilities/league-colors.css';
 
 //#region STYLES
 const StyledFab = styled.button`
-  background-color: #fff;
   border-radius: 50%;
   box-shadow: 2px 2px 6px rgba(0,0,0,.4);
   transition: .5s ease-in-out;
-  border: 2px solid rgba(255,255,255,.5);
   position: fixed;
   bottom: 15px;
   right: 15px;

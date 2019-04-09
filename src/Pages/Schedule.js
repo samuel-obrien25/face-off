@@ -92,7 +92,7 @@ class Schedule extends React.Component{
 
                 return (
                     <div>
-                        <Header activeTeamID={activeTeamID} headerH1={headerH1} headerH2={headerH2}> 
+                        <Header headerStyle="TeamHeader" activeTeamID={activeTeamID} headerH1={headerH1} headerH2={headerH2}> 
                             <GetTeamStats teamStatsLocation="header" ApiLink="teamStatsQuery" url={teamStatsQueryRecipe} />
                         </Header>
                         
@@ -112,7 +112,7 @@ class Schedule extends React.Component{
 
             return (
                 <div>
-                    <Header headerH1 = {headerH1} headerH2 = {headerH2} />
+                    <Header headerStyle="homeHeader" headerH1 = {headerH1} headerH2 = {headerH2} />
                     <StyledWrapper>
                         <TeamList handleClick={this.handleClick} teamValue={this.targetTeamValue} />
                     </StyledWrapper>
