@@ -5,6 +5,7 @@ import '../../Utilities/league-colors.css';
 //#region STYLES
 const StyledFab = styled.button`
   border-radius: 50%;
+  border: none;
   box-shadow: 2px 2px 6px rgba(0,0,0,.4);
   transition: .5s ease-in-out;
   position: fixed;
@@ -20,7 +21,6 @@ const StyledHamburger = styled.div`
     width: 30px;
     height: 2px;
     margin: auto;
-    margin-top:-11px;
     background-color: currentColor;
     transition: .25s ease-in-out;
 
@@ -37,32 +37,19 @@ const StyledHamburger = styled.div`
     }
 
     ::before{
-      top: 15px;
+      top: 35%;
     }
 
     ::after{
-      bottom: 35px;
+      bottom: 35%;
     }
 `;
 
-const StyledActiveHamburger = styled(StyledHamburger)`
-  transform: rotate(90deg);
-
-  ::after{
-    display: none;
-  }
-`;
 const StyledFabH2 = styled.h2`
     margin: auto;
-    margin-right: ${props => props.isFabActive ? "75px" : "auto"};
-    padding: 0px 10px;
     color: currentColor;
-    position: absolute;
-    width: ${props => props.isFabActive ? "200px" : "auto"};
-    right: 0;
-    left: 0;
-    bottom: ${props => props.isFabActive ? "25px" : "10px"};
-    text-align: ${props => props.isFabActive ? "right" : "center"};
+    position: relative;
+    text-align: center;
 `;
 
 const ActiveFabWrapper = styled.div`
@@ -116,7 +103,6 @@ class Fab extends React.Component{
   handleMenuClick = () => {
     this.setState({
       isFabActive: !this.state.isFabActive,
-      CurrentFabText: this.state.CurrentFabText === "Close" ? "Menu" : "Close",
     })
   }
 
@@ -140,7 +126,7 @@ class Fab extends React.Component{
 
   render(){
     const { activeTeamID } = this.props,
-          { isFabActive, isFabHidden, CurrentFabText } = this.state;
+          { isFabActive, isFabHidden } = this.state;
 
           if(isFabActive) {
             return (
@@ -164,7 +150,6 @@ class Fab extends React.Component{
       <div>
         <StyledFab className={`team${activeTeamID}`} onClick={this.handleMenuClick} isFabHidden={isFabHidden}>
           <StyledHamburger></StyledHamburger>
-          <StyledFabH2>{CurrentFabText}</StyledFabH2>
         </StyledFab>
       </div>
     );
