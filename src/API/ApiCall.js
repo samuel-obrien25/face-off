@@ -77,24 +77,24 @@ export default class ApiCall extends React.Component {
 
             //Map JSON Data to Card component
             else {
-                const   gameCard = schedule.games.map((game) =>
+                const gameCard = schedule.games.map((game) =>
 
-                            <Card key={game.schedule.id}
-                                cardType="scheduleCard"
-                                awayTeamName={this.props.awayTeamName}
-                                awayTeamCity={this.props.awayTeamCity}
-                                awayTeamID={game.schedule.awayTeam.id}
-                                awayTeamScore={game.score.awayScoreTotal}
-                                homeTeamName={this.props.homeTeamName}
-                                homeTeamCity={this.props.homeTeamCity}
-                                homeTeamID={game.schedule.homeTeam.id}
-                                homeTeamScore={game.score.homeScoreTotal}
-                                gameDateTime={game.schedule.startTime}
-                                gameID={game.schedule.id}
-                                onClick={this.handleClick}
-                                activeTeamID={this.props.activeTeamID}
-                                activeTeamName={this.props.activeTeamName}
-                            />
+                    <Card key={game.schedule.id}
+                        cardType="scheduleCard"
+                        awayTeamName={this.props.awayTeamName}
+                        awayTeamCity={this.props.awayTeamCity}
+                        awayTeamID={game.schedule.awayTeam.id}
+                        awayTeamScore={game.score.awayScoreTotal}
+                        homeTeamName={this.props.homeTeamName}
+                        homeTeamCity={this.props.homeTeamCity}
+                        homeTeamID={game.schedule.homeTeam.id}
+                        homeTeamScore={game.score.homeScoreTotal}
+                        gameDateTime={game.schedule.startTime}
+                        gameID={game.schedule.id}
+                        onClick={this.handleClick}
+                        activeTeamID={this.props.activeTeamID}
+                        activeTeamName={this.props.activeTeamName}
+                    />
 
                     );
                 //Return Schedule Card container with mapped Schedule Cards

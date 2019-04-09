@@ -51,7 +51,7 @@ class CardContainer extends React.Component {
 
         if (containerType === "card_container_schedule_list") {
             return (
-                <StyledScheduleCardContainer onScroll={this.addCardScale} id={containerType}>
+                <StyledScheduleCardContainer id={containerType}>
                     {this.props.children}
                 </StyledScheduleCardContainer>
             )
