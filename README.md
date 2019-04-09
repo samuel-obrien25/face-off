@@ -30,7 +30,7 @@ Or, check out the latest build live:
 ### DO SOON
  - ~~Reorganize components/file structure so it actually makes sense~~ **(DONE)**
  - ~~Rewrite all components that can be written as Stateless Functional Components~~ **(DONE)**
- - Research best practices for writing CSS in React and reorganize CSS
+ - ~~Research best practices for writing CSS in React and reorganize CSS ~~ **(DONE)**
 	 - Make sure all classes are consistently formatted
 - ~~Convert JSON date to JS Date~~ **(DONE)**
 -	~~Use that information to auto scroll to next upcoming game~~ **(DONE)**
@@ -68,4 +68,4 @@ Or, check out the latest build live:
 - ~~Fab button for next game instead of auto scroll?~~ **(DONE)**
 	 
 ## Thanks!
-BIG thanks to MySportsFeeds for providing an incredible (and incredibly easy to use) API for free, for non-commercial applications.
+BIG thanks to MySportsFeeds for providing an incredible API for free, for non-commercial applications.
