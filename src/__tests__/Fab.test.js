@@ -11,18 +11,18 @@ describe('Fab', () => {
 //It renders correctly
     it('Should render correctly', () => {
         const component = shallow(
-            <Fab fabText="Fab Test" />
+            <Fab />
         );
         expect(component).toMatchSnapshot();
     });
 //It has an h2 child
-    it('Should contain an h3', () => {
+    it('Should contain an h2', () => {
         const component = shallow(
-            <Fab fabText = "Fab Test" />
+            <Fab>Fab Test</Fab>
         );
-        expect(component.contains([
+        expect(component.contains(
             <h2>Fab Test</h2>
-        ])).toBe(true);
+        )).toBe(true);
     });
 
 });

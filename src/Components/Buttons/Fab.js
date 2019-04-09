@@ -122,14 +122,22 @@ class Fab extends React.Component{
     })
   }
 
-  Handle
-
   scrollToNextGame = () => {
+    if(!document.querySelector('[data-pastfuture="future"]')){
+      document.getElementById('card_container_schedule_list').lastElementChild.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      this.handleMenuClick();
+      return;
+    } else {
       document.querySelector('[data-pastfuture="future"]').scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
       this.handleMenuClick();
+
+    }
   }
 
   render(){

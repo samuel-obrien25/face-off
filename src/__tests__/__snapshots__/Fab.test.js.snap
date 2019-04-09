@@ -8,6 +8,7 @@ ShallowWrapper {
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -19,26 +20,173 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <h2>
-        Fab Test
-      </h2>,
-      "className": "fade-in undefined",
-      "onClick": undefined,
-      "visibile": undefined,
+      "children": <ForwardRef
+        className="teamundefined"
+        isFabHidden={true}
+        onClick={[Function]}
+      >
+        <ForwardRef />
+        <ForwardRef>
+          Menu
+        </ForwardRef>
+      </ForwardRef>,
     },
     "ref": null,
     "rendered": Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
-        "children": "Fab Test",
+        "children": Array [
+          <ForwardRef />,
+          <ForwardRef>
+            Menu
+          </ForwardRef>,
+        ],
+        "className": "teamundefined",
+        "isFabHidden": true,
+        "onClick": [Function],
       },
       "ref": null,
-      "rendered": "Fab Test",
-      "type": "h2",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-bwzfXH",
+              "isStatic": true,
+              "rules": Array [
+                "
+    width: 30px;
+    height: 2px;
+    margin: auto;
+    margin-top:-11px;
+    background-color: currentColor;
+    transition: .25s ease-in-out;
+
+    ::before, ::after{
+      content:'';
+      width: 30px;
+      height: 2px;
+      background-color: inherit;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transition: .2s ease-in-out;
+    }
+
+    ::before{
+      top: 15px;
+    }
+
+    ::after{
+      bottom: 35px;
+    }
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-bwzfXH",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Menu",
+          },
+          "ref": null,
+          "rendered": "Menu",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-bxivhb",
+              "isStatic": false,
+              "rules": Array [
+                "
+    margin: auto;
+    margin-right: ",
+                [Function],
+                ";
+    padding: 0px 10px;
+    color: currentColor;
+    position: absolute;
+    width: ",
+                [Function],
+                ";
+    right: 0;
+    left: 0;
+    bottom: ",
+                [Function],
+                ";
+    text-align: ",
+                [Function],
+                ";
+",
+              ],
+            },
+            "displayName": "styled.h2",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-bxivhb",
+            "target": "h2",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": true,
+          "rules": Array [
+            "
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 2px 2px 6px rgba(0,0,0,.4);
+  transition: .5s ease-in-out;
+  border: 2px solid rgba(255,255,255,.5);
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  height: 75px;
+  width: 75px;
+    &:focus {
+      outline: none;
+    }
+",
+          ],
+        },
+        "displayName": "styled.button",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "button",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
     },
-    "type": "button",
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -46,37 +194,191 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <h2>
-          Fab Test
-        </h2>,
-        "className": "fade-in undefined",
-        "onClick": undefined,
-        "visibile": undefined,
+        "children": <ForwardRef
+          className="teamundefined"
+          isFabHidden={true}
+          onClick={[Function]}
+        >
+          <ForwardRef />
+          <ForwardRef>
+            Menu
+          </ForwardRef>
+        </ForwardRef>,
       },
       "ref": null,
       "rendered": Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
-          "children": "Fab Test",
+          "children": Array [
+            <ForwardRef />,
+            <ForwardRef>
+              Menu
+            </ForwardRef>,
+          ],
+          "className": "teamundefined",
+          "isFabHidden": true,
+          "onClick": [Function],
         },
         "ref": null,
-        "rendered": "Fab Test",
-        "type": "h2",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-bwzfXH",
+                "isStatic": true,
+                "rules": Array [
+                  "
+    width: 30px;
+    height: 2px;
+    margin: auto;
+    margin-top:-11px;
+    background-color: currentColor;
+    transition: .25s ease-in-out;
+
+    ::before, ::after{
+      content:'';
+      width: 30px;
+      height: 2px;
+      background-color: inherit;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transition: .2s ease-in-out;
+    }
+
+    ::before{
+      top: 15px;
+    }
+
+    ::after{
+      bottom: 35px;
+    }
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-bwzfXH",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Menu",
+            },
+            "ref": null,
+            "rendered": "Menu",
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-bxivhb",
+                "isStatic": false,
+                "rules": Array [
+                  "
+    margin: auto;
+    margin-right: ",
+                  [Function],
+                  ";
+    padding: 0px 10px;
+    color: currentColor;
+    position: absolute;
+    width: ",
+                  [Function],
+                  ";
+    right: 0;
+    left: 0;
+    bottom: ",
+                  [Function],
+                  ";
+    text-align: ",
+                  [Function],
+                  ";
+",
+                ],
+              },
+              "displayName": "styled.h2",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-bxivhb",
+              "target": "h2",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+        ],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": true,
+            "rules": Array [
+              "
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 2px 2px 6px rgba(0,0,0,.4);
+  transition: .5s ease-in-out;
+  border: 2px solid rgba(255,255,255,.5);
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  height: 75px;
+  width: 75px;
+    &:focus {
+      outline: none;
+    }
+",
+            ],
+          },
+          "displayName": "styled.button",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "button",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
       },
-      "type": "button",
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
           },
-          "getDerivedStateFromProps": true,
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,
@@ -85,5 +387,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

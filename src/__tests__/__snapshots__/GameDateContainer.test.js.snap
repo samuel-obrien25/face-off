@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameDateContainer Should render correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameDateContainer>
+    Test Date
+  </GameDateContainer>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": <ForwardRef>
+         
+        undefined, Invalid Date at Invalid Date
+      </ForwardRef>,
+      "className": "teamundefined",
+      "gameDateTime": undefined,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          " ",
+          "undefined, Invalid Date at Invalid Date",
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        " ",
+        "undefined, Invalid Date at Invalid Date",
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bwzfXH",
+          "isStatic": true,
+          "rules": Array [
+            "
+    margin: auto;
+",
+          ],
+        },
+        "displayName": "styled.p",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bwzfXH",
+        "target": "p",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": true,
+        "rules": Array [
+          "
+    position: absolute;
+    top:0;
+    width: 100%;
+    left:0;
+    right:0;
+    margin:auto;
+    background-color: #222;
+    color: #fff;
+    height: 1.2em;
+    padding-top: 5px;
+    display: flex;
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <ForwardRef>
+           
+          undefined, Invalid Date at Invalid Date
+        </ForwardRef>,
+        "className": "teamundefined",
+        "gameDateTime": undefined,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            " ",
+            "undefined, Invalid Date at Invalid Date",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          " ",
+          "undefined, Invalid Date at Invalid Date",
+        ],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bwzfXH",
+            "isStatic": true,
+            "rules": Array [
+              "
+    margin: auto;
+",
+            ],
+          },
+          "displayName": "styled.p",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bwzfXH",
+          "target": "p",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": true,
+          "rules": Array [
+            "
+    position: absolute;
+    top:0;
+    width: 100%;
+    left:0;
+    right:0;
+    margin:auto;
+    background-color: #222;
+    color: #fff;
+    height: 1.2em;
+    padding-top: 5px;
+    display: flex;
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
