@@ -9,6 +9,8 @@ const StyledH3 = styled.h3`
 
 export default class GetTeamStats extends React.Component{
 
+    //This whole component does not need to exist. Should be handled with the APICall.js component.
+
     constructor (props){
         super(props);
 
@@ -74,7 +76,7 @@ export default class GetTeamStats extends React.Component{
                 
                     console.log(teamWins + ", " + teamLosses + ", " + teamOvertimeLosses);
                     return (
-                       <StyledH3 teamStatsLocation={this.props.teamStatsLocation}>({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</StyledH3>    
+                       <StyledH3 teamStatsLocation={this.props.teamStatsLocation}>({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</StyledH3>
                     )
                 }
         }
