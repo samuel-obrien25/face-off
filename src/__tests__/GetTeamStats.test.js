@@ -3,7 +3,6 @@ import { shallow, mount, render } from 'enzyme';
 
 import GetTeamStats from '../API/GetTeamStats';
 import LoadingCircle from '../Components/Loading/LoadingCircle';
-import Error from '../Utilities/Error';
 
 describe('GetTeamStats', () => {
 //It's defined
