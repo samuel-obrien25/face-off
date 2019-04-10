@@ -9,16 +9,16 @@ import styled from 'styled-components';
 import '../Utilities/league-colors.css';
 
 //#region STYLES
-const StyledWrapper = styled.main `
+const StyledWrapper = styled.main`
         position: relative;
         margin-top: 175px;
 `
 
 //#endregion STYLES
 
-class Schedule extends React.Component{
-    
-    constructor(props){
+class Schedule extends React.Component {
+
+    constructor(props) {
         super(props);
         this.state = {
             scheduleQueryRecipe: '',
@@ -39,37 +39,37 @@ class Schedule extends React.Component{
 
             //Gets chosen card, then derives teamName and teamCity from its inner HTML
             currentTeamName = targetTeam.firstChild.innerHTML,
-            currentTeamCity =  targetTeam.firstChild.nextElementSibling.innerHTML,
+            currentTeamCity = targetTeam.firstChild.nextElementSibling.innerHTML,
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team=',
             divisionContainer = document.getElementById("division-container");
-            //Transitions TeamCards Out
-            divisionContainer.classList.remove("fade-in");
-            divisionContainer.classList.add("fade-out");
+        //Transitions TeamCards Out
+        divisionContainer.classList.remove("fade-in");
+        divisionContainer.classList.add("fade-out");
 
-            if(!currentTeamName){ return }
+        if (!currentTeamName) { return }
         this.setState(() => {
-           return {
+            return {
                 scheduleQueryRecipe: scheduleBaseURL + targetTeamValue,
                 teamStatsQueryRecipe: teamStatsBaseURL + targetTeamValue,
                 isFabActive: true,
                 isTeamListActive: false,
-                isScheduleListActive:true,
+                isScheduleListActive: true,
                 activeTeamID: targetTeamValue,
                 headerH1: currentTeamName,
                 headerH2: currentTeamCity,
                 headerH3: this.props.currentTeamRecord,
-           };
+            };
         });
     };
-    
+
     resetAPICall = () => {
         let scheduleQueryBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team='
-        
 
-        this.setState(()=>{
-            return{
+
+        this.setState(() => {
+            return {
                 scheduleQueryRecipe: scheduleQueryBaseURL,
                 teamStatsBaseURL: teamStatsBaseURL,
                 isFabActive: false,
@@ -78,41 +78,41 @@ class Schedule extends React.Component{
                 headerH1: 'Face Off',
                 headerH2: 'Quick access to NHL Schedule, Stats, and more',
             };
-        }, window.scrollTo(0,0));
+        }, window.scrollTo(0, 0));
     };
 
-    render(){
+    render() {
 
-        const {activeTeamID, headerH1, headerH2, isFabActive, isScheduleListActive, isTeamListActive, scheduleQueryRecipe, teamStatsQueryRecipe} = this.state;
+        const { activeTeamID, headerH1, headerH2, isFabActive, isScheduleListActive, isTeamListActive, scheduleQueryRecipe, teamStatsQueryRecipe } = this.state;
 
-        if(isScheduleListActive){
+        if (isScheduleListActive) {
             //Good to have reference to the API link...
             console.log("The current TeamStatsQueryRecipe is " + teamStatsQueryRecipe);
             console.log("The current scheduleQueryRecipe is " + scheduleQueryRecipe);
 
-                return (
-                    <div>
-                        <Header headerStyle="TeamHeader" activeTeamID={activeTeamID} headerH1={headerH1} headerH2={headerH2}> 
-                            <GetTeamStats teamStatsLocation="header" ApiLink="teamStatsQuery" url={teamStatsQueryRecipe} />
-                        </Header>
-                        
-                        <div className="wrapper wrapper__home">
-                            <h2 className="page__title page__title_schedule">Choose a Game</h2>
-                            
-                            <MonthContainer/>
-                            <ApiCall activeTeamID={activeTeamID} ApiLink="gameScheduleQuery" url={scheduleQueryRecipe}/>
-                                <Fab activeTeamID={activeTeamID} visible={isFabActive} handleClick={this.resetAPICall}/>
-                        </div>
+            return (
+                <div>
+                    <Header headerStyle="TeamHeader" activeTeamID={activeTeamID} headerH1={headerH1} headerH2={headerH2}>
+                        <GetTeamStats teamStatsLocation="header" ApiLink="teamStatsQuery" url={teamStatsQueryRecipe} />
+                    </Header>
+
+                    <div className="wrapper wrapper__home">
+                        <h2 className="page__title page__title_schedule">Choose a Game</h2>
+
+                        <MonthContainer />
+                        <ApiCall activeTeamID={activeTeamID} ApiLink="gameScheduleQuery" url={scheduleQueryRecipe} />
+                        <Fab activeTeamID={activeTeamID} visible={isFabActive} handleClick={this.resetAPICall} />
                     </div>
-        
-                )
+                </div>
+
+            )
         }
 
-        if(isTeamListActive){
+        if (isTeamListActive) {
 
             return (
                 <div>
-                    <Header headerStyle="homeHeader" headerH1 = {headerH1} headerH2 = {headerH2} />
+                    <Header headerStyle="homeHeader" headerH1={headerH1} headerH2={headerH2} />
                     <StyledWrapper>
                         <TeamList handleClick={this.handleClick} teamValue={this.targetTeamValue} />
                     </StyledWrapper>
