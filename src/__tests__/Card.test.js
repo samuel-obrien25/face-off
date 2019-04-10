@@ -20,14 +20,14 @@ describe('Card', () => {
     });
 
     //It returns the correct cardType
-    it('Should return ScheduleCard with correct props', () => {
+    it('Should return ScheduleCard if given scheduleCard prop', () => {
         const component = shallow(
             <Card cardType="scheduleCard" />
         );
         expect(component.find(ScheduleCard));
     });
 
-    it('Should return TeamCard with correct props', () => {
+    it('Should return TeamCard if given cardType prop', () => {
         const component = shallow(
             <Card cardType="teamCard" />
         );

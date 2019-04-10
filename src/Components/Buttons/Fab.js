@@ -94,15 +94,13 @@ class Fab extends React.Component{
   constructor(props) {
     super(props);
       this.state = {
-        isFabActive: false,
-        isFabHidden: true,
-        CurrentFabText: "Menu",
+        isActive: false
       };
     }
 
   handleMenuClick = () => {
     this.setState({
-      isFabActive: !this.state.isFabActive,
+      isActive: !this.state.isActive,
     })
   }
 
@@ -126,21 +124,21 @@ class Fab extends React.Component{
 
   render(){
     const { activeTeamID } = this.props,
-          { isFabActive, isFabHidden } = this.state;
+          { isActive } = this.state;
 
-          if(isFabActive) {
+          if(isActive) {
             return (
               <ActiveFabWrapper>
                 <ActiveFabThree className={`team${activeTeamID}`} onClick={this.scrollToNextGame}>
-                  <StyledFabH2 isFabActive={isFabActive}>Next Game</StyledFabH2>
+                  <StyledFabH2>Next Game</StyledFabH2>
                 </ActiveFabThree>
 
                 <ActiveFabTwo className={`team${activeTeamID}`} onClick={this.props.handleClick}>
-                  <StyledFabH2 isFabActive={isFabActive}>Teams</StyledFabH2>
+                  <StyledFabH2>Teams</StyledFabH2>
                 </ActiveFabTwo>
 
                 <ActiveFabOne className={`team${activeTeamID}`} isActive="true" onClick={this.handleMenuClick}>
-                  <StyledFabH2 isFabActive={isFabActive}>Close</StyledFabH2>
+                  <StyledFabH2>Close</StyledFabH2>
                 </ActiveFabOne>
               </ActiveFabWrapper>
             );
@@ -148,7 +146,7 @@ class Fab extends React.Component{
 
     return (
       <div>
-        <StyledFab className={`team${activeTeamID}`} onClick={this.handleMenuClick} isFabHidden={isFabHidden}>
+        <StyledFab className={`team${activeTeamID}`} onClick={this.handleMenuClick}>
           <StyledHamburger></StyledHamburger>
         </StyledFab>
       </div>
