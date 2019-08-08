@@ -40,8 +40,8 @@ class Schedule extends React.Component {
             //Gets chosen card, then derives teamName and teamCity from its inner HTML
             currentTeamName = targetTeam.firstChild.innerHTML,
             currentTeamCity = targetTeam.firstChild.nextElementSibling.innerHTML,
-            scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/games.json?team=',
-            teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team=',
+            scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.1/pull/nhl/2019-2020-regular/games.json?team=',
+            teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.1/pull/nhl/2019-2020-regular/team_stats_totals.json?team=',
             divisionContainer = document.getElementById("division-container");
         //Transitions TeamCards Out
         divisionContainer.classList.remove("fade-in");
