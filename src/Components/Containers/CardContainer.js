@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 
 const StyledCardContainer = styled.div`
@@ -28,6 +28,7 @@ const StyledScheduleCardContainer = styled(StyledCardContainer)`
         left: 0;
         margin-top: 200px;
         scroll-snap-type: x proximity;
+
         @media (min-width: 600px) {
             display: flex;
             flex-direction: row;
@@ -35,16 +36,18 @@ const StyledScheduleCardContainer = styled(StyledCardContainer)`
         }
 `;
 
-class CardContainer extends React.Component {
+const CardContainer = (props) => {
+    const { containerType } = props;
 
-    render(){
-        const { containerType } = this.props;
+
+    useEffect(() => {
         window.scrollTo(0, 0);
- 
+    }, []);
+
         if (containerType === "division-container") {
             return (
                 <StyledCardContainer id={containerType}>
-                    {this.props.children}
+                    {props.children}
                 </StyledCardContainer>
             )
         }
@@ -52,11 +55,10 @@ class CardContainer extends React.Component {
         if (containerType === "card_container_schedule_list") {
             return (
                 <StyledScheduleCardContainer id={containerType}>
-                    {this.props.children}
+                    {props.children}
                 </StyledScheduleCardContainer>
             )
-        }
-
-    }
+        } 
 }
+
 export default CardContainer;

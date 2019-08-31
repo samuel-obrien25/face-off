@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components' ;
 import LoadingCircle from '../Components/Loading/LoadingCircle';
 
@@ -6,25 +6,17 @@ const StyledH3 = styled.h3`
     font-size: ${props => props.teamStatsLocation === "header" ? "24px" : "16px"};
     padding-left: 20px;
 `;
-
-export default class GetTeamStats extends React.Component{
-
     //This whole component does not need to exist. Should be handled with the APICall.js component.
 
-    constructor (props){
-        super(props);
+const GetTeamStats = (props) => {
+    const [teamStats, setTeamStats] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
-        //teamStats: Placeholder for data fetched from an API call
-        this.state = {
-            teamStats: '',
-            isLoading: true,
-        };
-    }
+    function fetchTeamStats(){
 
-    fetchTeamStats(){
         const   username = 'sobrien',
                 password = 'MYSPORTSFEEDS',
-                url = this.props.url,
+                url = props.url,
                 init = {
                     type: "GET",
                     dataType: 'json',
@@ -36,50 +28,48 @@ export default class GetTeamStats extends React.Component{
         fetch(url, init)
             .then(resp => resp.json())
             .then(resp => {
-                this.setState({
-                    teamStats: resp,
-                    isLoading: false
-                });
-                });
-                return;
+                console.log(resp);
+                setTeamStats(resp);
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.log('GetTeamStats Fetch Error: ' + error);
+            });
     }
 
-    componentDidUpdate(prevProps){
-        if(this.props.url !== prevProps.url){
-            this.fetchTeamStats();
+useEffect(() => {
+    fetchTeamStats();
+}, [props.url])
+
+if(props.ApiLink === "teamStatsQuery") {
+
+    if (isLoading){ 
+        //Doesn't work as intended
+        return (
+            <LoadingCircle />
+        ) 
+    }
+    
+    else{
+        let record;
+        if(teamStats.teamStatsTotals[0] !== undefined){
+        const teamWins = teamStats.teamStatsTotals[0].stats.standings.wins,
+              teamLosses = teamStats.teamStatsTotals[0].stats.standings.losses,
+              teamOvertimeLosses = teamStats.teamStatsTotals[0].stats.standings.overtimeLosses;
+              
+              record = teamWins + ", " + teamLosses + ", " + teamOvertimeLosses;
+              
+              } else {
+                  record = '0, 0, 0';
+              }
+
+            return (
+               <StyledH3 teamStatsLocation={props.teamStatsLocation}>({record})</StyledH3>
+            )
         }
-    }
-
-    componentDidMount(){
-        //For future reference: Since the ApiCall component is now MOUNTING on TeamCard click instead of UPDATING, getAPIData() gets called in componentDidMount INSTEAD of ONLY checking if prevProps !== current props in componentDidUpdate.
-        //Otherwise, ONLY making that check in componentDidUpdate just won't call the API, because spoiler alert, the component didn't update.
-        //Calling the API in the render method and checking if prevProps !== current props will result in many hundreds of calls to the API. MySportsFeeds: If you ever read this, my bad...
-        this.fetchTeamStats();
-    }
-
-    render(){
-        const { isLoading, teamStats } = this.state;
-
-        if(this.props.ApiLink === "teamStatsQuery") {
-
-            if (isLoading){ 
-                //Doesn't work as intended
-                return (
-                    <LoadingCircle />
-                ) 
-            }
-            
-            else{
-                const teamWins = teamStats.teamStatsTotals[0].stats.standings.wins,
-                      teamLosses = teamStats.teamStatsTotals[0].stats.standings.losses,
-                      teamOvertimeLosses = teamStats.teamStatsTotals[0].stats.standings.overtimeLosses;
-                
-                    console.log(teamWins + ", " + teamLosses + ", " + teamOvertimeLosses);
-                    return (
-                       <StyledH3 teamStatsLocation={this.props.teamStatsLocation}>({teamWins + ", " + teamLosses + ", " + teamOvertimeLosses})</StyledH3>
-                    )
-                }
-        }
-    }    
 }
 
+
+}
+
+export default GetTeamStats

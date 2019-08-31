@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Team from '../TeamCard/Team';
 import GameDateContainer from './GameDateContainer';
 import styled from 'styled-components';
@@ -52,29 +52,35 @@ const StyledGameScore = styled.div`
 //#endregion STYLES
 
 
+const ScheduleCard = (props) => {
 
-class ScheduleCard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isGamePast: true,
-        };
+    const [isGamePast, setIsGamePast] = useState(true);
+    const { activeTeamID, awayTeamID, awayTeamScore, gameDateTime, homeTeamID, homeTeamScore, teamCity, teamName} = props;
+
+    const pastOrFuture = isGamePast ? "past" : "future";
+
+    let currentGameDate = new Date(gameDateTime),
+        month = currentGameDate.getMonth(),
+        didHomeWin;
+
+    if (homeTeamScore > awayTeamScore){
+        didHomeWin = "homeWin";
+    } else {
+        didHomeWin = "homeLose"; 
     }
 
-    dateCheck () {
-        const { gameDateTime } = this.props;
-
+    function dateCheck() {
         let currentDate = new Date(),
             currentGameDate = new Date(gameDateTime);
 
         if (currentDate < currentGameDate) {
-            this.setState({
-                isGamePast: false,
-            })
-    }
-}
+            setIsGamePast(true);
+        }
 
-    addCardScale() {
+    }
+
+    //Doesn't work yet and needs to be redone for vertical scrolling.
+    function addCardScale() {
         let cardsList = document.getElementsByClassName("schedule-card"),
             viewCenterPoint = window.outerWidth / 2,
             scaleValue,
@@ -91,54 +97,39 @@ class ScheduleCard extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.dateCheck();
-    }
+    useEffect(() => {
+        dateCheck();
+    }, []);
 
-    render() {
 
-        const {activeTeamID, awayTeamID, awayTeamScore, gameDateTime, homeTeamID, homeTeamScore, teamCity, teamName} = this.props,
-                pastOrFuture= this.state.isGamePast ? "past" : "future";
+    return (
 
-        let currentGameDate = new Date(gameDateTime),
-            month = currentGameDate.getMonth(),
-            didHomeWin;
-
-        if (homeTeamScore > awayTeamScore){
-            didHomeWin = "homeWin";
-        } else {
-            didHomeWin = "homeLose"; 
-        }
-
-        return (
-
-            <StyledScheduleCard data-month={month} data-pastfuture={pastOrFuture} cardType={"scheduleCard"} isPast={this.state.isGamePast ? 'past' : 'future'}>
-                <GameDateContainer
-                    gameDateTime={currentGameDate}
-                    activeTeamID={activeTeamID}
+        <StyledScheduleCard data-month={month} data-pastfuture={pastOrFuture} cardType={"scheduleCard"} isPast={isGamePast ? 'past' : 'future'}>
+            <GameDateContainer
+                gameDateTime={currentGameDate}
+                activeTeamID={activeTeamID}
+            />
+            <StyledGameScore>
+                <Team
+                    didHomeWin={didHomeWin}
+                    awayTeamID={awayTeamID}
+                    teamName={teamName}
+                    teamCity={teamCity}
+                    awayTeamScore={awayTeamScore}
                 />
-                <StyledGameScore>
-                    <Team
-                        didHomeWin={didHomeWin}
-                        awayTeamID={awayTeamID}
-                        teamName={teamName}
-                        teamCity={teamCity}
-                        awayTeamScore={awayTeamScore}
-                    />
-                    <p>At</p>
-                    <Team
-                        isHomeTeam={true}
-                        didHomeWin={didHomeWin}
-                        homeTeamID={homeTeamID}
-                        teamName={teamName}
-                        teamCity={teamCity}
-                        homeTeamScore={homeTeamScore}
-                    />
-                </StyledGameScore>
-            </StyledScheduleCard>
-        )
+                <p>At</p>
+                <Team
+                    isHomeTeam={true}
+                    didHomeWin={didHomeWin}
+                    homeTeamID={homeTeamID}
+                    teamName={teamName}
+                    teamCity={teamCity}
+                    homeTeamScore={homeTeamScore}
+                />
+            </StyledGameScore>
+        </StyledScheduleCard>
+    )
 
-    };
 }
 
 export default ScheduleCard;

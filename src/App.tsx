@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import styled from 'styled-components';
-import Schedule from './Pages/Schedule';
+import Home from './Pages/Home';
 
 const StyledApp = styled.div`
     text-align: center;
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router>
       <StyledApp>
-        <Route path={baseUrl + "/"} component={Schedule} />
+        <Route path={baseUrl + "/"} component={Home as any} />
       </StyledApp>
     </Router>
   );

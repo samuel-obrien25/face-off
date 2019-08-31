@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled, {keyframes} from 'styled-components';
-import '../../Utilities/league-colors.css';
+import '../../Styles/league-colors.css';
 
 //#region STYLES
 const StyledFab = styled.button`
@@ -88,71 +88,59 @@ const ActiveFabThree = styled(StyledFab)`
 `
 //#endregion STYLES
 
+const Fab = (props) => {
 
-class Fab extends React.Component{
+  const [isActive, setIsActive] = useState(false);
+  const { activeTeamID } = props;
 
-  constructor(props) {
-    super(props);
-      this.state = {
-        isActive: false
-      };
-    }
-
-  handleMenuClick = () => {
-    this.setState({
-      isActive: !this.state.isActive,
-    })
+  function handleMenuClick() {
+    setIsActive(!isActive);
   }
 
-  scrollToNextGame = () => {
+  function scrollToNextGame() {
     if(!document.querySelector('[data-pastfuture="future"]')){
       document.getElementById('card_container_schedule_list').lastElementChild.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-      this.handleMenuClick();
+      handleMenuClick();
       return;
     } else {
       document.querySelector('[data-pastfuture="future"]').scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-      this.handleMenuClick();
+      handleMenuClick();
 
     }
+
   }
 
-  render(){
-    const { activeTeamID } = this.props,
-          { isActive } = this.state;
+    if(isActive) {
+      return (
+        <ActiveFabWrapper>
+          <ActiveFabThree className={`team${activeTeamID}`} onClick={scrollToNextGame}>
+            <StyledFabH2>Next Game</StyledFabH2>
+          </ActiveFabThree>
 
-          if(isActive) {
-            return (
-              <ActiveFabWrapper>
-                <ActiveFabThree className={`team${activeTeamID}`} onClick={this.scrollToNextGame}>
-                  <StyledFabH2>Next Game</StyledFabH2>
-                </ActiveFabThree>
+          <ActiveFabTwo className={`team${activeTeamID}`} onClick={props.handleClick}>
+            <StyledFabH2>Teams</StyledFabH2>
+          </ActiveFabTwo>
 
-                <ActiveFabTwo className={`team${activeTeamID}`} onClick={this.props.handleClick}>
-                  <StyledFabH2>Teams</StyledFabH2>
-                </ActiveFabTwo>
-
-                <ActiveFabOne className={`team${activeTeamID}`} isActive="true" onClick={this.handleMenuClick}>
-                  <StyledFabH2>Close</StyledFabH2>
-                </ActiveFabOne>
-              </ActiveFabWrapper>
-            );
-          }
+          <ActiveFabOne className={`team${activeTeamID}`} isActive="true" onClick={handleMenuClick}>
+            <StyledFabH2>Close</StyledFabH2>
+          </ActiveFabOne>
+        </ActiveFabWrapper>
+      );
+    }
 
     return (
       <div>
-        <StyledFab className={`team${activeTeamID}`} onClick={this.handleMenuClick}>
+        <StyledFab className={`team${activeTeamID}`} onClick={handleMenuClick}>
           <StyledHamburger></StyledHamburger>
         </StyledFab>
       </div>
     );
-
-  }
-};
+}
 
 export default Fab;

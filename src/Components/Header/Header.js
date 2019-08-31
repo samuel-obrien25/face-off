@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import LoadingCircle from '../Loading/LoadingCircle';
 import styled from 'styled-components';
-import '../../Utilities/league-colors.css';
+import '../../Styles/league-colors.css';
 
 
 //#region Styles
@@ -40,39 +40,32 @@ const StyledHeader = styled.header`
 `;
 
 //#endregion Styles
+const Header = (props) => {
 
-class Header extends React.Component{
+    const [isLoading, setIsLoading] = useState(true);
+    const { activeTeamID, children, headerH1, headerH2, headerStyle } = props;
 
-    constructor(props){
-        super(props);
-        this.state = {
-            isLoading: true,
-        };
-    }
+    useEffect(() => {
+        setIsLoading(false);
+    }, []);
 
-    componentDidMount(){
-        this.setState({isLoading: false});
-    }
-    
-    render() {
-        
-        const { activeTeamID, children, headerH1, headerH2, headerStyle } = this.props;
-        if(this.state.isLoading) {
-            return (
-                <StyledHeader headerStyle={headerStyle} className={`team${activeTeamID}`}>
-                    <LoadingCircle />
-                </StyledHeader>
-            )
-        } else{
-            return (
+    if(isLoading){
+        return (
+            <StyledHeader headerStyle={headerStyle} className={`team${activeTeamID}`}>
+                <LoadingCircle />
+            </StyledHeader>
+        )
+    } else {
+        return (
             <StyledHeader headerStyle={headerStyle} className={`team${activeTeamID}`}>
                 <h1>{headerH1}</h1>
                 <h2>{headerH2}</h2>
                     {children}
             </StyledHeader>
-            );
-        }
+        );
     }
+
 }
+
 export default Header;
     

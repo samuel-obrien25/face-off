@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 
@@ -25,17 +25,12 @@ const StyledMonthContainer = styled.div`
     }
 `;
 
-class MonthContainer extends React.Component {
+const MonthContainer = (props) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentMonth: 'October',
-            isVisible: true
-        }
-    }
+    const [currentMonth, setCurrentMonth] = useState('October');
+    const [isVisible, setIsVisible] = useState(true);
 
-    updateH2 = () => {
+    function updateH2 (){
         //Issue
          const scheduleList = document.getElementById("card_container_schedule_list"),
                Months = {
@@ -49,22 +44,17 @@ class MonthContainer extends React.Component {
         };
 
         const setMonthState = (month) => {
-            this.setState({
-                isVisible: false
-            });
+            setIsVisible(false)
 
-           setTimeout(()=>{
-               this.setState({
-                   currentMonth: month,
-                   isVisible: true
-               })
+            setTimeout(()=>{
+               setIsVisible(true);
+               setCurrentMonth(month);
             }, 600);
 
         };
         
         scheduleList.addEventListener("scroll", () => {
 
-                const {currentMonth} = this.state;
                 let scheduleListCheckPoint = scheduleList.scrollLeft + 300;                
 
             //If the distance between the first card of month X to the left side of card_container_schedule_list is 
@@ -105,28 +95,21 @@ class MonthContainer extends React.Component {
             }
         });
     }
-
-    componentDidMount() {
-        //I need to figure out why #card_container_schedule_list returns null if I don't use setTimeout. 
+//I need to figure out why #card_container_schedule_list returns UNDEFINED if I don't use setTimeout. 
         //Until then, setTimeout works around that
 
-        setTimeout(() => {
-            this.updateH2();
-            this.setState({
-                isVisible: true
-            });
-        }, 1000);
-    };
-
-    render() {
-        const {currentMonth, isVisible} = this.state;
-
-        return (
-            <StyledMonthContainer visible={isVisible}>
-               <h2> { currentMonth } </h2>
-            </StyledMonthContainer>
-        )
-    }
+useEffect(() => {
+    setTimeout(() => {
+        updateH2();
+        setIsVisible(true);    
+    }, 1000);
+})
+ 
+    return (
+        <StyledMonthContainer visible={isVisible}>
+            <h2> { currentMonth } </h2>
+        </StyledMonthContainer>
+    )
 }
 
 export default MonthContainer;

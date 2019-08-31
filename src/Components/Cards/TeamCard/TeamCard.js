@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../../Logo/Logo';
 import styled from 'styled-components';
-import '../../../Utilities/league-colors.css';
+import '../../../Styles/league-colors.css';
 import GetTeamStats from '../../../API/GetTeamStats';
 
 //#region STYLES
@@ -67,8 +67,8 @@ const StyledTeamName = styled.h3`
 
 const TeamCard = (props) => {
 
-    const teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/team_stats_totals.json?team=',
-           recordQuery = teamStatsBaseURL + props.teamValue;
+    const teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2019-2020-regular/team_stats_totals.json?team=',
+          recordQuery = teamStatsBaseURL + props.teamValue;
 
     return (
         <StyledTeamCard className={`card team-card team${props.teamValue}`} onClick={props.onClick} teamValue={props.teamValue} data-teamid={props.teamValue}>

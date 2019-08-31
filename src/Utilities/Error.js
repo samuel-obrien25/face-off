@@ -1,10 +1,6 @@
 import React from 'react';
 import Reload from '../Components/Buttons/Reload'
 
-
-
-import "./Error.css";
-
 const Error = () => {
         return(
             <div className="error-container">
