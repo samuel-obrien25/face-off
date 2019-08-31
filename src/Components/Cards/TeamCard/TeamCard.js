@@ -31,7 +31,7 @@ const StyledTeamCard = styled.div`
         }
 
         @media (min-width: 600px) {
-            width: 250px;
+            max-width: 45%;
             height: 350px;
             margin: 10px;
 
@@ -45,6 +45,10 @@ const StyledTeamCard = styled.div`
                 margin-bottom: 0px;
             }
 
+        }
+
+        @media (min-width: 1000px) {
+            max-width: 22%;
         }
 `;
 
