@@ -20,7 +20,7 @@ const Home = (props) => {
 
     const [activeTeamID, setActiveTeamID] = useState('');
     const [headerH1, setHeaderH1] = useState('Face Off');
-    const [headerH2, setHeaderH2] = useState('Quick access to NHL Schedule, Stats, and more');
+    const [headerH2, setHeaderH2] = useState(null);
     const [headerH3, setHeaderH3] = useState(null);
     const [isFabActive, setIsFabActive] = useState(false);
     const [isScheduleListActive, setIsScheduleListActive] = useState(false);
@@ -63,7 +63,7 @@ const Home = (props) => {
 
             setActiveTeamID(null);
             setHeaderH1('Face Off');
-            setHeaderH2('Quick access to NHL Schedule, Stats, and more');
+            setHeaderH2(null);
             setHeaderH3(null);
             setIsFabActive(false);
             setIsScheduleListActive(false);

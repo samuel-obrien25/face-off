@@ -8,10 +8,10 @@ import '../../Styles/league-colors.css';
 const StyledHeader = styled.header`
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     background-color: ${props => props.headerStyle === "homeHeader" ? "#222" : ""};
     width: 100%;
-    height: 150px;
+    height: 35px;
     padding: 20px 0;
     color: white;
     position: fixed;
@@ -19,16 +19,15 @@ const StyledHeader = styled.header`
     left:0;
     text-align:center;
     transition: .25s ease-in-out;
-    z-index:8000;
+    z-index: 8000;
 
     & h1, h2, h3{
-        width: 80%;
         margin: auto;
         padding-left: 0px;
     }
 
     h1 {
-        margin: auto;
+        margin-left: 25px;
         margin-bottom: 0px;
         font-size: ${props => props.activeTeamID ? '24px' : '42px'};
     }
