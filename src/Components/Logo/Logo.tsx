@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Children } from 'react';
 import styled from 'styled-components';
 
 //#region STYLES
-const StyledLogoContainer = styled.div`
+const StyledLogoContainer = styled.div<LogoProps>`
     border-radius: 50%;
     width: 80px;
     height: 100%;
@@ -11,8 +11,15 @@ const StyledLogoContainer = styled.div`
     display: -ms-flexbox;
     display: flex;
     margin-left: 0;
-    position: ${ props=>props.cardType === "teamCard" ? "absolute" : "relative"};
-    left: ${ props=>props.cardType === "teamCard" ? "20px" : "0px"};
+    position: ${ (props) => props.cardType === "teamCard" ? "absolute" : "relative"};
+    left: ${ (props) => props.cardType === "teamCard" ? "20px" : "0px"};
+
+    img{
+        margin: auto;
+        width: 100%;
+        position: relative;
+        height: auto;
+    }
     
     @media screen and (min-width:600px){
         position: relative;
@@ -22,21 +29,21 @@ const StyledLogoContainer = styled.div`
         width: 125px;
     }
 `;
-
-const StyledLogo = styled.img`
-    margin: auto;
-    width: 100%;
-    position: relative;
-    height: auto;
-`;
 //#endregion STYLES
 
-const Logo = (props) => {
+interface LogoProps {
+    cardType?: string,
+    teamName: string,
+    teamValue: string,
+}
+
+const Logo: React.FC<LogoProps> = (props) => {
+
     const { cardType, teamName, teamValue } = props;
     let currentLogo;
 
-        //Huge switch statement that determines the logo based on team value. Also added some logic to check for card type.
-        //If cardType===teamCard, some teams go to *light* version of logo.
+    //Huge switch statement that determines the logo based on team value. Also added some logic to check for card type.
+    //If cardType===teamCard, some teams go to *light* version of logo.
     switch(teamValue) {
         case "1":
             if(cardType === "teamCard"){
@@ -157,12 +164,12 @@ const Logo = (props) => {
     }
 
     return(
-        <StyledLogoContainer cardType = {cardType}>
-            <StyledLogo src = {currentLogo}
-                alt = {`${teamName} logo`}
-                />
+        <StyledLogoContainer cardType = {cardType} teamName = {teamName} teamValue = {teamValue}>
+            <img src = {currentLogo}
+                 alt = {`${teamName} logo`}
+            />
         </StyledLogoContainer>
     )
 }
 
-export default Logo;
+export default Logo

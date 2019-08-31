@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import CardContainer from '../Components/Containers/CardContainer';
 import Card from '../Components/Cards/Card';
 import LoadingCircle from '../Components/Loading/LoadingCircle';
-import Error from '../Utilities/Error';
 
 const ApiCall = (props) => {
     //schedule: placeholder for data recieved from fetch request

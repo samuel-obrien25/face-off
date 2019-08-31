@@ -88,30 +88,42 @@ const ActiveFabThree = styled(StyledFab)`
 `
 //#endregion STYLES
 
-const Fab = (props) => {
+interface FabProps {
+  activeTeamID: String,
+  handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
+  isActive: String,
+}
 
-  const [isActive, setIsActive] = useState(false);
-  const { activeTeamID } = props;
+const Fab: React.FC<FabProps> = (props) => {
 
-  function handleMenuClick() {
-    setIsActive(!isActive);
-  }
+  const [isActive, setIsActive] = useState<boolean>(false);
+  
+  const { activeTeamID, handleClick } = props;
 
   function scrollToNextGame() {
+    
+    /* Those exlamation marks are non-null assertion operators. Need to read more about them.
+    * https://www.logicbig.com/tutorials/misc/typescript/non-null-assertion-operator.html
+    */
+
+    const lastGame = document.getElementById('card_container_schedule_list')!.lastElementChild;
+    const nextGame = document.querySelector('[data-pastfuture="future"]')!;
+
     if(!document.querySelector('[data-pastfuture="future"]')){
-      document.getElementById('card_container_schedule_list').lastElementChild.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-      handleMenuClick();
+      if(lastGame){
+        lastGame.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+      setIsActive(!isActive);
       return;
     } else {
-      document.querySelector('[data-pastfuture="future"]').scrollIntoView({
+      nextGame.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-      handleMenuClick();
-
+      setIsActive(!isActive);
     }
 
   }
@@ -123,11 +135,11 @@ const Fab = (props) => {
             <StyledFabH2>Next Game</StyledFabH2>
           </ActiveFabThree>
 
-          <ActiveFabTwo className={`team${activeTeamID}`} onClick={props.handleClick}>
+          <ActiveFabTwo className={`team${activeTeamID}`} onClick={handleClick}>
             <StyledFabH2>Teams</StyledFabH2>
           </ActiveFabTwo>
 
-          <ActiveFabOne className={`team${activeTeamID}`} isActive="true" onClick={handleMenuClick}>
+          <ActiveFabOne className={`team${activeTeamID}`} onClick={() => setIsActive(!isActive)}>
             <StyledFabH2>Close</StyledFabH2>
           </ActiveFabOne>
         </ActiveFabWrapper>
@@ -135,11 +147,11 @@ const Fab = (props) => {
     }
 
     return (
-      <div>
-        <StyledFab className={`team${activeTeamID}`} onClick={handleMenuClick}>
+      <>
+        <StyledFab className={`team${activeTeamID}`} onClick={() => setIsActive(!isActive)}>
           <StyledHamburger></StyledHamburger>
         </StyledFab>
-      </div>
+      </>
     );
 }
 
