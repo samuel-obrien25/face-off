@@ -36,7 +36,12 @@ const StyledScheduleCardContainer = styled(StyledCardContainer)`
         }
 `;
 
-const CardContainer = (props) => {
+interface CardContainerProps {
+    containerType: string
+}
+
+const CardContainer: React.FC<CardContainerProps> = (props) => {
+
     const { containerType } = props;
 
 
@@ -59,6 +64,8 @@ const CardContainer = (props) => {
                 </StyledScheduleCardContainer>
             )
         } 
+        
+        else return null
 }
 
 export default CardContainer;

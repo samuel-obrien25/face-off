@@ -3,13 +3,20 @@ import styled from 'styled-components' ;
 import LoadingCircle from '../Components/Loading/LoadingCircle';
 
 const StyledH3 = styled.h3`
-    font-size: ${props => props.teamStatsLocation === "header" ? "24px" : "16px"};
+    font-size: ${(props: GetTeamStatsProps) => props.teamStatsLocation === "header" ? "24px" : "16px"};
     padding-left: 20px;
 `;
     //This whole component does not need to exist. Should be handled with the APICall.js component.
 
-const GetTeamStats = (props) => {
-    const [teamStats, setTeamStats] = useState('');
+interface GetTeamStatsProps{
+    teamStatsLocation: string,
+    url: string,
+    ApiLink: string,
+}
+
+const GetTeamStats: React.FC<GetTeamStatsProps> = (props) => {
+
+    const [teamStats, setTeamStats] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
     function fetchTeamStats(){
@@ -52,21 +59,26 @@ if(props.ApiLink === "teamStatsQuery") {
     
     else{
         let record;
+
         if(teamStats.teamStatsTotals[0] !== undefined){
-        const teamWins = teamStats.teamStatsTotals[0].stats.standings.wins,
-              teamLosses = teamStats.teamStatsTotals[0].stats.standings.losses,
-              teamOvertimeLosses = teamStats.teamStatsTotals[0].stats.standings.overtimeLosses;
+
+            const teamWins = teamStats.teamStatsTotals[0].stats.standings.wins,
+                  teamLosses = teamStats.teamStatsTotals[0].stats.standings.losses,
+                  teamOvertimeLosses = teamStats.teamStatsTotals[0].stats.standings.overtimeLosses;
+                    
+                    record = teamWins + ", " + teamLosses + ", " + teamOvertimeLosses;
               
-              record = teamWins + ", " + teamLosses + ", " + teamOvertimeLosses;
-              
-              } else {
-                  record = '0, 0, 0';
-              }
+        } else {
+            record = '0, 0, 0';
+        }
 
             return (
-               <StyledH3 teamStatsLocation={props.teamStatsLocation}>({record})</StyledH3>
+               <StyledH3 teamStatsLocation={props.teamStatsLocation} {...props}>({record})</StyledH3>
             )
         }
+} 
+else{
+    return <></>
 }
 
 

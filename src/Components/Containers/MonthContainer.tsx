@@ -15,8 +15,8 @@ const StyledMonthContainer = styled.div`
         text-align: left;
         padding-left: 10px;
         transition: .3s ease-in-out;
-        opacity: ${props => props.visible ? "1" : "0"};
-        transform: ${props => props.visible ? "" : "translateY(15px)"};
+        opacity: ${(props: MonthContainerProps) => props.visible ? "1" : "0"};
+        transform: ${(props: MonthContainerProps) => props.visible ? "" : "translateY(15px)"};
         padding-bottom: 10px;
     }
 
@@ -25,25 +25,31 @@ const StyledMonthContainer = styled.div`
     }
 `;
 
-const MonthContainer = (props) => {
+interface MonthContainerProps {
+    visible?: boolean,
+
+}
+
+const MonthContainer: React.FC<MonthContainerProps> = (props) => {
 
     const [currentMonth, setCurrentMonth] = useState('October');
     const [isVisible, setIsVisible] = useState(true);
 
     function updateH2 (){
         //Issue
-         const scheduleList = document.getElementById("card_container_schedule_list"),
-               Months = {
-                January:  document.querySelectorAll("[data-month='0']")[0].offsetLeft,
-                February: document.querySelectorAll("[data-month='1']")[0].offsetLeft,
-                March:    document.querySelectorAll("[data-month='2']")[0].offsetLeft,
-                April:    document.querySelectorAll("[data-month='3']")[0].offsetLeft,
-                October:  document.querySelectorAll("[data-month='9']")[0].offsetLeft,
-                November: document.querySelectorAll("[data-month='10']")[0].offsetLeft,
-                December: document.querySelectorAll("[data-month='11']")[0].offsetLeft
-        };
+         const scheduleList = document.getElementById("card_container_schedule_list");
+         
+        const   Months = {
+                    January:  (document.querySelectorAll("[data-month='0']")[0] as any).offsetLeft,
+                    February: (document.querySelectorAll("[data-month='1']")[0] as any).offsetLeft,
+                    March:    (document.querySelectorAll("[data-month='2']")[0] as any).offsetLeft,
+                    April:    (document.querySelectorAll("[data-month='3']")[0] as any).offsetLeft,
+                    October:  (document.querySelectorAll("[data-month='9']")[0] as any).offsetLeft,
+                    November: (document.querySelectorAll("[data-month='10']")[0] as any).offsetLeft,
+                    December: (document.querySelectorAll("[data-month='11']")[0] as any).offsetLeft,
+                };
 
-        const setMonthState = (month) => {
+        const setMonthState = (month: string) => {
             setIsVisible(false)
 
             setTimeout(()=>{
@@ -53,9 +59,9 @@ const MonthContainer = (props) => {
 
         };
         
-        scheduleList.addEventListener("scroll", () => {
+        scheduleList!.addEventListener("scroll", () => {
 
-                let scheduleListCheckPoint = scheduleList.scrollLeft + 300;                
+                let scheduleListCheckPoint = scheduleList!.scrollLeft + 300;                
 
             //If the distance between the first card of month X to the left side of card_container_schedule_list is 
             //less than or equal to the distance the card_container_schedule_list has been scrolled (plus the size of one card)

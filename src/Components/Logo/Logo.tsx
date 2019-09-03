@@ -164,7 +164,7 @@ const Logo: React.FC<LogoProps> = (props) => {
     }
 
     return(
-        <StyledLogoContainer cardType = {cardType} teamName = {teamName} teamValue = {teamValue}>
+        <StyledLogoContainer cardType = {cardType} teamName = {teamName} teamValue = {teamValue} >
             <img src = {currentLogo}
                  alt = {`${teamName} logo`}
             />

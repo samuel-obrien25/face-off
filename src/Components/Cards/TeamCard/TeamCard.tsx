@@ -63,23 +63,27 @@ const StyledTeamName = styled.h3`
     padding-left: 20px;
 
 `;
-
-
 //#endregion STYLES
 
+interface TeamCardProps {
+    cityName: string,
+    onClick: () => void,
+    teamName: string,
+    teamValue: string,
+}
+const TeamCard: React.FC<TeamCardProps> = (props) => {
 
-
-const TeamCard = (props) => {
+    const { cityName, onClick, teamName, teamValue } = props
 
     const teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2019-2020-regular/team_stats_totals.json?team=',
-          recordQuery = teamStatsBaseURL + props.teamValue;
+          recordQuery = teamStatsBaseURL + teamValue;
 
     return (
-        <StyledTeamCard className={`card team-card team${props.teamValue}`} onClick={props.onClick} teamValue={props.teamValue} data-teamid={props.teamValue}>
-            <StyledCityName>{props.cityName}</StyledCityName>
-            <StyledTeamName>{props.teamName}</StyledTeamName>
+        <StyledTeamCard className={`card team-card team${teamValue}`} onClick={onClick} teamValue={teamValue} data-teamid={teamValue} {...props}>
+            <StyledCityName>{cityName}</StyledCityName>
+            <StyledTeamName>{teamName}</StyledTeamName>
             <GetTeamStats teamStatsLocation="teamCard" ApiLink="teamStatsQuery" url={recordQuery}/>
-            <Logo cardType={"teamCard"} teamValue={props.teamValue} alt={props.teamName}/>
+            <Logo cardType={"teamCard"} teamValue={teamValue} teamName={teamName}/>
         </StyledTeamCard>
     )
 }

@@ -91,7 +91,8 @@ const ActiveFabThree = styled(StyledFab)`
 interface FabProps {
   activeTeamID: String,
   handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
-  isActive: String,
+  isActive: boolean,
+  visible: boolean
 }
 
 const Fab: React.FC<FabProps> = (props) => {

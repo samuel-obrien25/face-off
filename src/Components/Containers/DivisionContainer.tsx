@@ -19,7 +19,11 @@ const StyledDivisionName = styled.h2`
     width: 100%;
 `
 
-const DivisionContainer = (props) => {
+interface DivisionContainerProps {
+    divisionTitle: string
+}
+
+const DivisionContainer: React.FC<DivisionContainerProps> = (props) => {
     window.scrollTo(0,0);
     
     return(

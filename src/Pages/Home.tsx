@@ -16,40 +16,47 @@ const StyledWrapper = styled.main`
 
 //#endregion STYLES
 
-const Home = (props) => {
+interface HomeProps {
+    currentTeamRecord: string,
+}
+
+const Home: React.FC<HomeProps> = (props) => {
 
     const [activeTeamID, setActiveTeamID] = useState('');
     const [headerH1, setHeaderH1] = useState('Face Off');
-    const [headerH2, setHeaderH2] = useState(null);
-    const [headerH3, setHeaderH3] = useState(null);
+    const [headerH2, setHeaderH2] = useState('');
+    const [headerH3, setHeaderH3] = useState('');
     const [isFabActive, setIsFabActive] = useState(false);
     const [isScheduleListActive, setIsScheduleListActive] = useState(false);
     const [isTeamListActive, setIsTeamListActive] = useState(true);
-    const [scheduleQueryRecipe, setScheduleQueryRecipe] = useState(null);
-    const [teamStatsQueryRecipe, setTeamStatsQueryRecipe] = useState(null);
+    const [scheduleQueryRecipe, setScheduleQueryRecipe] = useState('');
+    const [teamStatsQueryRecipe, setTeamStatsQueryRecipe] = useState('');
+
+    const { currentTeamRecord } = props;
 
 
-   function handleClick(e) {
+   function handleClick(e: Event) {
         //Properly handles clicks to nested elements. Deep down in my heart I know this isn't right.
-        let targetTeam = e.target.closest(".card"),
-            targetTeamValue = targetTeam.dataset.teamid,
+        let targetTeam = (e.target as HTMLElement).closest(".card") as HTMLElement,
+            targetTeamValue = targetTeam.dataset.teamid as any,
 
             //Gets chosen card, then derives teamName and teamCity from its inner HTML
-            currentTeamName = targetTeam.firstChild.innerHTML,
-            currentTeamCity = targetTeam.firstChild.nextElementSibling.innerHTML,
+            currentTeamName = (targetTeam.firstChild as HTMLElement).innerHTML,
+            currentTeamCityEl = (targetTeam.firstChild as HTMLElement),
+            currentTeamCity = currentTeamCityEl.nextElementSibling!.innerHTML,
             scheduleBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2019-2020-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.0/pull/nhl/2019-2020-regular/team_stats_totals.json?team=',
             divisionContainer = document.getElementById("division-container");
         //Transitions TeamCards Out
-        divisionContainer.classList.remove("fade-in");
-        divisionContainer.classList.add("fade-out");
+        divisionContainer!.classList.remove("fade-in");
+        divisionContainer!.classList.add("fade-out");
 
         if (!currentTeamName) { return }
 
         setActiveTeamID(targetTeamValue);
         setHeaderH1(currentTeamName);
         setHeaderH2(currentTeamCity);
-        setHeaderH3(props.currentTeamRecord);
+        setHeaderH3(currentTeamRecord);
         setIsFabActive(true);
         setIsScheduleListActive(true);
         setIsTeamListActive(false);
@@ -61,10 +68,10 @@ const Home = (props) => {
         let scheduleQueryBaseURL = 'https://api.mysportsfeeds.com/v2.1/pull/nhl/2019-2020-regular/games.json?team=',
             teamStatsBaseURL = 'https://api.mysportsfeeds.com/v2.1/pull/nhl/2019-2020-regular/team_stats_totals.json?team='
 
-            setActiveTeamID(null);
+            setActiveTeamID('');
             setHeaderH1('Face Off');
-            setHeaderH2(null);
-            setHeaderH3(null);
+            setHeaderH2('');
+            setHeaderH3('');
             setIsFabActive(false);
             setIsScheduleListActive(false);
             setIsTeamListActive(true);
@@ -81,19 +88,18 @@ const Home = (props) => {
             console.log("The current scheduleQueryRecipe is " + scheduleQueryRecipe);
 
             return (
-                <div>
+                <>
                     <Header headerStyle="TeamHeader" activeTeamID={activeTeamID} headerH1={headerH1} headerH2={headerH2}>
                         <GetTeamStats teamStatsLocation="header" ApiLink="teamStatsQuery" url={teamStatsQueryRecipe} />
                     </Header>
 
                     <div className="wrapper wrapper__home">
                         <h2 className="page__title page__title_schedule">Choose a Game</h2>
-
                         <MonthContainer />
-                        <ApiCall activeTeamID={activeTeamID} ApiLink="gameScheduleQuery" url={scheduleQueryRecipe} />
-                        <Fab activeTeamID={activeTeamID} visible={isFabActive} handleClick={resetAPICall} />
+                        <ApiCall activeTeamID={activeTeamID} ApiLink="gameScheduleQuery" url={scheduleQueryRecipe}/>
+                        <Fab activeTeamID={activeTeamID} visible={isFabActive} isActive={isFabActive} handleClick={resetAPICall} />
                     </div>
-                </div>
+                </>
 
             )
         }
@@ -101,13 +107,15 @@ const Home = (props) => {
         if (isTeamListActive) {
 
             return (
-                <div>
+                <>
                     <Header headerStyle="homeHeader" headerH1={headerH1} headerH2={headerH2} />
                     <StyledWrapper>
-                        <TeamList handleClick={handleClick} teamValue={activeTeamID} />
+                        <TeamList handleClick={handleClick} {...props} />
                     </StyledWrapper>
-                </div>
+                </>
             )
         }
+
+        else return null
 }
 export default Home;

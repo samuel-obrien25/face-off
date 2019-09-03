@@ -3,13 +3,27 @@ import React from 'react';
 import HomeTeam from '../ScheduleCard/HomeTeam';
 import AwayTeam from '../ScheduleCard/AwayTeam';
 
+interface TeamProps{
+    activeTeamID?: string,
+    awayTeamID: string,
+    awayTeamCity?: string,
+    awayTeamScore: string,
+    didHomeWin: string,
+    homeTeamCity?: string,
+    homeTeamID: number,
+    homeTeamScore: string,
+    isHomeTeam?: boolean,
+    teamName: string,
+    teamCity?: string,
 
-const Team = (props) => {
+}
+
+const Team: React.FC<TeamProps> = (props) => {
     
         //Variables that feed into Home team and Away team components
-        let teamName,
-            teamCity,
-            teamValue,
+        let teamName: string = '',
+            teamCity: string = '',
+            teamValue: number|string,
             logoValue;
 
         const { awayTeamID, awayTeamScore, didHomeWin, homeTeamID, homeTeamScore, isHomeTeam } = props;
@@ -175,6 +189,7 @@ const Team = (props) => {
                     didHomeWin={didHomeWin}
                     awayTeamScore={awayTeamScore}
                     logoValue={logoValue}
+                    {...props}
                 />
             )
         

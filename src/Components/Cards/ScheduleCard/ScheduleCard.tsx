@@ -11,13 +11,13 @@ const StyledScheduleCard = styled.div`
     width: 100%;
     min-width: 350px;
     transition: .25s ease-in-out;
-    background-color: ${props => props.isPast === "past" ? "lightgray" : "#fff"};
+    background-color: ${(props: ScheduleCardProps) => props.isPast === "past" ? "lightgray" : "#fff"};
     position: relative;
     border-radius: 5px;
     overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-align: center;
-    opacity: ${props => props.isPast === "past" ? ".6" : "1"};
+    opacity: ${(props: ScheduleCardProps) => props.isPast === "past" ? ".6" : "1"};
 
     @media (min-width: 600px) {
         width: 350px;
@@ -48,11 +48,29 @@ const StyledGameScore = styled.div`
         font-weight: 600;
     }
 `
-
 //#endregion STYLES
+interface ScheduleCardProps {
+    activeTeamID: string,
+    awayTeamID: string,
+    awayTeamScore: string,
+    awayTeamName: string,
+    awayTeamCity: string,
+    gameDateTime: Date,
+    homeTeamID: number,
+    homeTeamName: string,
+    homeTeamCity: string,
+    homeTeamScore: string,
+    teamCity?: string,
+    teamName: string,
+    isPast?: string
+    isHomeTeam?: string,
+    onClick: () => void,
+    month: string,
+    cardType: string
+}
 
+const ScheduleCard: React.FC<ScheduleCardProps> = (props) => {
 
-const ScheduleCard = (props) => {
 
     const [isGamePast, setIsGamePast] = useState(true);
     const { activeTeamID, awayTeamID, awayTeamScore, gameDateTime, homeTeamID, homeTeamScore, teamCity, teamName} = props;
@@ -70,31 +88,13 @@ const ScheduleCard = (props) => {
     }
 
     function dateCheck() {
-        let currentDate = new Date(),
+        let currentDate: Date = new Date(),
             currentGameDate = new Date(gameDateTime);
 
         if (currentDate < currentGameDate) {
             setIsGamePast(true);
         }
 
-    }
-
-    //Doesn't work yet and needs to be redone for vertical scrolling.
-    function addCardScale() {
-        let cardsList = document.getElementsByClassName("schedule-card"),
-            viewCenterPoint = window.outerWidth / 2,
-            scaleValue,
-            i = 0;
-
-        for (i; i < cardsList.length; i++) {
-            let cardScrollPoint = cardsList[i].offsetLeft,
-                cardsListContainer = cardsList[i].parentElement.scrollLeft + 300;
-
-                if(cardsList[i].scrollLeft )
-                scaleValue = (((cardsListContainer - cardScrollPoint) / viewCenterPoint) * 1.2);
-
-            cardsList[i].style.transform = "scale(" + scaleValue + ")";
-        }
     }
 
     useEffect(() => {
@@ -104,7 +104,7 @@ const ScheduleCard = (props) => {
 
     return (
 
-        <StyledScheduleCard data-month={month} data-pastfuture={pastOrFuture} cardType={"scheduleCard"} isPast={isGamePast ? 'past' : 'future'}>
+        <StyledScheduleCard data-month={month} data-pastfuture={pastOrFuture} cardType={"scheduleCard"} isPast={isGamePast ? 'past' : 'future'} {...props}>
             <GameDateContainer
                 gameDateTime={currentGameDate}
                 activeTeamID={activeTeamID}
@@ -116,6 +116,8 @@ const ScheduleCard = (props) => {
                     teamName={teamName}
                     teamCity={teamCity}
                     awayTeamScore={awayTeamScore}
+                    homeTeamID={homeTeamID}
+                    homeTeamScore={homeTeamScore}
                 />
                 <p>At</p>
                 <Team
@@ -125,6 +127,8 @@ const ScheduleCard = (props) => {
                     teamName={teamName}
                     teamCity={teamCity}
                     homeTeamScore={homeTeamScore}
+                    awayTeamID={awayTeamID}
+                    awayTeamScore={awayTeamScore}
                 />
             </StyledGameScore>
         </StyledScheduleCard>
@@ -133,4 +137,3 @@ const ScheduleCard = (props) => {
 }
 
 export default ScheduleCard;
-
