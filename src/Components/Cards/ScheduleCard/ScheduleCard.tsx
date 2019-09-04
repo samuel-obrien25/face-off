@@ -51,7 +51,7 @@ const StyledGameScore = styled.div`
 //#endregion STYLES
 interface ScheduleCardProps {
     activeTeamID: string,
-    awayTeamID: string,
+    awayTeamID: number,
     awayTeamScore: string,
     awayTeamName: string,
     awayTeamCity: string,

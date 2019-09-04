@@ -7,7 +7,7 @@ interface CardProps {
     activeTeamID?: string,
     activeTeamName?: string,
     awayTeamCity?: string,
-    awayTeamID?: string,
+    awayTeamID?: number,
     awayTeamName?: string, 
     awayTeamScore?: string,
     cardType: string, 

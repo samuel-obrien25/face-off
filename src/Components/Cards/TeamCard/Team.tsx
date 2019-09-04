@@ -5,7 +5,7 @@ import AwayTeam from '../ScheduleCard/AwayTeam';
 
 interface TeamProps{
     activeTeamID?: string,
-    awayTeamID: string,
+    awayTeamID: number,
     awayTeamCity?: string,
     awayTeamScore: string,
     didHomeWin: string,
@@ -23,13 +23,16 @@ const Team: React.FC<TeamProps> = (props) => {
         //Variables that feed into Home team and Away team components
         let teamName: string = '',
             teamCity: string = '',
-            teamValue: number|string,
+            teamValue: number,
             logoValue;
 
         const { awayTeamID, awayTeamScore, didHomeWin, homeTeamID, homeTeamScore, isHomeTeam } = props;
 
         //Gets props.isHomeTeam from Card.js
         if(isHomeTeam){
+            console.log('hometeam:', homeTeamID);
+            console.log('awayTeam:', awayTeamID);
+
             teamValue = homeTeamID;
             logoValue = teamValue.toString();
 
@@ -189,7 +192,6 @@ const Team: React.FC<TeamProps> = (props) => {
                     didHomeWin={didHomeWin}
                     awayTeamScore={awayTeamScore}
                     logoValue={logoValue}
-                    {...props}
                 />
             )
         

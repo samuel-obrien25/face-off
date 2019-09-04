@@ -12,7 +12,7 @@ interface ApiCallProps {
     ApiLink: string,
     awayTeamName?: string,
     awayTeamCity?: string,
-    awayTeamID?: string,
+    awayTeamID?: number,
     url: string,
     cityName?: string,
     handleClick?: any,
