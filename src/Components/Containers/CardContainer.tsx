@@ -26,7 +26,7 @@ const StyledScheduleCardContainer = styled(StyledCardContainer)`
         padding: 20px 0px;
         width: 95vw;
         left: 0;
-        margin-top: 200px;
+        margin-top: 250px;
         scroll-snap-type: x proximity;
 
         @media (min-width: 600px) {

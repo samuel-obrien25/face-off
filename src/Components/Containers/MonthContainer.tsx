@@ -55,7 +55,7 @@ const MonthContainer: React.FC<MonthContainerProps> = (props) => {
             setTimeout(()=>{
                setIsVisible(true);
                setCurrentMonth(month);
-            }, 600);
+            }, 800);
 
         };
         
