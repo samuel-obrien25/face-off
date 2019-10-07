@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
     background-color: ${props => props.headerStyle === "homeHeader" ? "#222" : ""};
     width: 100%;
     height: auto;
+    max-height: 25vh;
     padding: 20px;
     color: white;
     position: fixed;

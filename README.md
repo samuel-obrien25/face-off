@@ -5,9 +5,7 @@ An unofficial Web App for quick access to NHL Schedules, stats, and more.
 Developed with React.js. Powered by data provided by MySportsFeeds API.
 
 ## Getting Started
-
-    git clone https://github.com/samuel-obrien25/face-off
-Or, check out the latest build live:
+	check out the latest build live:
 	https://samuel-obrien25.github.io/face-off/
 
 ## TO-DO List
