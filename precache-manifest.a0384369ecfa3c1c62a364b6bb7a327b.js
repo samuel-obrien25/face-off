@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ab8a3717690ff27cb25346b9478e345a",
+    "revision": "e297e727274b763d4b266dd9b9995ce8",
     "url": "/face-off/index.html"
   },
   {
-    "revision": "492b9a70e932753342a4",
+    "revision": "f07e91f09b417b1d4b32",
     "url": "/face-off/static/css/main.c6f6dc2d.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/face-off/static/js/2.817fbbf7.chunk.js"
   },
   {
-    "revision": "492b9a70e932753342a4",
-    "url": "/face-off/static/js/main.fd40f3c6.chunk.js"
+    "revision": "f07e91f09b417b1d4b32",
+    "url": "/face-off/static/js/main.f7b8120a.chunk.js"
   },
   {
     "revision": "923326f3a09b94ab3f09",
